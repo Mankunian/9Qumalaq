@@ -1,0 +1,31 @@
+<div class="d-flex flex-column overflow-hidden min-vh-100 vh-100">
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand">Navbar</a>
+				<form class="d-flex">
+					<!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+					<button class="btn btn-outline-success" type="submit">РУС</button>
+				</form>
+			</div>
+		</nav>
+	</header>
+	<main role="main" class="flex-grow-1 overflow-auto main">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<img (click)="openKazMap()" src="../../assets/img/1.png" alt="" style="width: inherit;">
+				</div>
+				<div class="col-12">
+					<img src="../../assets/img/2.png" alt="" style="width: inherit;">
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="container-fluid flex-grow-0 flex-shrink-1">
+		<div class="container">
+			<a class="navbar-brand" href="#">Fixed bottom</a>
+		</div>
+	</footer>
+</div>
+<router-outlet></router-outlet>
