@@ -17,4 +17,8 @@ export class MainComponent implements OnInit {
 		this.router.navigate(['/kazakhstan'])
 	}
 
+	openWorldMap() {
+		this.router.navigate(['/world-map'])
+	}
+
 }

@@ -7,3 +7,15 @@
 	background-color: #002960;
 	/* height: 100%; */
 }
+
+.lang{
+	border-radius: 0;
+    border-color: #fff;
+    color: #fff;
+    border: 2px solid;
+    width: 80px;
+}
+
+.navbar-brand{
+	color: #fff;
+}

@@ -6,13 +6,15 @@ import { MainComponent } from './main/main.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { KazakhstanComponent } from './kazakhstan/kazakhstan.component';
 import { AppRoutingModule } from './app-routing.module';
+import { WorldMapComponent } from './world-map/world-map.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		MainComponent,
-		KazakhstanComponent
+		KazakhstanComponent,
+		WorldMapComponent
 	],
 	imports: [
 		BrowserModule,

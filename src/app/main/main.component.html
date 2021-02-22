@@ -2,10 +2,16 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 			<div class="container">
-				<a class="navbar-brand">Navbar</a>
+				<a class="navbar-brand">
+					9Qumalaq
+					<!-- <img src="../../assets/img/logo1.png" alt=""> -->
+					<!-- <img src="../../assets/img/logo2.png" alt=""> -->
+				</a>
 				<form class="d-flex">
-					<!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-					<button class="btn btn-outline-success" type="submit">РУС</button>
+					<button type="button" class="btn btn-outline-warning lang">РУС</button>
+					<button type="button" class="btn btn-outline-warning lang">Вход</button>
+
+					<!-- <span>Вход</span> -->
 				</form>
 			</div>
 		</nav>
@@ -17,14 +23,22 @@
 					<img (click)="openKazMap()" src="../../assets/img/1.png" alt="" style="width: inherit;">
 				</div>
 				<div class="col-12">
-					<img src="../../assets/img/2.png" alt="" style="width: inherit;">
+					<img (click)="openWorldMap()" src="../../assets/img/2.png" alt="" style="width: inherit;">
 				</div>
 			</div>
 		</div>
 	</main>
 	<footer class="container-fluid flex-grow-0 flex-shrink-1">
 		<div class="container">
-			<a class="navbar-brand" href="#">Fixed bottom</a>
+			<div class="row">
+				<div class="col">
+					<span class="navbar-brand" href="#">2021 9kumalak.kz. All rights reserved.</span>
+				</div>
+				<div class="col"></div>
+				<div class="col">
+					<span class="navbar-brand" style="float: right;">info@9kumalak.kz</span>
+				</div>
+			</div>
 		</div>
 	</footer>
 </div>
