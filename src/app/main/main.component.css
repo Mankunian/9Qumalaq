@@ -14,8 +14,16 @@
     color: #fff;
     border: 2px solid;
     width: 80px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
 }
 
 .navbar-brand{
-	color: #fff;
+	color: #fff !important;
+	font-family: 'Montserrat', sans-serif;
 }
+
+/* a .navbar-brand{
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+} */

@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-kazakhstan',
-  templateUrl: './kazakhstan.component.html',
-  styleUrls: ['./kazakhstan.component.css']
+	selector: 'app-kazakhstan',
+	templateUrl: './kazakhstan.component.html',
+	styleUrls: ['./kazakhstan.component.css']
 })
 export class KazakhstanComponent implements OnInit {
 
-  constructor() { }
+	constructor() { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
+
+	redirect(item) {
+		console.log(item)
+	}
 
 }
