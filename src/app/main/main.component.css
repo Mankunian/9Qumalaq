@@ -21,9 +21,5 @@
 .navbar-brand{
 	color: #fff !important;
 	font-family: 'Montserrat', sans-serif;
+	font-size: 1rem;
 }
-
-/* a .navbar-brand{
-	color: #fff;
-	font-family: 'Montserrat', sans-serif;
-} */
