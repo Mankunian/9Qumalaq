@@ -1,3 +1,4 @@
+/* Navbar style */
 .navbar, .flex-grow-0{
 	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
 	color: #fff;
@@ -5,11 +6,14 @@
 
 .lang{
 	border: 2px solid #FFFFFF;
-box-sizing: border-box;
-width: 70px;
-color: #fff;
-border-radius: 0;
-margin: 0 5px;
+	box-sizing: border-box;
+	width: 70px;
+	color: #fff;
+	border-radius: 0;
+	margin: 0 5px;
+}
+.lang:hover{
+	background-color: #016DFD;
 }
 
 .nav-item a{
@@ -46,109 +50,6 @@ path:hover, circle:hover {
   font-family: arial;
 }
 
-.background{
-	background-image: url('../../assets/img/22.png');
-	height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.about{
-	width: 702px;
-	height: 440px;
-	left: 180px;
-	top: 230px;
-	position: relative;;
-	background: #033271;
-}
-
-.about span{
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 30px;
-	line-height: 37px;
-	text-transform: uppercase;	
-	color: #FFFFFF;
-}
-
-.guide-content{
-	/* height: 100vh; */
-	background-color: #fff;
-}
-
-.guide-content span.title{
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 40px;
-	line-height: 49px;
-	text-transform: uppercase;
-	color: #033271;
-}
-
-.news-content span.title{
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 40px;
-	line-height: 49px;
-	text-transform: uppercase;
-	color: #033271;
-}
-
-.champions-content span.title{
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 40px;
-	line-height: 49px;
-	text-transform: uppercase;
-	color: #033271;
-}
-
-.line{
-	width: 100%;
-	height: 2px;
-	margin: 20px 0;
-	background-color: #033271;
-}
-
-
-.box1{
-		border: 1px solid;
-    height: 120px;
-		/* width: 470px; */
-		border-radius: 80px;
-		background: #FFFFFF;
-		box-shadow: -6px 10px 15px #C4C4C4;
-		/* padding: 20px; */
-}
-
-.box1 .info{
-	padding: 10px;
-}
-
-.info span{
-	font-style: normal;
-	font-weight: bold;
-    font-size: 25px;
-    line-height: 24px;
-    text-transform: uppercase;
-    color: #033271;
-		/* position: absolute; */
-    
-}
-
-.info p{
-	font-style: normal;
-	font-weight: 500;
-	font-size: 20px;
-	line-height: 24px;
-	text-transform: capitalize;
-	color: #033271;
-}
-
 .map__wrapper path:hover {
 	fill: #DA4567;
 	cursor: pointer;
@@ -156,127 +57,42 @@ path:hover, circle:hover {
 
 .content {
 	width: 100%;
+	/* width: fit-content; */
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #033271;
+	/* background-color: #033271; */
 }
 
 .map__wrapper {
 	height: 600px;
 	padding: 15px;
 }
-			
-p.card-text{
-	/* font-family: Montserrat; */
-	font-style: normal;
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 20px;
-	color: #002960;
+
+
+/* about-us */
+
+.about-us{
+	background-image: url('../../assets/img/22.png');
+	min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.champs img{
-	width: 80%;
+.about-box{
+		background: #033271;
+    /* width: 85%; */
+    /* height: 350px; */
+    margin: 90px 0;
 }
 
-.champs .card-title{
+.about-box span{
 	font-family: Montserrat;
 	font-style: normal;
-	font-weight: bold;
-	font-size: 20px;
-	line-height: 24px;
-	text-transform: uppercase;
-	color: #033271;
-}
-
-.champs .card-text{
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 20px;
-	line-height: 24px;
-	/* identical to box height */
-	text-transform: capitalize;
-	color: #033271;
-}
-
-/* Partners */
-.partners-content{
-	height: 80px;
-	background: linear-gradient(180deg, #002960 0%, rgba(27, 82, 156, 0.99) 100%);
-}
-
-.partners-title{
-	position: absolute;
-width: 511px;
-height: 49px;
-left: 211px;
-top: 16px;
-font-family: Montserrat;
-font-style: normal;
-font-weight: 600;
-font-size: 40px;
-line-height: 49px;
-/* identical to box height */
-text-transform: uppercase;
-color: #FFFFFF;
-}
-
-.brand-list{
-	height: 380px;
-	background: #002960;
-	padding: 60px 0;
-}
-
-.img-body{
-	background-color: #fff;
-	width: 100%;
-	text-align: center;
-	height: 150px;
-	background: #FFFFFF;
-	box-shadow: 0px 0px 15px #FFFFFF;
-	padding: 30px 0;
-}
-
-.brand-info{
-	color: #fff;
-	text-align: center;
-	padding: 5px 0;
-}
-
-/* Contacts */
-
-.contacts-content span.title{
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 40px;
-	line-height: 49px;
-	text-transform: uppercase;
-	color: #033271;
-}
-
-.phone{
-	padding: 35px 0;
-}
-
-.phone span{	
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 29px;
-	color: #033271;
-}
-
-.footer-info span{
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 29px;
-
-	color: #033271;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 37px;
+	text-transform: uppercase;	
+	color: #FFFFFF;
 }
