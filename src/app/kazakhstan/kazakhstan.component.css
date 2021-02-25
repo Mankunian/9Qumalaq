@@ -82,8 +82,6 @@ path:hover, circle:hover {
 
 .about-box{
 		background: #033271;
-    /* width: 85%; */
-    /* height: 350px; */
     margin: 90px 0;
 }
 
@@ -95,4 +93,43 @@ path:hover, circle:hover {
 	line-height: 37px;
 	text-transform: uppercase;	
 	color: #FFFFFF;
+}
+
+/* guide content */
+
+.guide-content{
+	/* height: 100vh; */
+	background-color: #fff;
+}
+
+.guide-content span.title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 49px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+.line{
+	width: 100%;
+	height: 2px;
+	margin: 20px 0;
+	background-color: #033271;
+}
+
+
+.box1{
+		border: 1px solid;
+    height: 120px;
+		/* width: 470px; */
+		border-radius: 80px;
+		background: #FFFFFF;
+		box-shadow: -6px 10px 15px #C4C4C4;
+		/* padding: 20px; */
+}
+
+.box1 .info{
+	padding: 10px;
 }
