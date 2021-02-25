@@ -4,6 +4,13 @@
 	color: #fff;
 }
 
+.d-flex .user{
+	color: #fff;
+	font-size: large;
+	font-family: 'Montserrat';
+	margin: 10px;
+}
+
 .lang{
 	border: 2px solid #FFFFFF;
 	box-sizing: border-box;
