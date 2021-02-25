@@ -1,0 +1,290 @@
+/* Navbar style */
+.navbar, .flex-grow-0{
+	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
+	color: #fff;
+}
+
+.lang{
+	border: 2px solid #FFFFFF;
+	box-sizing: border-box;
+	width: 70px;
+	color: #fff;
+	border-radius: 0;
+	margin: 0 5px;
+}
+.lang:hover{
+	background-color: #016DFD;
+}
+
+.nav-item a{
+	padding-right: 1.4rem !important;
+	padding-left: 0;
+}
+
+.d-flex{
+	padding-left: 1.2rem;
+}
+
+/* map */
+
+path:hover, circle:hover {
+  stroke: #002868 !important;
+  stroke-width:2px;
+  stroke-linejoin: round;
+  fill: #016DFF !important;
+  cursor: pointer;
+}
+
+#info-box {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: #ffffff;
+  border: 2px solid #BF0A30;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: arial;
+}
+
+.map__wrapper path:hover {
+	fill: #DA4567;
+	cursor: pointer;
+}
+
+.content {
+	width: 100%;
+	/* width: fit-content; */
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background-color: #033271; */
+}
+
+.map__wrapper {
+	height: 600px;
+	padding: 15px;
+}
+
+
+/* about-us */
+
+.about-us{
+	background-image: url('../../assets/img/22.png');
+	min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about-box{
+		background: #033271;
+    margin: 90px 0;
+}
+
+.about-box span{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 37px;
+	text-transform: uppercase;	
+	color: #FFFFFF;
+}
+
+/* guide content */
+
+.guide-content{
+	/* height: 100vh; */
+	background-color: #fff;
+}
+
+.guide-content span.title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 49px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+.line{
+	width: 100%;
+	height: 2px;
+	margin: 20px 0;
+	background-color: #033271;
+}
+
+
+.box1{
+		/* border: 1px solid; */
+		text-align: center;
+    /* height: 120px; */
+		border-radius: 80px;
+		background: #FFFFFF;
+		box-shadow: -6px 10px 15px #C4C4C4;
+}
+
+.box1 .info{
+	padding: 10px;
+}
+
+.box1 span{
+	font-style: normal;
+	font-weight: bold;
+    font-size: 25px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #033271;
+		/* position: absolute; */
+    
+}
+
+.box1 p{
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	text-transform: capitalize;
+	color: #033271;
+}
+
+/* Новости */
+
+.news-content span.title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 49px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+
+/* Чемпионы и призеры */
+.champions-content span.title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 49px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+.champs{
+	background: #FFFFFF;
+	box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+	margin-bottom: 15px;
+}
+
+.champs img{
+	width: 80%;
+}
+
+.champs .card-title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 24px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+.champs .card-text{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	/* identical to box height */
+	text-transform: capitalize;
+	color: #033271;
+}
+
+/* Partners */
+.partners-content{
+	height: 80px;
+	background: linear-gradient(180deg, #002960 0%, rgba(27, 82, 156, 0.99) 100%);
+}
+
+.partners-title{
+	margin: 15px;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 40px;
+	line-height: 49px;
+	/* identical to box height */
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+.brand-list{
+	min-height: 380px;
+	background: #002960;
+	padding: 60px 0;
+}
+
+.img-body{
+	background-color: #fff;
+	width: 100%;
+	text-align: center;
+	height: 150px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 15px #FFFFFF;
+	padding: 30px 0;
+}
+
+.brand-info{
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+}
+
+
+/* Контакты */
+.contacts-content span.title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 49px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+.footer-info span{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 29px;
+
+	color: #033271;
+}
+
+/* Footer */
+
+.footer {
+	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
+	color: #fff;
+}
+
+.socials{
+	float: right;
+}
+.socials i{
+	margin: 0 10px;
+	color: #fff;
+	font-size: large;
+	cursor: pointer;
+}
+
+.footer span{
+	font-family: Montserrat;
+}
