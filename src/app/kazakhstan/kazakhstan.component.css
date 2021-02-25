@@ -17,8 +17,6 @@
 }
 
 .nav-item a{
-	/* font-family: 'Montserrat', sans-serif; */
-	font-weight: 600;
 	padding-right: 1.4rem !important;
 	padding-left: 0;
 }
@@ -268,4 +266,25 @@ path:hover, circle:hover {
 	line-height: 29px;
 
 	color: #033271;
+}
+
+/* Footer */
+
+.footer {
+	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
+	color: #fff;
+}
+
+.socials{
+	float: right;
+}
+.socials i{
+	margin: 0 10px;
+	color: #fff;
+	font-size: large;
+	cursor: pointer;
+}
+
+.footer span{
+	font-family: Montserrat;
 }
