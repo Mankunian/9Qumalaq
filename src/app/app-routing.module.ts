@@ -5,12 +5,14 @@ import { MainComponent } from './main/main.component';
 import { KazakhstanComponent } from './kazakhstan/kazakhstan.component';
 import { WorldMapComponent } from './world-map/world-map.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { GuidePageComponent } from './guide-page/guide-page.component';
 
 const routes: Routes = [
 	{ path: 'main', component: MainComponent },
 	{ path: 'kazakhstan', component: KazakhstanComponent },
 	{ path: 'world-map', component: WorldMapComponent },
 	{ path: 'about-us', component: AboutUsComponent },
+	{ path: 'guide-page', component: GuidePageComponent },
 	{ path: '**', component: MainComponent },
 	{ path: '', component: MainComponent },
 

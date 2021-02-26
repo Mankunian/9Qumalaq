@@ -134,6 +134,11 @@ path:hover, circle:hover {
 		box-shadow: -6px 10px 15px #C4C4C4;
 }
 
+.info:hover{
+	cursor: pointer;
+	/* box-shadow: -12px 15px 20px #C4C4C4; */
+}
+
 .box1 .info{
 	padding: 10px;
 }
@@ -141,12 +146,10 @@ path:hover, circle:hover {
 .box1 span{
 	font-style: normal;
 	font-weight: bold;
-    font-size: 25px;
-    line-height: 24px;
-    text-transform: uppercase;
-    color: #033271;
-		/* position: absolute; */
-    
+  font-size: 25px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #033271; 
 }
 
 .box1 p{

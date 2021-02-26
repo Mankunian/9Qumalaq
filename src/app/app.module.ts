@@ -8,6 +8,7 @@ import { KazakhstanComponent } from './kazakhstan/kazakhstan.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WorldMapComponent } from './world-map/world-map.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { GuidePageComponent } from './guide-page/guide-page.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 		MainComponent,
 		KazakhstanComponent,
 		WorldMapComponent,
-		AboutUsComponent
+		AboutUsComponent,
+		GuidePageComponent
 	],
 	imports: [
 		BrowserModule,
