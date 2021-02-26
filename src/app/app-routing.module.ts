@@ -6,6 +6,8 @@ import { KazakhstanComponent } from './kazakhstan/kazakhstan.component';
 import { WorldMapComponent } from './world-map/world-map.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { GuidePageComponent } from './guide-page/guide-page.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { NewsPageComponent } from './news-page/news-page.component';
 
 const routes: Routes = [
 	{ path: 'main', component: MainComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
 	{ path: 'world-map', component: WorldMapComponent },
 	{ path: 'about-us', component: AboutUsComponent },
 	{ path: 'guide-page', component: GuidePageComponent },
+	{ path: 'sign-in', component: SignInComponent },
+	{ path: 'news-page', component: NewsPageComponent },
 	{ path: '**', component: MainComponent },
 	{ path: '', component: MainComponent },
 

@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { WorldMapComponent } from './world-map/world-map.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { GuidePageComponent } from './guide-page/guide-page.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { NewsPageComponent } from './news-page/news-page.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { GuidePageComponent } from './guide-page/guide-page.component';
 		KazakhstanComponent,
 		WorldMapComponent,
 		AboutUsComponent,
-		GuidePageComponent
+		GuidePageComponent,
+		SignInComponent,
+		NewsPageComponent
 	],
 	imports: [
 		BrowserModule,
