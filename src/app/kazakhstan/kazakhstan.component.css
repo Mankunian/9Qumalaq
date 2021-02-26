@@ -163,6 +163,10 @@ path:hover, circle:hover {
 
 /* Новости */
 
+.card{
+	cursor: pointer;
+}
+
 .news-content span.title{
 	font-family: Montserrat;
 	font-style: normal;
