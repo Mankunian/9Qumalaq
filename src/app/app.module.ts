@@ -11,6 +11,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { GuidePageComponent } from './guide-page/guide-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { NewsPageComponent } from './news-page/news-page.component';
+import { RegionInfoComponent } from './region-info/region-info.component';
+import { GuidePageInfoComponent } from './guide-page-info/guide-page-info.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { NewsPageComponent } from './news-page/news-page.component';
 		AboutUsComponent,
 		GuidePageComponent,
 		SignInComponent,
-		NewsPageComponent
+		NewsPageComponent,
+		RegionInfoComponent,
+		GuidePageInfoComponent
 	],
 	imports: [
 		BrowserModule,
