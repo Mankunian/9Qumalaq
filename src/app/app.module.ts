@@ -15,6 +15,8 @@ import { RegionInfoComponent } from './region-info/region-info.component';
 import { GuidePageInfoComponent } from './guide-page-info/guide-page-info.component';
 import { ChampPageComponent } from './champ-page/champ-page.component';
 import { PageChampInfoComponent } from './page-champ-info/page-champ-info.component';
+import { GuideItemComponent } from './guide-item/guide-item.component';
+// import { PartnersPageComponent } from './partners-page/partners-page.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { PageChampInfoComponent } from './page-champ-info/page-champ-info.compon
 		RegionInfoComponent,
 		GuidePageInfoComponent,
 		ChampPageComponent,
-		PageChampInfoComponent
+		PageChampInfoComponent,
+		GuideItemComponent,
 	],
 	imports: [
 		BrowserModule,

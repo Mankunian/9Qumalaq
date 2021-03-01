@@ -13,7 +13,7 @@ export class RegionInfoComponent implements OnInit {
 
 	// images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
-	constructor(config: NgbCarouselConfig) {
+	constructor(config: NgbCarouselConfig, private router: Router) {
 		// 
 		config.interval = 2000;
 		config.keyboard = true;
@@ -21,6 +21,14 @@ export class RegionInfoComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+	}
+
+	goSlideDown(item) {
+		if (item === 'partners') {
+			this.router.navigate(['/kazakhstan'], { fragment: 'partners' });
+		} else if (item === 'contacts') {
+			this.router.navigate(['/kazakhstan'], { fragment: 'contacts' });
+		}
 	}
 
 

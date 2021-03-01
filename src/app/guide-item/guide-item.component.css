@@ -1,0 +1,102 @@
+.champs-content{
+	background: #FFFFFF;
+	box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.25);
+	/* height: 300px; */
+	/* border-radius: 0px 20px 20px 0px; */
+	
+}
+
+.dost{
+	height: auto;
+	background: #FFFFFF;
+	box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.25);
+	border-radius: 0px;
+	padding: 40px;
+}
+
+.dost h2{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	color: #033271;
+}
+
+.dost span{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 22px;
+	color: #002960;
+}
+
+.card-title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 24px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+.info-body{
+	background: #E5E5E5;
+	box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.25);
+	border-radius: 0px;
+}
+
+span.first{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	color: #033271;
+	background: #D1D1D1;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+span.sec{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 24px;
+	color: #033271;
+}
+
+span.rt{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 24px;
+	color: #033271;
+}
+
+.list{
+	padding: 20px;
+}
+
+.list li{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 24px;
+	color: #033271;
+	line-height: 1.8;
+}
+
+.card-text{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	/* identical to box height */
+	text-transform: capitalize;
+	color: #033271;
+}

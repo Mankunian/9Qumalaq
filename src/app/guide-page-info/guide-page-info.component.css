@@ -4,40 +4,6 @@ main .container{
 	padding-top: 20px;
 }
 
-.navbar, .flex-grow-0{
-	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
-	color: #fff;
-}
-
-.d-flex .user{
-	color: #fff;
-	font-size: large;
-	font-family: 'Montserrat';
-	margin: 10px;
-}
-
-.lang{
-	border: 2px solid #FFFFFF;
-	box-sizing: border-box;
-	width: 70px;
-	color: #fff;
-	border-radius: 0;
-	margin: 0 5px;
-}
-.lang:hover{
-	background-color: #016DFD;
-}
-
-.nav-item a{
-	padding-right: 1.4rem !important;
-	padding-left: 0;
-}
-
-.d-flex{
-	/* padding-left: 1.2rem; */
-}
-
-
 /* Guide-content */
 .guide-content span.title{
 	font-family: Montserrat;
@@ -89,25 +55,4 @@ main .container{
 	line-height: 24px;
 	text-transform: capitalize;
 	color: #033271;
-}
-
-/* Footer */
-
-.footer {
-	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
-	color: #fff;
-}
-
-.socials{
-	float: right;
-}
-.socials i{
-	margin: 0 10px;
-	color: #fff;
-	font-size: large;
-	cursor: pointer;
-}
-
-.footer span{
-	font-family: Montserrat;
 }

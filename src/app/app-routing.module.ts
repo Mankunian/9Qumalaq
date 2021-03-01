@@ -12,6 +12,8 @@ import { RegionInfoComponent } from './region-info/region-info.component';
 import { GuidePageInfoComponent } from './guide-page-info/guide-page-info.component';
 import { ChampPageComponent } from './champ-page/champ-page.component';
 import { PageChampInfoComponent } from './page-champ-info/page-champ-info.component';
+import { GuideItemComponent } from './guide-item/guide-item.component';
+// import { PartnersPageComponent } from './partners-page/partners-page.component';
 
 const routes: Routes = [
 	{ path: 'main', component: MainComponent },
@@ -19,6 +21,7 @@ const routes: Routes = [
 	{ path: 'world-map', component: WorldMapComponent },
 	{ path: 'about-us', component: AboutUsComponent },
 	{ path: 'guide-page', component: GuidePageComponent },
+	{ path: 'guide-item', component: GuideItemComponent },
 	{ path: 'guide-page-info', component: GuidePageInfoComponent },
 	{ path: 'sign-in', component: SignInComponent },
 	{ path: 'news-page', component: NewsPageComponent },
