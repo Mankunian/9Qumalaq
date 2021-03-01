@@ -32,47 +32,19 @@
 	padding-left: 1.2rem;
 }
 
-/* map */
-
-path:hover, circle:hover {
-  stroke: #002868 !important;
-  stroke-width:2px;
-  stroke-linejoin: round;
-  fill: #016DFF !important;
-  cursor: pointer;
+/* slider */
+ngb-carousel .wrapper {
+  position: relative;
+  height: 0;
+  padding-top: 55%; /* Keep ratio for 900x500 images */
 }
 
-#info-box {
-  display: none;
+ngb-carousel .wrapper>img {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
-  background-color: #ffffff;
-  border: 2px solid #BF0A30;
-  border-radius: 5px;
-  padding: 5px;
-  font-family: arial;
-}
-
-.map__wrapper path:hover {
-	fill: #DA4567;
-	cursor: pointer;
-}
-
-.content {
-	width: 100%;
-	/* width: fit-content; */
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	/* background-color: #033271; */
-}
-
-.map__wrapper {
-	height: 600px;
-	padding: 15px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 
