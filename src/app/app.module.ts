@@ -13,6 +13,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { RegionInfoComponent } from './region-info/region-info.component';
 import { GuidePageInfoComponent } from './guide-page-info/guide-page-info.component';
+import { ChampPageComponent } from './champ-page/champ-page.component';
+import { PageChampInfoComponent } from './page-champ-info/page-champ-info.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { GuidePageInfoComponent } from './guide-page-info/guide-page-info.compon
 		SignInComponent,
 		NewsPageComponent,
 		RegionInfoComponent,
-		GuidePageInfoComponent
+		GuidePageInfoComponent,
+		ChampPageComponent,
+		PageChampInfoComponent
 	],
 	imports: [
 		BrowserModule,

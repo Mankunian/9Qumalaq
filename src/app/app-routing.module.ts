@@ -10,6 +10,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { RegionInfoComponent } from './region-info/region-info.component';
 import { GuidePageInfoComponent } from './guide-page-info/guide-page-info.component';
+import { ChampPageComponent } from './champ-page/champ-page.component';
+import { PageChampInfoComponent } from './page-champ-info/page-champ-info.component';
 
 const routes: Routes = [
 	{ path: 'main', component: MainComponent },
@@ -21,6 +23,8 @@ const routes: Routes = [
 	{ path: 'sign-in', component: SignInComponent },
 	{ path: 'news-page', component: NewsPageComponent },
 	{ path: 'region-info', component: RegionInfoComponent },
+	{ path: 'champ-page', component: ChampPageComponent },
+	{ path: 'champ-page-info', component: PageChampInfoComponent },
 	{ path: '**', component: MainComponent },
 	{ path: '', component: MainComponent },
 ];

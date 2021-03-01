@@ -1,0 +1,104 @@
+
+
+main .container{
+	padding-top: 20px;
+}
+
+
+
+
+/* Чемпионы и призеры */
+.champions-content span.title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 49px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+.champs{
+	background: #FFFFFF;
+	box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+	margin-bottom: 15px;
+}
+
+.champs img{
+	width: 80%;
+}
+
+.champs .card-title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 24px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+.champs .card-text{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	/* identical to box height */
+	text-transform: capitalize;
+	color: #033271;
+}
+
+
+/* Guide-content */
+.guide-content span.title{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 49px;
+	text-transform: uppercase;
+	color: #033271;
+}
+
+
+.line{
+	width: 100%;
+	height: 2px;
+	margin: 20px 0;
+	background-color: #033271;
+}
+
+
+.box1{
+	text-align: center;
+	border-radius: 80px;
+	background: #FFFFFF;
+	box-shadow: -6px 10px 15px #C4C4C4;
+}
+
+.info:hover{
+	cursor: pointer;
+}
+
+.box1 .info{
+	padding: 10px;
+}
+
+.box1 span{
+	font-style: normal;
+	font-weight: bold;
+  font-size: 25px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #033271; 
+}
+
+.box1 p{
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	text-transform: capitalize;
+	color: #033271;
+}
