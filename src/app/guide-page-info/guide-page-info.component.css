@@ -1,4 +1,6 @@
-
+.nav-link:hover{
+	cursor: pointer !important;
+}
 
 main .container{
 	padding-top: 20px;
