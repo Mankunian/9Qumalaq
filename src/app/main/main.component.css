@@ -11,10 +11,11 @@
 
 .main{
 	background-color: #002960;
+	overflow-y: hidden !important;
 }
 
 .lang{
-	border-radius: 0;
+		border-radius: 0;
     border-color: #fff;
     color: #fff;
     border: 2px solid;
@@ -37,25 +38,37 @@
 
 .card{
 	border: none;
+	/* background-color: #fff; */
+	height: 100%;
+	background: none;
 }
 
-/* Footer */
-
-.footer {
-	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
-	color: #fff;
+.card img{
+	width: 80%;
+	margin: 0 auto;
 }
 
-.socials{
-	float: right;
-}
-.socials i{
-	margin: 0 10px;
-	color: #fff;
-	font-size: large;
-	cursor: pointer;
-}
 
-.footer span{
-	font-family: Montserrat;
-}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+	.card img{
+		width: 100%;
+		margin: 0 auto;
+	}
+ }
+
+/*  Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+	.card img{
+		width: 80%;
+		margin: 0 auto;
+	}
+ }
+
+ /* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.card img{
+		width: 80%;
+		margin: 0 auto;
+	}
+ }
