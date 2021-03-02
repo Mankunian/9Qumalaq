@@ -68,6 +68,41 @@ path:hover, circle:hover {
 	padding: 15px;
 }
 
+.country-list{
+	background: linear-gradient(180deg, rgba(0, 109, 255, 0.65) 63.02%, rgba(0, 109, 255, 0) 100%);
+	/* transform: rotate(90deg); */
+}
+
+.map_cont{
+	z-index: 1000;
+  position: absolute;
+  bottom: 10px;
+}
+
+.country-list h2{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 30px;
+	line-height: 37px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+.list li{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	line-height: 1.5;
+}
+
+.list li:hover{
+	background-color: #016DFF;
+	cursor: pointer;
+}
 
 /* about-us */
 

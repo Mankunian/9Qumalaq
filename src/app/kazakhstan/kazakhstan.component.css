@@ -282,23 +282,4 @@ path:hover, circle:hover {
 	color: #033271;
 }
 
-/* Footer */
 
-.footer {
-	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
-	color: #fff;
-}
-
-.socials{
-	float: right;
-}
-.socials i{
-	margin: 0 10px;
-	color: #fff;
-	font-size: large;
-	cursor: pointer;
-}
-
-.footer span{
-	font-family: Montserrat;
-}
