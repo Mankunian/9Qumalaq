@@ -20,26 +20,29 @@ export class KazakhstanComponent implements OnInit {
 		this.router.navigate(['/region-info'])
 	}
 
-	goDownId(item) {
-		console.log(item)
-		if (item === 'about') {
-			this.router.navigate(['/kazakhstan'], { fragment: 'about' });
-		} else if (item === 'guide') {
-			this.router.navigate(['/kazakhstan'], { fragment: 'guide' });
-		} else if (item === 'news') {
-			this.router.navigate(['/kazakhstan'], { fragment: 'news' });
-		} else if (item === 'partners') {
-			this.router.navigate(['/kazakhstan'], { fragment: 'partners' });
-		} else if (item === 'contacts') {
-			this.router.navigate(['/kazakhstan'], { fragment: 'contacts' });
-		} else if (item === 'champs') {
-			this.router.navigate(['kazakhstan'], { fragment: 'champs' })
-		}
+	redirectToAuth() {
+		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
 	}
 
-	scrollToElement($element) {
-		console.log($element)
-		$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+	scrollToElement($element, sectionName) {
+		if (sectionName === 'about') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'guide') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'news') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'champs') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'partners') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'contacts') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
 	}
 
 
