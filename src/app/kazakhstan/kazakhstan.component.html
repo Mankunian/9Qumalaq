@@ -32,7 +32,13 @@
 
 			</ul>
 			<form class="d-flex">
-				<button class="btn btn-outline-success lang" type="submit">РУС</button>
+				<div class="form-group" style="margin: 0.5rem;">
+					<select class="form-control" id="exampleFormControlSelect1">
+						<option>РУС</option>
+						<option>ҚАЗ</option>
+						<option>ENG</option>
+					</select>
+				</div>
 				<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> ВХОД</span>
 			</form>
 		</div>
@@ -231,7 +237,7 @@
 			</div>
 			<div class="row mt-4">
 				<div class="col-sm-6">
-					<div class="box1" routerLink="/guide-page-info">
+					<div class="box1" routerLink="/guide-item">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="info">
@@ -658,7 +664,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-5 text-center">
-				<span style=" text-transform: uppercase;"> 2021 9qq.org All rights reserved.</span>
+				<span> 2021 9qq.org All rights reserved.</span>
 			</div>
 			<div class="col-sm-4">
 				<div class="socials text-center">

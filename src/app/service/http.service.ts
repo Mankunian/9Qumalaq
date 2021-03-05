@@ -11,4 +11,8 @@ export class HttpService {
 	getCountryService() {
 		return this.http.get(this.BASE_API_URL + '/country/country/')
 	}
+
+	getCityListService() {
+		return this.http.get(this.BASE_API_URL + '/city/city/')
+	}
 }

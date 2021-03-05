@@ -12,7 +12,8 @@ export class MainComponent implements OnInit {
 	constructor(public router: Router, private http: HttpService) { }
 
 	ngOnInit(): void {
-		this.getCountryList()
+		this.getCountryList();
+		this.getCityList();
 	}
 
 	openKazMap() {
@@ -29,6 +30,12 @@ export class MainComponent implements OnInit {
 
 	getCountryList() {
 		this.http.getCountryService().subscribe(data => {
+			console.log(data)
+		})
+	}
+
+	getCityList() {
+		this.http.getCityListService().subscribe(data => {
 			console.log(data)
 		})
 	}
