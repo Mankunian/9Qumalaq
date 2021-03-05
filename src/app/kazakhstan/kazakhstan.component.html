@@ -12,7 +12,7 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav me-auto mb-2 mb-md-0">
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/kazakhstan" (click)="goDownId('about')">О нас</a>
+					<a class="nav-link" routerLink="/kazakhstan" (click)="scrollToElement(about)">О нас</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" (click)="goDownId('guide')">Руководство</a>
@@ -181,7 +181,7 @@
 
 
 <!-- About-us -->
-<section id="about">
+<section #about id="about">
 	<div class="about-us">
 		<div class="container">
 			<div class="row">
@@ -674,3 +674,12 @@
 		</div>
 	</div>
 </footer>
+
+<script>
+	$("#about").click(function () {
+		$('html,body').animate({
+			scrollTop: $(".about").offset().top
+		},
+			'slow');
+	});
+</script>

@@ -37,5 +37,10 @@ export class KazakhstanComponent implements OnInit {
 		}
 	}
 
+	scrollToElement($element) {
+		console.log($element)
+		$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+	}
+
 
 }
