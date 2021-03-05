@@ -8,7 +8,8 @@
 				</a>
 				<form class="d-flex">
 					<button type="button" class="btn btn-outline-warning lang">РУС</button>
-					<span class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> ВХОД</span>
+					<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+						ВХОД</span>
 				</form>
 			</div>
 		</nav>
@@ -17,15 +18,15 @@
 		<div class="container" style="padding: 5px;">
 			<div class="row">
 				<div class="col-sm-12 card">
-					<img src="../../assets/img/main/2.png" alt="">
-					<div class="card-img-overlay">
-						<button (click)="openWorldMap()" type="button" class="btn btn-warning">Перейти</button>
-					</div>
-				</div>
-				<div class="col-sm-12 card">
 					<img src="../../assets/img/main/1.png" alt="">
 					<div class="card-img-overlay">
 						<button (click)="openKazMap()" type="button" class="btn btn-warning">Перейти</button>
+					</div>
+				</div>
+				<div class="col-sm-12 card">
+					<img src="../../assets/img/main/2.png" alt="">
+					<div class="card-img-overlay">
+						<button (click)="openWorldMap()" type="button" class="btn btn-warning">Перейти</button>
 					</div>
 				</div>
 			</div>

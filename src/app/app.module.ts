@@ -16,7 +16,9 @@ import { GuidePageInfoComponent } from './guide-page-info/guide-page-info.compon
 import { ChampPageComponent } from './champ-page/champ-page.component';
 import { PageChampInfoComponent } from './page-champ-info/page-champ-info.component';
 import { GuideItemComponent } from './guide-item/guide-item.component';
+import { HttpService } from './service/http.service';
 // import { PartnersPageComponent } from './partners-page/partners-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,9 +40,10 @@ import { GuideItemComponent } from './guide-item/guide-item.component';
 	imports: [
 		BrowserModule,
 		NgbModule,
-		AppRoutingModule
+		AppRoutingModule,
+		HttpClientModule
 	],
-	providers: [],
+	providers: [HttpService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
