@@ -15,4 +15,10 @@ export class HttpService {
 	getCityListService() {
 		return this.http.get(this.BASE_API_URL + '/city/city/')
 	}
+
+	getNewsService(regionId) {
+		return this.http.get(this.BASE_API_URL + '/city/news/' + regionId)
+	}
+
+
 }
