@@ -20,5 +20,12 @@ export class HttpService {
 		return this.http.get(this.BASE_API_URL + '/city/news/' + regionId)
 	}
 
+	getLeadershipsService(regionId) {
+		return this.http.get(this.BASE_API_URL + '/city/leadership/' + regionId)
+	}
+
+	getWinnersService(regionId) {
+		return this.http.get(this.BASE_API_URL + '/city/winners/' + regionId)
+	}
 
 }

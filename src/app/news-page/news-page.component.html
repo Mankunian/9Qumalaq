@@ -19,25 +19,25 @@
 						<a class="nav-link" routerLink="/about-us">О нас</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" routerLink="/guide-page">Руководство</a>
+						<a class="nav-link " routerLink="/guide-page">Руководство</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" routerLink="/news-page">Новости</a>
+						<a class="nav-link active" routerLink="/news-page">Новости</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " href="#">Чемпионы и призеры</a>
+						<a class="nav-link " routerLink="/champ-page">Чемпионы и призеры</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Наши партнеры</a>
+						<a class="nav-link" (click)="goSlideDown('partners')">Наши партнеры</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Контакты</a>
+						<a class="nav-link" (click)="goSlideDown('contacts')">Контакты</a>
 					</li>
 
 				</ul>
 				<form class="d-flex">
 					<div class="form-group" style="margin: 0.5rem;">
-						<select class="form-control" id="exampleFormControlSelect1">
+						<select class="form-control select" id="exampleFormControlSelect1">
 							<option>РУС</option>
 							<option>ҚАЗ</option>
 							<option>ENG</option>

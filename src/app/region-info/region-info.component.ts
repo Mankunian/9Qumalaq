@@ -21,7 +21,7 @@ export class RegionInfoComponent implements OnInit {
 		private router: Router,
 		private sharedService: SharedService,
 		private http: HttpService) {
-		config.interval = 2000;
+		config.interval = 5000;
 		config.keyboard = true;
 		config.pauseOnHover = true;
 	}
@@ -32,12 +32,11 @@ export class RegionInfoComponent implements OnInit {
 
 
 	getRegionIdMap() {
-		// this.sharedService.sharedMessage.subscribe(message => {
-		// 	console.log(message)
-		// 	this.regionId = message;
-		// 	let regionId = message;
-		// 	this.getNewsByRegion(regionId)
-		// })
+		let regionId = sessionStorage.getItem('regionId');
+		console.log(regionId)
+		this.getNewsByCity(regionId);
+		this.getLeadershipsByCity(regionId);
+		this.getWinnersByCity(regionId);
 	}
 
 	goSlideDown(item) {
@@ -48,8 +47,20 @@ export class RegionInfoComponent implements OnInit {
 		}
 	}
 
-	getNewsByRegion(regionId) {
+	getNewsByCity(regionId) {
 		this.http.getNewsService(regionId).subscribe(data => {
+			console.log(data)
+		})
+	}
+
+	getLeadershipsByCity(regionId) {
+		this.http.getLeadershipsService(regionId).subscribe(data => {
+			console.log(data)
+		})
+	}
+
+	getWinnersByCity(regionId) {
+		this.http.getWinnersService(regionId).subscribe(data => {
 			console.log(data)
 		})
 	}
