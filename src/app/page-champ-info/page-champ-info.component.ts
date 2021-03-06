@@ -21,4 +21,8 @@ export class PageChampInfoComponent implements OnInit {
 		}
 	}
 
+	redirectToAuth() {
+		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+	}
+
 }
