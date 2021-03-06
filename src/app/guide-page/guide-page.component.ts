@@ -20,4 +20,8 @@ export class GuidePageComponent implements OnInit {
 			this.router.navigate(['/kazakhstan'], { fragment: 'contacts' });
 		}
 	}
+
+	redirectToAuth() {
+		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+	}
 }
