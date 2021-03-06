@@ -32,12 +32,12 @@ export class RegionInfoComponent implements OnInit {
 
 
 	getRegionIdMap() {
-		this.sharedService.sharedMessage.subscribe(message => {
-			console.log(message)
-			this.regionId = message;
-			let regionId = message;
-			this.getNewsByRegion(regionId)
-		})
+		// this.sharedService.sharedMessage.subscribe(message => {
+		// 	console.log(message)
+		// 	this.regionId = message;
+		// 	let regionId = message;
+		// 	this.getNewsByRegion(regionId)
+		// })
 	}
 
 	goSlideDown(item) {
