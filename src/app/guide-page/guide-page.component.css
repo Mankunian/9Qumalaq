@@ -1,7 +1,7 @@
 
 
 main .container{
-	padding-top: 20px;
+	padding-top: 21px;
 }
 
 .navbar, .flex-grow-0{
@@ -99,7 +99,7 @@ main .container{
 }
 
 .socials{
-	float: right;
+	/* float: right; */
 }
 .socials i{
 	margin: 0 10px;
