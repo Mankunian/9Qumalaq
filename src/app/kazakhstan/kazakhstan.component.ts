@@ -1,5 +1,7 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { Router, Scroll } from '@angular/router';
+import { HttpService } from '../service/http.service';
+import { SharedService } from '../service/shared.service';
 
 @Component({
 	selector: 'app-kazakhstan',
@@ -8,15 +10,18 @@ import { Router, Scroll } from '@angular/router';
 })
 export class KazakhstanComponent implements OnInit {
 
-	constructor(public router: Router) {
+	constructor(public router: Router, private http: HttpService, private sharedService: SharedService) {
 	}
 
 	ngOnInit(): void {
+		this.getCityList()
 	}
 
 
 	redirect(item) {
 		console.log(item)
+		let regionId = item;
+		sessionStorage.setItem('regionId', regionId);
 		this.router.navigate(['/region-info'])
 	}
 
@@ -43,6 +48,12 @@ export class KazakhstanComponent implements OnInit {
 		else if (sectionName === 'contacts') {
 			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
 		}
+	}
+
+	getCityList() {
+		this.http.getCityListService().subscribe(data => {
+			console.log(data)
+		})
 	}
 
 
