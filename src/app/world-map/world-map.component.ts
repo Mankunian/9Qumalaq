@@ -16,7 +16,8 @@ export class WorldMapComponent implements OnInit {
 	ngOnInit(): void {
 		this.getCountryList();
 		this.getLeadershipList();
-		this.getJsonCountry();
+		// this.getJsonCountry();
+		this.getCountryList();
 	}
 
 	getJsonCountry() {
@@ -37,6 +38,7 @@ export class WorldMapComponent implements OnInit {
 	getCountryList() {
 		this.http.getCountryListService().subscribe(data => {
 			console.log(data)
+			this.jsonCountry = data;
 		})
 	}
 
@@ -46,7 +48,7 @@ export class WorldMapComponent implements OnInit {
 
 	redirect(item) {
 		console.log(item)
-		let countryId = item;
+		let countryId = item.id;
 		sessionStorage.setItem('countryId', countryId);
 		sessionStorage.removeItem('regionId')
 		this.router.navigate(['/region-info'])

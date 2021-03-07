@@ -44,18 +44,6 @@ export class RegionInfoComponent implements OnInit {
 		}
 	}
 
-	getCityList(regionId) {
-		this.http.getCityListService().subscribe((data: any) => {
-			console.log(data)
-			data.forEach(element => {
-
-				if (regionId * 1 === element.id) {
-					this.regionName = element.name
-				}
-			});
-		})
-	}
-
 	// Метод получения id страны если есть в sessionStorage
 	getCountryIdMap() {
 		let countryId = sessionStorage.getItem('countryId');
@@ -63,6 +51,7 @@ export class RegionInfoComponent implements OnInit {
 			this.getNewsByCountry(countryId);
 			this.getLeadershipByCountry(countryId);
 			this.getWinnersByCountry(countryId);
+			this.getCountryList(countryId)
 		}
 	}
 
@@ -94,9 +83,32 @@ export class RegionInfoComponent implements OnInit {
 	}
 
 
+	getCityList(regionId) {
+		this.http.getCityListService().subscribe((data: any) => {
+			console.log(data)
+			data.forEach(element => {
+				if (regionId * 1 === element.id) {
+					this.regionName = element.name
+				}
+			});
+		})
+	}
+
 
 
 	// Country API
+
+	getCountryList(countryId) {
+		this.http.getCountryListService().subscribe((data: any) => {
+			data.forEach(element => {
+				if (countryId * 1 === element.id) {
+					this.regionName = element.name
+				}
+			});
+		})
+	}
+
+
 	getNewsByCountry(countryId) {
 		this.http.getNewsByCountryService(countryId).subscribe(data => {
 			console.log(data)
