@@ -8,36 +8,40 @@ import { HttpService } from "../service/http.service";
 	styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+	kazFed: any;
+	worldFed: any;
 
 	constructor(public router: Router, private http: HttpService) { }
 
 	ngOnInit(): void {
-		this.getCountryList();
-		this.getCityList();
+		this.getCountryList()
+	}
+
+	getCountryList() {
+		this.http.getCountryListService().subscribe((data: any) => {
+			console.log(data)
+			data.forEach(element => {
+				if (element.id === 1) {
+					this.kazFed = element;
+				} else if (element.id === 2) {
+					this.worldFed = element;
+				}
+			});
+		})
 	}
 
 	openKazMap() {
 		this.router.navigate(['/kazakhstan'])
+		sessionStorage.setItem('kazFederation', JSON.stringify(this.kazFed))
 	}
 
 	openWorldMap() {
 		this.router.navigate(['/world-map'])
+		sessionStorage.setItem('worldFederation', JSON.stringify(this.worldFed))
 	}
 
 	redirectToAuth() {
 		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
-	}
-
-	getCountryList() {
-		this.http.getCountryService().subscribe(data => {
-			console.log(data)
-		})
-	}
-
-	getCityList() {
-		this.http.getCityListService().subscribe(data => {
-			console.log(data)
-		})
 	}
 
 }

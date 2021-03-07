@@ -9,19 +9,33 @@ import { SharedService } from '../service/shared.service';
 	styleUrls: ['./kazakhstan.component.css']
 })
 export class KazakhstanComponent implements OnInit {
+	regionName: any;
 
 	constructor(public router: Router, private http: HttpService, private sharedService: SharedService) {
 	}
 
 	ngOnInit(): void {
-		this.getCityList()
+		this.getCityList();
+		this.getKazFedElem();
 	}
+
+	getKazFedElem() {
+		let kazFederation = JSON.parse(sessionStorage.getItem('kazFederation'))
+		if (kazFederation) {
+			let kazId = kazFederation.id;
+			this.getLeaderships(kazId);
+			this.getNews(kazId);
+			this.getWinners(kazId);
+		}
+	}
+
 
 
 	redirect(item) {
 		console.log(item)
 		let regionId = item;
 		sessionStorage.setItem('regionId', regionId);
+		sessionStorage.removeItem('countryId');
 		this.router.navigate(['/region-info'])
 	}
 
@@ -52,6 +66,24 @@ export class KazakhstanComponent implements OnInit {
 
 	getCityList() {
 		this.http.getCityListService().subscribe(data => {
+			console.log(data)
+		})
+	}
+
+	getLeaderships(id) {
+		this.http.getLeadershipByCountryService(id).subscribe(data => {
+			console.log(data)
+		})
+	}
+
+	getNews(id) {
+		this.http.getNewsByCountryService(id).subscribe(data => {
+			console.log(data)
+		})
+	}
+
+	getWinners(id) {
+		this.http.getWinnersByCountryService(id).subscribe(data => {
 			console.log(data)
 		})
 	}
