@@ -13,6 +13,7 @@ import { SharedService } from '../service/shared.service';
 })
 export class RegionInfoComponent implements OnInit {
 	regionId: any;
+	regionName: any;
 
 	// images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
@@ -32,17 +33,37 @@ export class RegionInfoComponent implements OnInit {
 	}
 
 
+	// Метод получения id региона если есть в sessionStorage
 	getRegionIdMap() {
 		let regionId = sessionStorage.getItem('regionId');
-		console.log(regionId)
-		this.getNewsByCity(regionId);
-		this.getLeadershipsByCity(regionId);
-		this.getWinnersByCity(regionId);
+		if (regionId) {
+			this.getNewsByCity(regionId);
+			this.getLeadershipsByCity(regionId);
+			this.getWinnersByCity(regionId);
+			this.getCityList(regionId);
+		}
 	}
 
+	getCityList(regionId) {
+		this.http.getCityListService().subscribe((data: any) => {
+			console.log(data)
+			data.forEach(element => {
+
+				if (regionId * 1 === element.id) {
+					this.regionName = element.name
+				}
+			});
+		})
+	}
+
+	// Метод получения id страны если есть в sessionStorage
 	getCountryIdMap() {
 		let countryId = sessionStorage.getItem('countryId');
-		console.log(countryId)
+		if (countryId) {
+			this.getNewsByCountry(countryId);
+			this.getLeadershipByCountry(countryId);
+			this.getWinnersByCountry(countryId);
+		}
 	}
 
 	goSlideDown(item) {
@@ -53,6 +74,7 @@ export class RegionInfoComponent implements OnInit {
 		}
 	}
 
+	// City API
 	getNewsByCity(regionId) {
 		this.http.getNewsService(regionId).subscribe(data => {
 			console.log(data)
@@ -70,6 +92,30 @@ export class RegionInfoComponent implements OnInit {
 			console.log(data)
 		})
 	}
+
+
+
+
+	// Country API
+	getNewsByCountry(countryId) {
+		this.http.getNewsByCountryService(countryId).subscribe(data => {
+			console.log(data)
+		})
+	}
+
+	getLeadershipByCountry(countryId) {
+		this.http.getLeadershipByCountryService(countryId).subscribe(data => {
+			console.log(data)
+		})
+	}
+
+
+	getWinnersByCountry(countryId) {
+		this.http.getWinnersByCountryService(countryId).subscribe(data => {
+			console.log(data);
+		})
+	}
+
 
 
 }

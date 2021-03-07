@@ -8,32 +8,39 @@ export class HttpService {
 
 	constructor(private http: HttpClient) { }
 
-
+	// City API
 	getCityListService() {
 		return this.http.get(this.BASE_API_URL + '/city/city/')
 	}
 
 	getNewsService(regionId) {
-		return this.http.get(this.BASE_API_URL + '/city/news/' + regionId)
+		return this.http.get(this.BASE_API_URL + '/city/city/' + regionId + '/news')
 	}
 
 	getLeadershipsService(regionId) {
-		return this.http.get(this.BASE_API_URL + '/city/leadership/' + regionId)
+		return this.http.get(this.BASE_API_URL + '/city/city/' + regionId + '/leaderships')
 	}
 
 	getWinnersService(regionId) {
-		return this.http.get(this.BASE_API_URL + '/city/winners/' + regionId)
+		return this.http.get(this.BASE_API_URL + '/city/city/' + regionId + '/winners')
 	}
 
 	// Country API
-
-
 	getCountryListService() {
 		return this.http.get(this.BASE_API_URL + '/country/country/')
 	}
 
-	getLeadershipByCountryService() {
-		return this.http.get(this.BASE_API_URL + '/country/country/{id}/leaderships')
+	getLeadershipByCountryService(countryId) {
+		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/leaderships')
 	}
+
+	getNewsByCountryService(countryId) {
+		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/news')
+	}
+
+	getWinnersByCountryService(countryId) {
+		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/winners')
+	}
+
 
 }

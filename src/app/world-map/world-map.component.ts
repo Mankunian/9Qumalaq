@@ -15,6 +15,7 @@ export class WorldMapComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.getCountryList();
+		this.getLeadershipList();
 		this.getJsonCountry();
 	}
 
@@ -40,10 +41,7 @@ export class WorldMapComponent implements OnInit {
 	}
 
 	getLeadershipList() {
-		let countryId = this.countryId;
-		this.http.getLeadershipByCountryService().subscribe(data => {
-			console.log(data)
-		})
+
 	}
 
 	redirect(item) {
