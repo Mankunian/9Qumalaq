@@ -914,44 +914,7 @@
 							</div>
 							<div class="col-sm-3">
 								<ol class="list">
-									<li>Австралия</li>
-									<li>Азербайджан</li>
-									<li>Албания</li>
-									<li>Алжир</li>
-									<li>Ангола</li>
-									<li>Андорра</li>
-									<li>Антигуа</li>
-									<li>Аргентина</li>
-									<li>Армения</li>
-									<li>Австрия</li>
-								</ol>
-							</div>
-							<div class="col-sm-3">
-								<ol class="list">
-									<li>Австралия</li>
-									<li>Азербайджан</li>
-									<li>Албания</li>
-									<li>Алжир</li>
-									<li>Ангола</li>
-									<li>Андорра</li>
-									<li>Антигуа</li>
-									<li>Аргентина</li>
-									<li>Армения</li>
-									<li>Австрия</li>
-								</ol>
-							</div>
-							<div class="col-sm-3">
-								<ol class="list">
-									<li>Австралия</li>
-									<li>Азербайджан</li>
-									<li>Албания</li>
-									<li>Алжир</li>
-									<li>Ангола</li>
-									<li>Андорра</li>
-									<li>Антигуа</li>
-									<li>Аргентина</li>
-									<li>Армения</li>
-									<li>Австрия</li>
+									<li (click)="redirect(item.id)" *ngFor="let item of jsonCountry">{{item.name}}</li>
 								</ol>
 							</div>
 						</div>

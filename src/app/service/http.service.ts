@@ -8,9 +8,6 @@ export class HttpService {
 
 	constructor(private http: HttpClient) { }
 
-	getCountryService() {
-		return this.http.get(this.BASE_API_URL + '/country/country/')
-	}
 
 	getCityListService() {
 		return this.http.get(this.BASE_API_URL + '/city/city/')
@@ -26,6 +23,17 @@ export class HttpService {
 
 	getWinnersService(regionId) {
 		return this.http.get(this.BASE_API_URL + '/city/winners/' + regionId)
+	}
+
+	// Country API
+
+
+	getCountryListService() {
+		return this.http.get(this.BASE_API_URL + '/country/country/')
+	}
+
+	getLeadershipByCountryService() {
+		return this.http.get(this.BASE_API_URL + '/country/country/{id}/leaderships')
 	}
 
 }

@@ -28,6 +28,7 @@ export class RegionInfoComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.getRegionIdMap()
+		this.getCountryIdMap();
 	}
 
 
@@ -37,6 +38,11 @@ export class RegionInfoComponent implements OnInit {
 		this.getNewsByCity(regionId);
 		this.getLeadershipsByCity(regionId);
 		this.getWinnersByCity(regionId);
+	}
+
+	getCountryIdMap() {
+		let countryId = sessionStorage.getItem('countryId');
+		console.log(countryId)
 	}
 
 	goSlideDown(item) {
