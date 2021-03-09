@@ -39,7 +39,9 @@ export class MainComponent implements OnInit {
 
 	openWorldMap() {
 		this.router.navigate(['/world-map'])
-		sessionStorage.setItem('worldFederation', JSON.stringify(this.worldFed))
+		if (this.worldFed) {
+			sessionStorage.setItem('worldFederation', JSON.stringify(this.worldFed))
+		}
 	}
 
 	redirectToAuth() {

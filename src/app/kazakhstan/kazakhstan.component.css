@@ -381,3 +381,11 @@ path:hover, circle:hover {
 	background-color:pink;
 	position:absolute;
 }
+
+.paddingHas{
+	padding: 60px 0;
+}
+
+.paddingNo {
+	padding: 0;
+}

@@ -224,8 +224,8 @@
 </section>
 
 <!-- Guide -->
-<section #guide id="guide" style="padding: 60px 0;">
-	<div class="guide-content">
+<section #guide id="guide" [ngClass]="{paddingHas: leadershipList, paddingNo: noLeaderships}">
+	<div class="guide-content" *ngIf="leadershipList">
 		<div class="container">
 			<div class="row mt-3">
 				<div class="col-sm-4">
@@ -236,7 +236,7 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-sm-6">
+				<div class="col-sm-6" *ngFor="let item of leadershipList">
 					<div class="box1" routerLink="/guide-item">
 						<div class="row">
 							<div class="col-sm-12">
@@ -258,134 +258,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
-			<div class="row mt-4">
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-
-			</div>
-
-
-
 		</div>
 	</div>
 </section>
 
 <!-- News section -->
-<section #news id="news" style="padding: 60px 0;">
-	<div class="news-content">
+<section #news id="news" [ngClass]="{paddingHas: newsList, paddingNo: noNews}">
+	<div class="news-content" *ngIf="newsList">
 		<div class="container">
 			<div class="row mt-3">
 				<div class="col-sm-3">
@@ -397,87 +277,17 @@
 			</div>
 
 			<div class="row mt-4">
-				<div class="col-sm-3">
+				<div class="col-sm-3" *ngFor="let item of newsList">
 					<div class="card mb-3" routerLink="/news-page">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
+						<!-- <img src="../../assets/img/55.png" class="card-img-top" alt="..."> -->
+						<img src="{{item.image}}" class="card-img-top" alt="...">
 						<div class="card-body">
 							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
+							<p class="card-text"><small class="text-muted">Опубликовано: {{item.published}}</small></p>
+							<p class="card-text">{{item.title}}</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3" routerLink="/news-page">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3" routerLink="/news-page">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3" routerLink="/news-page">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3" routerLink="/news-page">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3" routerLink="/news-page">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3" routerLink="/news-page">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3" routerLink="/news-page">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-
 			</div>
 
 			<div class="row">
@@ -502,7 +312,7 @@
 </section>
 
 <!-- Champions section -->
-<section #champs id="champs" style="padding: 60px 0;">
+<section #champs id="champs" [ngClass]="{paddingHas: winnersList, paddingNo: noWinners}">
 	<div *ngIf="winnersList" class="champions-content">
 		<div class="container">
 			<div class="row mt-3">

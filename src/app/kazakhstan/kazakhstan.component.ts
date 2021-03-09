@@ -10,7 +10,12 @@ import { SharedService } from '../service/shared.service';
 })
 export class KazakhstanComponent implements OnInit {
 	regionName: any;
-	winnersList: Object;
+	winnersList: any;
+	leadershipList: any;
+	newsList: any;
+	noNews: boolean;
+	noLeaderships: boolean;
+	noWinners: boolean;
 
 	constructor(public router: Router, private http: HttpService, private sharedService: SharedService) {
 	}
@@ -72,21 +77,41 @@ export class KazakhstanComponent implements OnInit {
 	}
 
 	getLeaderships(id) {
-		this.http.getLeadershipByCountryService(id).subscribe(data => {
+		this.http.getLeadershipByCountryService(id).subscribe((data: any) => {
 			console.log(data)
+			if (data.length === 0) {
+				this.noLeaderships = true;
+			} else {
+				this.leadershipList = data;
+			}
 		})
 	}
 
 	getNews(id) {
-		this.http.getNewsByCountryService(id).subscribe(data => {
-			console.log(data)
+		this.http.getNewsByCountryService(id).subscribe((data: any) => {
+			console.log(data);
+			if (data.length === 0) {
+				this.noNews = true;
+			} else {
+				this.newsList = data;
+				this.newsList.forEach(element => {
+					let time = Date.parse(element.published)
+					console.log(time)
+					let s = new Date(time).toLocaleDateString();
+					element.published = s;
+				});
+			}
 		})
 	}
 
 	getWinners(id) {
-		this.http.getWinnersByCountryService(id).subscribe(data => {
+		this.http.getWinnersByCountryService(id).subscribe((data: any) => {
 			console.log(data)
-			this.winnersList = data;
+			if (data.length === 0) {
+				this.noWinners = true;
+			} else {
+				this.winnersList = data;
+			}
 		})
 	}
 
