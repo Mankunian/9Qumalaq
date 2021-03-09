@@ -14,6 +14,8 @@ import { SharedService } from '../service/shared.service';
 export class RegionInfoComponent implements OnInit {
 	regionId: any;
 	regionName: any;
+	winnersList: any;
+	newsList: any;
 
 	// images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
@@ -65,8 +67,16 @@ export class RegionInfoComponent implements OnInit {
 
 	// City API
 	getNewsByCity(regionId) {
-		this.http.getNewsService(regionId).subscribe(data => {
+		this.http.getNewsService(regionId).subscribe((data: any) => {
 			console.log(data)
+			this.newsList = data;
+			this.newsList.forEach(element => {
+				let time = Date.parse(element.published)
+				console.log(time)
+
+				let s = new Date(time).toLocaleDateString();
+				element.published = s;
+			});
 		})
 	}
 
@@ -79,6 +89,7 @@ export class RegionInfoComponent implements OnInit {
 	getWinnersByCity(regionId) {
 		this.http.getWinnersService(regionId).subscribe(data => {
 			console.log(data)
+			this.winnersList = data;
 		})
 	}
 
@@ -128,6 +139,10 @@ export class RegionInfoComponent implements OnInit {
 		})
 	}
 
-
+	redirectNewsPage(item) {
+		let newsId = item.id;
+		sessionStorage.setItem('newsId', newsId)
+		this.router.navigate(['/news-page'])
+	}
 
 }

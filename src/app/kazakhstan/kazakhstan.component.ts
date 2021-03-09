@@ -10,6 +10,7 @@ import { SharedService } from '../service/shared.service';
 })
 export class KazakhstanComponent implements OnInit {
 	regionName: any;
+	winnersList: Object;
 
 	constructor(public router: Router, private http: HttpService, private sharedService: SharedService) {
 	}
@@ -85,6 +86,7 @@ export class KazakhstanComponent implements OnInit {
 	getWinners(id) {
 		this.http.getWinnersByCountryService(id).subscribe(data => {
 			console.log(data)
+			this.winnersList = data;
 		})
 	}
 

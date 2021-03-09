@@ -153,6 +153,10 @@ ngb-carousel .wrapper>img {
 	cursor: pointer;
 }
 
+.card-body{
+	min-height: 180px;
+}
+
 .news-content span.title{
 	font-family: Montserrat;
 	font-style: normal;
