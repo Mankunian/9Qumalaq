@@ -29,6 +29,10 @@ export class HttpService {
 		return this.http.get(this.BASE_API_URL + '/city/news/' + newsId)
 	}
 
+	getWinnerByIdService(winnerId) {
+		return this.http.get(this.BASE_API_URL + '/city/winners/' + winnerId)
+	}
+
 
 
 

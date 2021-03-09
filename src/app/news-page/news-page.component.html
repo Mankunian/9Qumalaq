@@ -73,22 +73,12 @@
 			</div><!-- /.blog-main -->
 
 			<aside class="col-md-4 blog-sidebar">
-				<div class="p-4 mb-3  rounded">
-					<img src="../../assets/img/aside.png" alt="" width="100%">
-					<span>12 февраля 2021</span>
-					<p class="mb-0">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
+				<div class="p-4 mb-3  rounded" *ngFor="let item of allNews">
+					<!-- <img src="../../assets/img/aside.png" alt="" width="100%"> -->
+					<img src="{{item.image}}" alt="" width="100%">
+					<span>{{item.published}}</span>
+					<p class="mb-0">{{item.title}}</p>
 				</div>
-				<div class="p-4 mb-3  rounded">
-					<img src="../../assets/img/aside.png" alt="" width="100%">
-					<span>12 февраля 2021</span>
-					<p class="mb-0">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-				</div>
-				<div class="p-4 mb-3  rounded">
-					<img src="../../assets/img/aside.png" alt="" width="100%">
-					<span>12 февраля 2021</span>
-					<p class="mb-0">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-				</div>
-
 			</aside><!-- /.blog-sidebar -->
 
 		</div>

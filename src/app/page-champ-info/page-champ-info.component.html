@@ -38,7 +38,7 @@
 					</ul>
 					<form class="d-flex">
 						<div class="form-group" style="margin: 0.5rem;">
-							<select class="form-control" id="exampleFormControlSelect1">
+							<select class="form-control select" id="exampleFormControlSelect1">
 								<option>РУС</option>
 								<option>ҚАЗ</option>
 								<option>ENG</option>
@@ -59,45 +59,46 @@
 				<div class="col-sm-12">
 					<!-- Champions section -->
 					<section class="champs-content" id="champs">
-						<div class="card mb-3">
+						<div class="card mb-3" *ngFor="let item of winnerElement">
 							<div class=" row g-0">
 								<div class="col-sm-3">
-									<img src="../../assets/img/32.png" alt="info">
+									<!-- <img src="../../assets/img/32.png" alt="info"> -->
+									<img src="{{item.image}}" alt="info" style="width: 100%;">
 								</div>
 								<div class="col-sm-9">
 									<div class="card-body">
 										<div class="col-sm-12">
-											<h5 class="card-title">Исанжулов Арыстан НУРЖАНОВИЧ</h5>
+											<h5 class="card-title">{{item.name}}</h5>
 										</div>
 										<div class="col-sm-12">
 											<div class="row">
 												<div class="col-sm-6">
-													<span class="first">Мастер спорта РК</span>
+													<span class="first">{{item.degree}}</span>
 												</div>
 												<div class="col-sm-6">
-													<span class="first">Топ 10 игроков в РК</span>
+													<span class="first">{{item.rank}}</span>
 												</div>
 											</div>
 											<br>
 											<div class="row">
 												<div class="col-sm-6">
 													<span class="sec">Дата рождения</span> <br>
-													<span class="rt">2002 г.</span>
+													<span class="rt">{{item.bitrhday}}</span>
 												</div>
 												<div class="col-sm-6">
 													<span class="sec">Звание</span> <br>
-													<span class="rt">FM (Мастер ФИДЕ)</span>
+													<span class="rt">{{item.rank}}</span>
 												</div>
 											</div>
 											<br>
 											<div class="row">
 												<div class="col-sm-6">
 													<span class="sec">Место проживания</span> <br>
-													<span class="rt">г. Алматы</span>
+													<span class="rt">{{item.address}}</span>
 												</div>
 												<div class="col-sm-6">
 													<span class="sec">Дата присвоения звания</span> <br>
-													<span class="rt">2015</span>
+													<span class="rt">{{item.assigned_degree}}</span>
 												</div>
 											</div>
 										</div>
@@ -106,38 +107,15 @@
 							</div>
 						</div>
 					</section>
-
 				</div>
-
 			</div>
-			<div class="row mt-3">
+			<div class="row mt-5">
 				<div class="col-sm-12">
 					<section class="dost">
 						<h2>Турнирные достижения</h2>
-						<ul class="list">
-							<li>- Золото чемпионата РК по рапиду среди юношей до 18 лет, 2020 г.</li>
-							<li>- Чемпион Всемирной юношеской Олимпиады, Турция, 2019 г.</li>
-							<li>- Чемпион этапа Кубка Гран-при России среди мужчин, г.Нижний Тагил, 2019 г.</li>
-							<li>
-								- Чемпион среди юношей по блицу «Москва — опен», г.Москва, 2019 г.
-							</li>
-							<li>
-								- Серебро чемпионата РК по быстрым шахматам, 2019 г.
-							</li>
-							<li>- Чемпион среди юношей по блицу «Астана-опен», 2019 г.</li>
-							<li>- Бронза чемпионата РК по молниеносным шахматам среди мужчин, 2019 г.</li>
-							<li>- Золото чемпионата РК по рапиду среди юношей до 18 лет, 2020 г.</li>
-							<li>- Чемпион Всемирной юношеской Олимпиады, Турция, 2019 г.</li>
-							<li>- Чемпион этапа Кубка Гран-при России среди мужчин, г.Нижний Тагил, 2019 г.</li>
-							<li>
-								- Чемпион среди юношей по блицу «Москва — опен», г.Москва, 2019 г.
-							</li>
-							<li>
-								- Серебро чемпионата РК по быстрым шахматам, 2019 г.
-							</li>
-							<li>- Чемпион среди юношей по блицу «Астана-опен», 2019 г.</li>
-							<li>- Бронза чемпионата РК по молниеносным шахматам среди мужчин, 2019 г.</li>
-						</ul>
+						<span *ngFor="let item of description">
+							{{item}} <br>
+						</span>
 					</section>
 				</div>
 			</div>
