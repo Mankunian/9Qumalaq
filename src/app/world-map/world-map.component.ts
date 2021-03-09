@@ -10,40 +10,24 @@ import { HttpService } from '../service/http.service';
 export class WorldMapComponent implements OnInit {
 	countryId: any;
 	jsonCountry: any;
+	leadershipList: any;
+	newsList: any;
+	winnerList: any;
+	noLeadershipList: boolean;
+	noNewsList: boolean;
+	noWinnersList: boolean;
 
 	constructor(private http: HttpService, private router: Router) { }
 
 	ngOnInit(): void {
-		this.getCountryList();
-		this.getLeadershipList();
-		// this.getJsonCountry();
-		this.getCountryList();
-	}
-
-	getJsonCountry() {
-		this.jsonCountry = [
-			{ id: 1, name: 'Австрия' },
-			{ id: 2, name: 'Андорра' },
-			{ id: 3, name: 'Австралия' },
-			{ id: 4, name: 'Ангола' },
-			{ id: 5, name: 'Амстердам' },
-			{ id: 6, name: 'Венгрия' },
-			{ id: 7, name: 'Болгария' },
-			{ id: 8, name: 'Румыня' },
-			{ id: 9, name: 'Италия' },
-			{ id: 10, name: 'Англия' }
-		]
-	}
-
-	getCountryList() {
-		this.http.getCountryListService().subscribe(data => {
-			console.log(data)
-			this.jsonCountry = data;
-		})
-	}
-
-	getLeadershipList() {
-
+		let worldId = JSON.parse(sessionStorage.getItem('worldFederation'))
+		if (worldId) {
+			let countryId = worldId.id;
+			this.getCountryList();
+			this.getLeadershipList(countryId);
+			this.getNewsList(countryId);
+			this.getWinnersList(countryId);
+		}
 	}
 
 	redirect(item) {
@@ -53,5 +37,47 @@ export class WorldMapComponent implements OnInit {
 		sessionStorage.removeItem('regionId')
 		this.router.navigate(['/region-info'])
 	}
+
+
+	getCountryList() {
+		this.http.getCountryListService().subscribe(data => {
+			console.log(data)
+			this.jsonCountry = data;
+		})
+	}
+
+	getLeadershipList(id) {
+		this.http.getLeadershipByCountryService(id).subscribe((data: any) => {
+			console.log(data);
+			if (data.length === 0) {
+				this.noLeadershipList = true;
+			} else {
+				this.leadershipList = data;
+			}
+		})
+	}
+
+	getNewsList(id) {
+		this.http.getNewsByCountryService(id).subscribe((data: any) => {
+			console.log(data)
+			if (data.length === 0) {
+				this.noNewsList = true;
+			} else {
+				this.newsList = data;
+			}
+		})
+	}
+
+	getWinnersList(id) {
+		this.http.getWinnersByCountryService(id).subscribe((data: any) => {
+			console.log(data);
+			if (data.length === 0) {
+				this.noWinnersList = true;
+			} else {
+				this.winnerList = data;
+			}
+		})
+	}
+
 
 }
