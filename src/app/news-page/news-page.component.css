@@ -12,7 +12,10 @@ main{
 	background: rgba(0, 109, 255, 0.65);
 }
 
-
+/* Make footer position bottom fixed always */
+.h-100{
+	height: 100vh !important;
+}
 
 /* Footer */
 

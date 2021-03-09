@@ -198,6 +198,10 @@ path:hover, circle:hover {
 	color: #033271;
 }
 
+.card-body{
+	min-height: 180px;
+}
+
 
 /* Чемпионы и призеры */
 .champions-content span.title{

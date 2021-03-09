@@ -35,7 +35,9 @@ export class KazakhstanComponent implements OnInit {
 		}
 	}
 
-
+	redirectTelegram() {
+		window.location.href = 'https://www.facebook.com/friends/requests/?profile_id=100002180931037'
+	}
 
 	redirect(item) {
 		console.log(item)

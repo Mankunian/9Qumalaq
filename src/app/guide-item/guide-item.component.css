@@ -110,3 +110,7 @@ span.rt{
 	text-transform: capitalize;
 	color: #033271;
 }
+
+.h-100{
+	height: 100vh !important;
+}

@@ -78,7 +78,7 @@
 /*  Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
 	.card img{
-		width: 89%;
+		width: 93%;
 		margin: 0 auto;
 	}
  }

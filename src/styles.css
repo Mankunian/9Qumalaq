@@ -32,23 +32,19 @@
 	padding-left: 0;
 }
 
-.d-flex{
-	/* padding-left: 1.2rem; */
+
+main .container{
+	padding-top: 60px;
 }
 
 
-
 /* Footer */
-
 .footer {
 	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
 	color: #fff;
 	font-size: small;
 }
 
-.socials{
-	/* float: right; */
-}
 .socials i{
 	margin: 0 10px;
 	color: #fff;
@@ -58,4 +54,8 @@
 
 .footer span{
 	font-family: Montserrat;
+}
+
+.mt-auto{
+	margin-top: auto !important;
 }
