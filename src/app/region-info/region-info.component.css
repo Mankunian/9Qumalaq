@@ -32,7 +32,15 @@
 	padding-left: 1.2rem;
 }
 
+.block {
+	display: block;
+	padding: 60px 0;
+}
 
+.none{
+	display: none;
+	padding: 0;
+}
 
 
 
@@ -197,6 +205,15 @@ ngb-carousel .wrapper>img {
 	line-height: 24px;
 	text-transform: uppercase;
 	color: #033271;
+}
+
+.portrait img{
+	width: 100%;
+}
+
+.guide-title{
+	padding: 20px 0;
+	text-align: left;
 }
 
 .champs .card-text{

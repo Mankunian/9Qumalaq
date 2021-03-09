@@ -16,6 +16,10 @@ export class RegionInfoComponent implements OnInit {
 	regionName: any;
 	winnersList: any;
 	newsList: any;
+	leadershipList: any;
+	noLeadershipList: boolean;
+	noNewsList: boolean;
+	noWinnersList: boolean;
 
 	// images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
@@ -69,27 +73,40 @@ export class RegionInfoComponent implements OnInit {
 	getNewsByCity(regionId) {
 		this.http.getNewsService(regionId).subscribe((data: any) => {
 			console.log(data)
-			this.newsList = data;
-			this.newsList.forEach(element => {
-				let time = Date.parse(element.published)
-				console.log(time)
+			if (data.length === 0) {
+				this.noNewsList = true;
+			} else {
+				this.newsList = data;
+				this.newsList.forEach(element => {
+					let time = Date.parse(element.published)
+					console.log(time)
 
-				let s = new Date(time).toLocaleDateString();
-				element.published = s;
-			});
+					let s = new Date(time).toLocaleDateString();
+					element.published = s;
+				});
+			}
 		})
 	}
 
 	getLeadershipsByCity(regionId) {
-		this.http.getLeadershipsService(regionId).subscribe(data => {
+		this.http.getLeadershipsService(regionId).subscribe((data: any) => {
 			console.log(data)
+			if (data.length === 0) {
+				this.noLeadershipList = true;
+			} else {
+				this.leadershipList = data;
+			}
 		})
 	}
 
 	getWinnersByCity(regionId) {
-		this.http.getWinnersService(regionId).subscribe(data => {
+		this.http.getWinnersService(regionId).subscribe((data: any) => {
 			console.log(data)
-			this.winnersList = data;
+			if (data.length === 0) {
+				this.noWinnersList = true;
+			} else {
+				this.winnersList = data;
+			}
 		})
 	}
 
@@ -149,6 +166,13 @@ export class RegionInfoComponent implements OnInit {
 		let winnerId = item.id;
 		sessionStorage.setItem('winnerId', winnerId);
 		this.router.navigate(['/champ-page-info'])
+	}
+
+	redirectGuideItem(item) {
+		console.log(item);
+		let guideId = item.id;
+		sessionStorage.setItem('guideId', guideId);
+		this.router.navigate(['/guide-item'])
 	}
 
 }
