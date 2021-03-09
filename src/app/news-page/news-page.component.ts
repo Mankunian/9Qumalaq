@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from '../service/http.service';
 
 @Component({
 	selector: 'app-news-page',
@@ -7,10 +8,14 @@ import { Router } from '@angular/router';
 	styleUrls: ['./news-page.component.css']
 })
 export class NewsPageComponent implements OnInit {
+	newsElement: any;
 
-	constructor(private router: Router) { }
+	constructor(private router: Router, private http: HttpService) { }
 
 	ngOnInit(): void {
+		let newsId = sessionStorage.getItem('newsId');
+		console.log(newsId)
+		this.getNewsById(newsId)
 	}
 
 	goSlideDown(item) {
@@ -26,5 +31,13 @@ export class NewsPageComponent implements OnInit {
 	}
 
 	scrollToElement() { }
+
+	getNewsById(id) {
+		this.http.getNewsByIdService(id).subscribe((data: any) => {
+			console.log(typeof (data))
+			this.newsElement = [];
+			this.newsElement.push(data)
+		})
+	}
 
 }

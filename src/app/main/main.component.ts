@@ -32,7 +32,9 @@ export class MainComponent implements OnInit {
 
 	openKazMap() {
 		this.router.navigate(['/kazakhstan'])
-		sessionStorage.setItem('kazFederation', JSON.stringify(this.kazFed))
+		if (this.kazFed) {
+			sessionStorage.setItem('kazFederation', JSON.stringify(this.kazFed))
+		}
 	}
 
 	openWorldMap() {
