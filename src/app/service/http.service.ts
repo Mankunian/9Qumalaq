@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 	providedIn: 'root'
 })
 export class HttpService {
-	BASE_API_URL = 'http://78.40.108.85/api'
+	BASE_API_URL = 'https://78.40.108.85/api'
 
 	constructor(private http: HttpClient) { }
 
