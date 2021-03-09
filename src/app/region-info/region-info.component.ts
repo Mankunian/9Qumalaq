@@ -145,4 +145,10 @@ export class RegionInfoComponent implements OnInit {
 		this.router.navigate(['/news-page'])
 	}
 
+	redirectToWinnersPage(item) {
+		let winnerId = item.id;
+		sessionStorage.setItem('winnerId', winnerId);
+		this.router.navigate(['/champ-page-info'])
+	}
+
 }

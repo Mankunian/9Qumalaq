@@ -52,8 +52,8 @@
 				<img src="../../assets/img/slider.png" alt="Random first slide">
 			</div>
 			<div class="carousel-caption">
-				<h3>Добро пожаловать на страницу {{regionName}}</h3>
-				<p> Angular 10 Carousel Example </p>
+				<!-- <h3>Добро пожаловать на страницу </h3> -->
+				<h4>{{regionName}}</h4>
 			</div>
 		</ng-template>
 		<ng-template ngbSlide>
@@ -61,8 +61,6 @@
 				<img src="../../assets/img/slider.png" alt="Random first slide">
 			</div>
 			<div class="carousel-caption">
-				<!-- <h3>First Slide</h3>
-				<p> Angular 10 Carousel Example </p> -->
 			</div>
 		</ng-template>
 	</ngb-carousel>
@@ -291,7 +289,7 @@
 
 			<div class="row mt-4">
 				<div class="col-sm-3" *ngFor="let item of winnersList">
-					<div class="card champs" routerLink="/champ-page-info">
+					<div class="card champs" (click)="redirectToWinnersPage(item)">
 						<!-- <img src="../../assets/img/kozha.png" class="card-img-top" alt="..."> -->
 						<img src="{{item.image}}" alt="">
 						<div class="card-body">
