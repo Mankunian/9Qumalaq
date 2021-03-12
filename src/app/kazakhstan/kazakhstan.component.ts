@@ -44,7 +44,8 @@ export class KazakhstanComponent implements OnInit {
 		let regionId = item;
 		sessionStorage.setItem('regionId', regionId);
 		sessionStorage.removeItem('countryId');
-		this.router.navigate(['/region-info'])
+		// this.router.navigate(['/region-info', regionId])
+		this.router.navigate(['/kazakhstan', regionId])
 	}
 
 	redirectToAuth() {

@@ -8,10 +8,8 @@
 				</a>
 				<form class="d-flex">
 					<div class="form-group" style="margin: 0.5rem;">
-						<select class="form-control select" id="exampleFormControlSelect1">
-							<option>РУС</option>
-							<option>ҚАЗ</option>
-							<option>ENG</option>
+						<select (change)="selectLang()" class="form-control select" id="exampleFormControlSelect1">
+							<option [value]="lang" *ngFor="let item of langs">{{item.name}}</option>
 						</select>
 					</div>
 					<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -59,4 +57,3 @@
 		</div>
 	</footer>
 </div>
-<router-outlet></router-outlet>
