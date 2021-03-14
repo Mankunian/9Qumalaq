@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
+import { GlobalConfig } from "../../global";
 
 @Component({
 	selector: 'app-news-page',
@@ -14,9 +15,7 @@ export class NewsPageComponent implements OnInit {
 	constructor(private router: Router, private http: HttpService) { }
 
 	ngOnInit(): void {
-		let newsId = sessionStorage.getItem('newsId');
-		console.log(newsId)
-		this.getNewsById(newsId)
+		this.getNewsItem();
 		this.getAllnews();
 	}
 
@@ -29,19 +28,70 @@ export class NewsPageComponent implements OnInit {
 	}
 
 	redirectToAuth() {
-		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+		window.location.href = GlobalConfig.ADMIN_URL;
 	}
 
 	scrollToElement() { }
 
-	getNewsById(id) {
-		this.http.getNewsByIdService(id).subscribe((data: any) => {
-			console.log(typeof (data))
+	// getNewsById(id) {
+	// 	this.http.getNewsByIdService(id).subscribe((data: any) => {
+	// 		console.log(typeof (data))
+	// 		this.newsElement = [];
+	// 		this.newsElement.push(data)
+	// 	})
+	// }
+
+	// Main section
+	getNewsItem() {
+		let newsId = sessionStorage.getItem('newsId');
+		let countryId = sessionStorage.getItem('countryId');
+		let regionId = sessionStorage.getItem('regionId');
+
+		if (countryId) {
+			this.getNewsItemByCountry(newsId);
+		} else if (regionId) {
+			this.getNewsItemByRegion(newsId);
+		}
+	}
+
+	getNewsItemByCountry(newsId) {
+		this.http.getNewsByIdCountryService(newsId).subscribe((data: any) => {
 			this.newsElement = [];
 			this.newsElement.push(data)
+			this.newsElement.forEach(element => {
+				let published = Date.parse(element.published);
+				let new_published_time = new Date(published).toLocaleDateString();
+				element.published = new_published_time;
+
+				let altered = Date.parse(element.altered);
+				let new_altered_time = new Date(altered).toLocaleDateString();
+				element.altered = new_altered_time;
+
+
+			});
 		})
 	}
 
+	getNewsItemByRegion(newsId) {
+		this.http.getNewsByIdService(newsId).subscribe((data: any) => {
+			this.newsElement = [];
+			this.newsElement.push(data);
+			this.newsElement.forEach(element => {
+				let published = Date.parse(element.published);
+				let new_published_time = new Date(published).toLocaleDateString();
+				element.published = new_published_time;
+
+
+				let altered = Date.parse(element.altered);
+				let new_altered_time = new Date(altered).toLocaleDateString();
+				element.altered = new_altered_time;
+			});
+		})
+	}
+
+
+
+	// Aside section
 	getAllnews() {
 		let regionId = sessionStorage.getItem('regionId');
 		let countryId = sessionStorage.getItem('countryId')

@@ -8,10 +8,14 @@
 				</a>
 				<form class="d-flex">
 					<div class="form-group" style="margin: 0.5rem;">
-						<select class="form-control select" id="exampleFormControlSelect1">
-							<option>РУС</option>
-							<option>ҚАЗ</option>
-							<option>ENG</option>
+						<!-- <select (ngModelChange)="selectLang($event)" [ngModelOptions]="{standalone: true}"
+							[(ngModel)]="selectedLang" class="form-control select" id="exampleFormControlSelect1">
+							<option [ngValue]="item" *ngFor="let item of langs">{{item.name}}</option>
+						</select> -->
+
+						<select [(ngModel)]="selectedLang" [ngModelOptions]="{standalone: true}" class="select form-control"
+							(ngModelChange)="selectLang($event)">
+							<option *ngFor="let oneOption of langs" [ngValue]="oneOption">{{oneOption.name}}</option>
 						</select>
 					</div>
 					<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -59,4 +63,3 @@
 		</div>
 	</footer>
 </div>
-<router-outlet></router-outlet>

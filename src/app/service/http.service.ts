@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { GlobalConfig } from "../../global";
+
 @Injectable({
 	providedIn: 'root'
 })
 export class HttpService {
-	// BASE_API_URL = 'https://78.40.108.85/api'
-	BASE_API_URL = 'http://78.40.108.85/api'
+	// BASE_API_URL = 'http://78.40.108.85/api'
+	BASE_API_URL = GlobalConfig.API_URL;
 
 	constructor(private http: HttpClient) { }
 
@@ -27,11 +29,15 @@ export class HttpService {
 	}
 
 	getNewsByIdService(newsId) {
-		return this.http.get(this.BASE_API_URL + '/city/news/' + newsId)
+		return this.http.get(this.BASE_API_URL + '/city/news/' + newsId + '/')
 	}
 
 	getWinnerByIdService(winnerId) {
-		return this.http.get(this.BASE_API_URL + '/city/winners/' + winnerId)
+		return this.http.get(this.BASE_API_URL + '/city/winners/' + winnerId + '/')
+	}
+
+	getLeadershipByCityService(leadershipId) {
+		return this.http.get(this.BASE_API_URL + '/city/leadership/' + leadershipId + '/')
 	}
 
 
@@ -41,7 +47,8 @@ export class HttpService {
 
 	// Country API
 	getCountryListService() {
-		return this.http.get(this.BASE_API_URL + '/country/country/')
+		return this.http.get(this.BASE_API_URL + '/country/country/');
+		// return this.http.get('assets/json/country.json');
 	}
 
 	getLeadershipByCountryService(countryId) {
@@ -55,6 +62,22 @@ export class HttpService {
 	getWinnersByCountryService(countryId) {
 		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/winners')
 	}
+
+
+	// By Id (news, leaderships, winners)
+
+	getLeadershipByIdCountryService(leadershipId) {
+		return this.http.get(this.BASE_API_URL + '/country/leadership/' + leadershipId + '/')
+	}
+
+	getNewsByIdCountryService(newsId) {
+		return this.http.get(this.BASE_API_URL + '/country/news/' + newsId + '/')
+	}
+
+	getWinnerByIdCountryService(winnerId) {
+		return this.http.get(this.BASE_API_URL + '/country/winners/' + winnerId + '/')
+	}
+
 
 
 }

@@ -3,8 +3,8 @@
 		<!-- <img src="../../assets/img/logo2.png" alt="" style="width: 60px;">
 		<img src="../../assets/img/logo1.png" alt="" style="width: 60px;"> -->
 		<a class="navbar-brand" href="#">
-			<img src="../../assets/img/logo1.png" alt="" width="60">
-			<img src="../../assets/img/logo2.png" alt="" width="60">
+			<img src="../../assets/img/logo1.png" alt="" width="50">
+			<img src="../../assets/img/logo2.png" alt="" width="50">
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 			aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,13 @@
 
 			</ul>
 			<form class="d-flex">
-				<button class="btn btn-outline-success lang" type="submit">РУС</button>
+				<div class="form-group" style="margin: 0.5rem;">
+					<select class="form-control select" id="exampleFormControlSelect1">
+						<option>РУС</option>
+						<option>ҚАЗ</option>
+						<option>ENG</option>
+					</select>
+				</div>
 				<span class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> ВХОД</span>
 			</form>
 		</div>
@@ -912,10 +918,17 @@
 							<div class="col-sm-3">
 								<h2>ФИЛИАЛЫ в 30 странах мира</h2>
 							</div>
-							<div class="col-sm-3">
-								<ol class="list">
-									<li (click)="redirect(item)" *ngFor="let item of jsonCountry">{{item.name}}</li>
-								</ol>
+							<div class="col-sm-9">
+								<div class="row">
+									<div class="col-sm-4" *ngFor="let item of jsonCountry">
+										<!-- <ol class="list">
+											<li (click)="redirectByClickMap(item)" *ngFor="let item of jsonCountry">{{item.name}}</li>
+										</ol> -->
+										<div class="list">
+											<span (click)="redirectByClickMap(item)">{{item.name}}</span>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -958,7 +971,7 @@
 </section>
 
 <!-- Guide -->
-<section id="guide" [ngClass]="{paddingHas: leadershipList, paddingNo: noLeadershipList}">
+<section #guide id="guide" [ngClass]="{paddingHas: leadershipList, paddingNo: noLeadershipList}">
 	<div class="guide-content" *ngIf="leadershipList">
 		<div class="container">
 			<div class="row mt-3">
@@ -970,8 +983,8 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-sm-6">
-					<div class="box1">
+				<div class="col-sm-6" *ngFor="let item of leadershipList">
+					<div class="box1" (click)="redirectLeadershipItem(item)">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="info">
@@ -979,34 +992,12 @@
 										<div class="col-sm-2">
 											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
 										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
+										<div class="col-sm-3 portrait">
+											<img style="width: 100%;" class="rounded-circle" src="{{item.image}}" alt="">
 										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
+										<div class="col-sm-7 guide-title">
+											<span>{{item.name}}</span> <br>
+											<p>{{item.rank}}</p>
 										</div>
 									</div>
 								</div>
@@ -1015,104 +1006,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="row mt-4">
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-
-			</div>
-
-
-
 		</div>
 	</div>
 </section>
@@ -1131,87 +1024,17 @@
 			</div>
 
 			<div class="row mt-4">
-				<div class="col-sm-3">
-					<div class="card mb-3">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
+				<div class="col-sm-3" *ngFor="let item of newsList">
+					<div class="card mb-3" (click)="redirectNewsPage(item)">
+						<!-- <img src="../../assets/img/55.png" class="card-img-top" alt="..."> -->
+						<img src="{{item.image}}" class="card-img-top" alt="...">
 						<div class="card-body">
 							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
+							<p class="card-text"><small class="text-muted">Опубликовано {{item.published}}</small></p>
+							<p class="card-text">{{item.title}}</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card mb-3">
-						<img src="../../assets/img/55.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<!-- <h5 class="card-title">Card title</h5> -->
-							<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-							<p class="card-text">Чемпионат по тогызкумалак прошел в обычной средней школе, что было дальше?</p>
-						</div>
-					</div>
-				</div>
-
 			</div>
 
 			<div class="row">
@@ -1249,42 +1072,13 @@
 			</div>
 
 			<div class="row mt-4">
-				<div class="col-sm-3">
-					<div class="card champs">
-						<img src="../../assets/img/kozha.png" class="card-img-top" alt="...">
+				<div class="col-sm-3" *ngFor="let item of winnerList">
+					<div class="card champs" (click)="redirectToWinnersPage(item)">
+						<!-- <img src="../../assets/img/kozha.png" class="card-img-top" alt="..."> -->
+						<img src="{{item.image}}" alt="">
 						<div class="card-body">
-							<h5 class="card-title">Қожа</h5>
-							<p class="card-text">Заслуженный МС</p>
-							<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card champs">
-						<img src="../../assets/img/kozha.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Қожа</h5>
-							<p class="card-text">Заслуженный МС</p>
-							<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card champs">
-						<img src="../../assets/img/kozha.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Қожа</h5>
-							<p class="card-text">Заслуженный МС</p>
-							<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card champs">
-						<img src="../../assets/img/kozha.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Қожа</h5>
-							<p class="card-text">Заслуженный МС</p>
+							<h5 class="card-title">{{item.name}}</h5>
+							<p class="card-text">{{item.degree}}</p>
 							<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
 						</div>
 					</div>
@@ -1371,7 +1165,7 @@
 					<br>
 					<div class="mail">
 						<i style="font-size: large; color: #002960;" class="fa fa-envelope" aria-hidden="true"></i>
-						<span> info@9qumalak.kz</span>
+						<span> 9qq.org</span>
 					</div>
 					<br>
 					<div class="address">
@@ -1398,7 +1192,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-5">
-				<span style="text-transform: uppercase;"> 2021 9kumalak.kz. All rights reserved.</span>
+				<span> 2021 9qq.org All rights reserved.</span>
 			</div>
 			<div class="col-sm-4">
 				<div class="socials text-center">
@@ -1409,7 +1203,7 @@
 				</div>
 			</div>
 			<div class="col-sm-3 text-center">
-				<span>info@9kumalak.kz </span>
+				<span>9qq.org </span>
 			</div>
 		</div>
 	</div>

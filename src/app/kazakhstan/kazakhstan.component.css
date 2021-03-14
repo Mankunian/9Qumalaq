@@ -32,6 +32,10 @@
 	padding-left: 1.2rem;
 }
 
+.paddingHas{
+	padding: 60px 0;
+}
+
 /* map */
 
 path:hover, circle:hover {
@@ -117,6 +121,10 @@ path:hover, circle:hover {
 	color: #033271;
 }
 
+.guide-title{
+	padding: 20px 0;
+}
+
 .line{
 	width: 100%;
 	height: 2px;
@@ -165,6 +173,10 @@ path:hover, circle:hover {
 
 .card{
 	cursor: pointer;
+}
+
+.card-body{
+	min-height: 180px;
 }
 
 .news-content span.title{

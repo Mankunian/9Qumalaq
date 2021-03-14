@@ -26,19 +26,19 @@
 							<a class="nav-link" routerLink="/news-page">Новости</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link " href="#">Чемпионы и призеры</a>
+							<a class="nav-link " href="/champ-page">Чемпионы и призеры</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Наши партнеры</a>
+							<a class="nav-link" (click)="goSlideDown('partners')">Наши партнеры</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Контакты</a>
+							<a class="nav-link" (click)="goSlideDown('contacts')">Контакты</a>
 						</li>
 
 					</ul>
 					<form class="d-flex">
 						<div class="form-group" style="margin: 0.5rem;">
-							<select class="form-control" id="exampleFormControlSelect1">
+							<select class="form-control select" id="exampleFormControlSelect1">
 								<option>РУС</option>
 								<option>ҚАЗ</option>
 								<option>ENG</option>
@@ -51,17 +51,17 @@
 			</div>
 		</nav>
 	</header>
-	<br>
+
 	<!-- Begin page content -->
-	<main class="flex-shrink-0" style="padding: 56px 0;">
+	<main class="flex-shrink-0">
 		<div class="container">
-			<div class="row mt-3">
+			<div class="row mt-5" *ngFor="let item of leadershipItem">
 				<div class="col-sm-4">
 					<div class="card">
-						<img src="../../assets/img/scrip.png" class="card-img-top" alt="...">
+						<img src="{{item.image}}" class="card-img-top" alt="portrait" width="100%">
 						<div class="card-body">
-							<h5 class="card-title">Жалелов Адиль Оралбекович</h5>
-							<p class="card-text">Президент</p>
+							<h5 class="card-title">{{item.name}}</h5>
+							<p class="card-text">{{item.rank}}</p>
 						</div>
 					</div>
 				</div>
@@ -78,22 +78,22 @@
 											<div class="row">
 												<div class="col-sm-6">
 													<span class="sec">Дата рождения</span> <br>
-													<span class="rt">2002 г.</span>
+													<span class="rt">{{item.bitrhday}}</span>
 												</div>
 												<div class="col-sm-6">
 													<span class="sec">Звание</span> <br>
-													<span class="rt">FM (Мастер ФИДЕ)</span>
+													<span class="rt">{{item.degree}}</span>
 												</div>
 											</div>
 											<br>
 											<div class="row">
 												<div class="col-sm-6">
 													<span class="sec">Место проживания</span> <br>
-													<span class="rt">г. Алматы</span>
+													<span class="rt">{{item.address}}</span>
 												</div>
 												<div class="col-sm-6">
 													<span class="sec">Дата присвоения звания</span> <br>
-													<span class="rt">2015</span>
+													<span class="rt">{{item.assigned_degree}}</span>
 												</div>
 											</div>
 										</div>
@@ -102,25 +102,16 @@
 							</div>
 						</div>
 					</section>
-					<br>
-					<section class="dost">
-						<span>Более известный под сценическим псевдонимом Скриптони́т (англ. Scriptonite) — казахстанский
-							исполнитель и музыкальный продюсер, основатель лейбла Musica36[10]. Впервые громко заявил о себе в 2013
-							году видеоклипом на песню «VBVVCTND», спустя полтора года выпустил свой дебютный альбом «Дом с нормальными
-							явлениями», который стал одним из самых удачных русскоязычных рэп-альбомов 2015 года.
 
-							В 2018 году разделил своё творчество на два проекта: Скриптонит и Gruppa Skryptonite[11]. Как объяснил сам
-							Адиль, такое разграничение касается не только записи песен, но и концертов[11]. Так, концерты Gruppa
-							Skryptonite — это музыкальный бэнд из восьми человек и новые аранжировки, а концерты Скриптонита — это
-							формат «рэпер + диджей» и выступление под минусовки</span>
+					<section class="dost">
+						<span>
+							{{item.description}}
+						</span>
 					</section>
 				</div>
-
 			</div>
-
 		</div>
 	</main>
-
 
 	<footer class="footer mt-auto py-3">
 		<div class="container">

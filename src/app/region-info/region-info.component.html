@@ -2,8 +2,8 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 	<div class="container">
 		<a class="navbar-brand" href="#">
-			<img src="../../assets/img/logo1.png" alt="" width="60">
-			<img src="../../assets/img/logo2.png" alt="" width="60">
+			<img src="../../assets/img/logo1.png" alt="" width="50">
+			<img src="../../assets/img/logo2.png" alt="" width="50">
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 			aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,8 +67,8 @@
 </section>
 
 <!-- Guide -->
-<section id="guide" style="padding: 60px 0;">
-	<div class="guide-content">
+<section id="guide" [ngClass]="{block: leadershipList, none: noLeadershipList}">
+	<div class="guide-content" *ngIf="leadershipList">
 		<div class="container">
 			<div class="row mt-3">
 				<div class="col-sm-4">
@@ -79,8 +79,8 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-sm-6">
-					<div class="box1" routerLink="/guide-page-info">
+				<div class="col-sm-6" *ngFor="let item of leadershipList">
+					<div class="box1" (click)="redirectGuideItem(item)">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="info">
@@ -88,34 +88,17 @@
 										<div class="col-sm-2">
 											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
 										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
+										<div class="col-sm-3 portrait">
+											<!-- <img src="../../assets/img/44.png" alt=""> -->
+											<img class="rounded-circle" src="{{item.image}}" alt="">
+											<!-- <img class="rounded-circle" alt="100x100" src="../../assets/img/3335.jpeg" data-holder-rendered="true"> -->
+
+											<!-- <img class="rounded-circle" alt="100x100"
+												src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" data-holder-rendered="true"> -->
 										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
+										<div class="col-sm-7 guide-title">
+											<span>{{item.name}}</span> <br>
+											<p>{{item.rank}}</p>
 										</div>
 									</div>
 								</div>
@@ -124,110 +107,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="row mt-4">
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="box1">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="info">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
-										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
-										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-
-			</div>
-
-
-
 		</div>
 	</div>
 </section>
 
 <!-- News section -->
-<section id="news" style="padding: 60px 0;">
+<section id="news" [ngClass]="{block: newsList, none: noNewsList}">
 	<div *ngIf="newsList" class="news-content">
 		<div class="container">
 			<div class="row mt-3">
@@ -251,7 +136,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 			<div class="row">
 				<div class="col-sm-12 text-center">
@@ -275,7 +159,7 @@
 </section>
 
 <!-- Champions section -->
-<section style="padding: 60px 0;" id="champions">
+<section id="champions" [ngClass]="{block: winnersList, none: noWinnersList}">
 	<div *ngIf="winnersList" class="champions-content">
 		<div class="container">
 			<div class="row mt-3">
@@ -305,7 +189,7 @@
 </section>
 
 <!-- Partners section -->
-<section id="partners" style="padding: 60px 0;">
+<section id="partners">
 	<div class="partners-content">
 		<div class="container-fluid">
 			<div class="row mt-3">
@@ -393,8 +277,8 @@
 
 				<div class="col-sm-8">
 					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11880.492291371422!2d12.4922309!3d41.8902102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28f1c82e908503c4!2sColosseo!5e0!3m2!1sit!2sit!4v1524815927977"
-						width="100%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.2578298429908!2d71.41637861564197!3d51.12215207957365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424584215569da81%3A0xc13419a4f8439495!2z0JbQmiDQodCw0YDQvNCw0YIsINGD0LsuINCh0LDRg9GA0LDQvSAzLzEsINCd0YPRgC3QodGD0LvRgtCw0L0gMDIwMDAw!5e0!3m2!1sru!2skz!4v1615309419441!5m2!1sru!2skz"
+						width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 				</div>
 
 
