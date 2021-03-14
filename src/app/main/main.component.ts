@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from "../service/http.service";
+import { GlobalConfig } from "../../global";
 
 @Component({
 	selector: 'app-main',
@@ -10,12 +11,14 @@ import { HttpService } from "../service/http.service";
 export class MainComponent implements OnInit {
 	kazFed: any;
 	worldFed: any;
-	langs: any;
-	lang: any;
+	langs: { id: number; name: string; title: string; }[];
+	selectedLang: any = { id: 2, name: 'ENG', title: 'eng' };
+	// selectedLang: any;
 
 	constructor(public router: Router, private http: HttpService) { }
 
 	ngOnInit(): void {
+		console.log(this.selectedLang)
 		this.getCountryList();
 		this.getLangs();
 	}
@@ -28,11 +31,8 @@ export class MainComponent implements OnInit {
 		]
 	}
 
-	selectLang() {
-		console.log(this.lang)
-		// let lang = item.id;
-		// console.log(lang)
-		// sessionStorage.setItem('guideId', lang);
+	selectLang(event) {
+		console.log(event)
 	}
 
 	getCountryList() {
@@ -63,7 +63,7 @@ export class MainComponent implements OnInit {
 	}
 
 	redirectToAuth() {
-		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+		window.location.href = GlobalConfig.ADMIN_URL;
 	}
 
 }

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { GlobalConfig } from "../../global";
+
 @Injectable({
 	providedIn: 'root'
 })
 export class HttpService {
-	// BASE_API_URL = 'https://78.40.108.85/api'
-	BASE_API_URL = 'http://78.40.108.85/api'
+	// BASE_API_URL = 'http://78.40.108.85/api'
+	BASE_API_URL = GlobalConfig.API_URL;
 
 	constructor(private http: HttpClient) { }
 

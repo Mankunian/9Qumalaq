@@ -3,8 +3,8 @@
 		<!-- <img src="../../assets/img/logo2.png" alt="" style="width: 60px;">
 		<img src="../../assets/img/logo1.png" alt="" style="width: 60px;"> -->
 		<a class="navbar-brand" href="#">
-			<img src="../../assets/img/logo1.png" alt="" width="60">
-			<img src="../../assets/img/logo2.png" alt="" width="60">
+			<img src="../../assets/img/logo1.png" alt="" width="50">
+			<img src="../../assets/img/logo2.png" alt="" width="50">
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 			aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -958,7 +958,7 @@
 </section>
 
 <!-- Guide -->
-<section id="guide" [ngClass]="{paddingHas: leadershipList, paddingNo: noLeadershipList}">
+<section #guide id="guide" [ngClass]="{paddingHas: leadershipList, paddingNo: noLeadershipList}">
 	<div class="guide-content" *ngIf="leadershipList">
 		<div class="container">
 			<div class="row mt-3">
@@ -971,7 +971,7 @@
 			</div>
 			<div class="row mt-4">
 				<div class="col-sm-6" *ngFor="let item of leadershipList">
-					<div class="box1" routerLink="/guide-item">
+					<div class="box1" (click)="redirectGuideItem(item)">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="info">
@@ -979,12 +979,17 @@
 										<div class="col-sm-2">
 											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
 										</div>
-										<div class="col-sm-3">
-											<img src="../../assets/img/44.png" alt="">
+										<div class="col-sm-3 portrait">
+											<!-- <img src="../../assets/img/44.png" alt=""> -->
+											<img style="width: 100%;" class="rounded-circle" src="{{item.image}}" alt="">
+											<!-- <img class="rounded-circle" alt="100x100" src="../../assets/img/3335.jpeg" data-holder-rendered="true"> -->
+
+											<!-- <img class="rounded-circle" alt="100x100"
+												src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" data-holder-rendered="true"> -->
 										</div>
-										<div class="col-sm-7">
-											<span>Әділ Оралбекұлы Жәлелов</span> <br>
-											<p>Президент</p>
+										<div class="col-sm-7 guide-title">
+											<span>{{item.name}}</span> <br>
+											<p>{{item.rank}}</p>
 										</div>
 									</div>
 								</div>

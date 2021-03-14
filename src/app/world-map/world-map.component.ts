@@ -35,7 +35,7 @@ export class WorldMapComponent implements OnInit {
 		let countryId = item.id;
 		sessionStorage.setItem('countryId', countryId);
 		sessionStorage.removeItem('regionId')
-		this.router.navigate(['/region-info'])
+		this.router.navigate(['/world', countryId])
 	}
 
 
@@ -79,5 +79,11 @@ export class WorldMapComponent implements OnInit {
 		})
 	}
 
+	redirectGuideItem(item) {
+		console.log(item);
+		let guideId = item.id;
+		sessionStorage.setItem('guideId', guideId);
+		this.router.navigate(['/guide-item'])
+	}
 
 }

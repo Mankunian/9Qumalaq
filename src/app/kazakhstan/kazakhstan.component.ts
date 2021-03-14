@@ -35,9 +35,6 @@ export class KazakhstanComponent implements OnInit {
 		}
 	}
 
-	redirectTelegram() {
-		window.location.href = 'https://www.facebook.com/friends/requests/?profile_id=100002180931037'
-	}
 
 	redirect(item) {
 		console.log(item)
@@ -46,6 +43,13 @@ export class KazakhstanComponent implements OnInit {
 		sessionStorage.removeItem('countryId');
 		// this.router.navigate(['/region-info', regionId])
 		this.router.navigate(['/kazakhstan', regionId])
+	}
+
+	redirectGuideItem(item) {
+		console.log(item);
+		let guideId = item.id;
+		sessionStorage.setItem('guideId', guideId);
+		this.router.navigate(['/guide-item'])
 	}
 
 	redirectToAuth() {
