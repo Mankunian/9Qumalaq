@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
+import { GlobalConfig } from "../../global";
 
 @Component({
 	selector: 'app-guide-item',
@@ -13,21 +14,33 @@ export class GuideItemComponent implements OnInit {
 	constructor(private http: HttpService, private router: Router) { }
 
 	ngOnInit(): void {
-		let guideId = sessionStorage.getItem('guideId');
-		if (guideId) {
-			this.getLeadershipItem(guideId)
+		let leadershipId = sessionStorage.getItem('leadershipId');
+		let countryId = sessionStorage.getItem('countryId');
+		let regionId = sessionStorage.getItem('regionId');
+		if (regionId) {
+			this.getLeadershipByCity(leadershipId)
+		} else if (countryId) {
+			this.getLeadershipByCountry(leadershipId)
 		}
 	}
 
 	redirectToAuth() {
-		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+		window.location.href = GlobalConfig.ADMIN_URL;
 	}
 
-	getLeadershipItem(id) {
-		this.http.getLeadershipByIdService(id).subscribe((data: any) => {
+	getLeadershipByCity(id) {
+		this.http.getLeadershipByCityService(id).subscribe((data: any) => {
 			console.log(data);
 			this.leadershipItem = [];
 			this.leadershipItem.push(data)
+		})
+	}
+
+	getLeadershipByCountry(id) {
+		this.http.getLeadershipByIdCountryService(id).subscribe((data: any) => {
+			console.log(data);
+			this.leadershipItem = [];
+			this.leadershipItem.push(data);
 		})
 	}
 

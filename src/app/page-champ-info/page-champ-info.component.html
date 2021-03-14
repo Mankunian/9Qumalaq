@@ -1,4 +1,4 @@
-<body class="d-flex flex-column h-100">
+<div class="d-flex flex-column h-100">
 	<header>
 		<!-- Fixed navbar -->
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -53,7 +53,7 @@
 	</header>
 	<br>
 	<!-- Begin page content -->
-	<main class="flex-shrink-0" style="padding: 56px 0;">
+	<main class="flex-shrink-0">
 		<div class="container">
 			<div class="row mt-3">
 				<div class="col-sm-12">
@@ -109,9 +109,9 @@
 					</section>
 				</div>
 			</div>
-			<div class="row mt-5">
+			<div class="row mt-3 mb-3">
 				<div class="col-sm-12">
-					<section class="dost">
+					<section class="dost" *ngIf="winnerElement">
 						<h2>Турнирные достижения</h2>
 						<span *ngFor="let item of description">
 							{{item}} <br>
@@ -142,4 +142,4 @@
 			</div>
 		</div>
 	</footer>
-</body>
+</div>

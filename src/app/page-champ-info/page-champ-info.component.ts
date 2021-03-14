@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
+import { GlobalConfig } from "../../global";
 
 @Component({
 	selector: 'app-page-champ-info',
@@ -15,8 +16,14 @@ export class PageChampInfoComponent implements OnInit {
 
 	ngOnInit(): void {
 		let winnerId = sessionStorage.getItem('winnerId');
-		console.log(winnerId)
-		this.getWinnerById(winnerId)
+		let countryId = sessionStorage.getItem('countryId');
+		let regionId = sessionStorage.getItem('regionId');
+
+		if (countryId) {
+			this.getWinnerItemByCountry(winnerId);
+		} else if (regionId) {
+			this.getWinnerItemByRegion(winnerId);
+		}
 	}
 
 	goSlideDown(item) {
@@ -28,38 +35,31 @@ export class PageChampInfoComponent implements OnInit {
 	}
 
 	redirectToAuth() {
-		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+		window.location.href = GlobalConfig.ADMIN_URL;
 	}
 
-	getWinnerById(id) {
-		this.http.getWinnerByIdService(id).subscribe((data: any) => {
+	getWinnerItemByRegion(winnerId) {
+		this.http.getWinnerByIdService(winnerId).subscribe((data: any) => {
 			console.log(typeof (data))
 			this.winnerElement = [];
 			this.winnerElement.push(data)
 			this.winnerElement.forEach(element => {
-				// console.log(element.description)
 				let description = element.description;
-
 				description = description.split(".")
-				console.log(description[0])
-				console.log(description[1])
-
 				this.description = description;
+			});
+		})
+	}
 
-				// for (let i = 0; i < description.length; i++) {
-				// 	description[i] = "- " + description[i] + "\n";
-				// }
-
-
-				// for (let i = 0; i < description.length; i++) {
-				// 	description[i] = "- " + description[i] + "\n";
-				// }
-				// description = description.join("");
-
-				// document.getElementById("ovde").innerHTML = description;
-
-
-
+	getWinnerItemByCountry(winnerId) {
+		this.http.getWinnerByIdCountryService(winnerId).subscribe((data: any) => {
+			console.log(data);
+			this.winnerElement = [];
+			this.winnerElement.push(data)
+			this.winnerElement.forEach(element => {
+				let description = element.description;
+				description = description.split(".")
+				this.description = description;
 			});
 		})
 	}

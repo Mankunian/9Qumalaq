@@ -59,3 +59,8 @@ main .container{
 .mt-auto{
 	margin-top: auto !important;
 }
+
+.user{
+	cursor: pointer;
+}
+

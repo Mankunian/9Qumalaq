@@ -89,7 +89,7 @@ path:hover, circle:hover {
 	color: #FFFFFF;
 }
 
-.list li{
+.list span{
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 600;
@@ -99,7 +99,7 @@ path:hover, circle:hover {
 	line-height: 1.5;
 }
 
-.list li:hover{
+.list:hover{
 	background-color: #016DFF;
 	cursor: pointer;
 }
@@ -134,6 +134,11 @@ path:hover, circle:hover {
 	/* height: 100vh; */
 	background-color: #fff;
 }
+
+.guide-title{
+	padding: 20px 0;
+}
+
 
 .guide-content span.title{
 	font-family: Montserrat;
@@ -328,9 +333,29 @@ path:hover, circle:hover {
 	font-family: Montserrat;
 }
 
+
+
 .d-flex .user{
 	color: #fff;
 	font-size: large;
 	font-family: 'Montserrat';
 	margin: 10px;
+}
+
+.paddingHas{
+	padding: 60px 0;
+}
+
+.paddingNo{
+	padding: 0;
+}
+
+.select{
+	background: transparent;
+	color: #fff;
+	border-radius: 0;
+}
+
+.select option{
+	background: rgba(0, 109, 255, 0.65);
 }

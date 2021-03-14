@@ -1,7 +1,8 @@
-import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { Router, Scroll } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
 import { SharedService } from '../service/shared.service';
+import { GlobalConfig } from "../../global";
 
 @Component({
 	selector: 'app-kazakhstan',
@@ -29,31 +30,10 @@ export class KazakhstanComponent implements OnInit {
 		let kazFederation = JSON.parse(sessionStorage.getItem('kazFederation'))
 		if (kazFederation) {
 			let kazId = kazFederation.id;
-			this.getLeaderships(kazId);
-			this.getNews(kazId);
-			this.getWinners(kazId);
+			this.getLeadershipsByKaz(kazId);
+			this.getNewsByKaz(kazId);
+			this.getWinnersByKaz(kazId);
 		}
-	}
-
-
-	redirect(item) {
-		console.log(item)
-		let regionId = item;
-		sessionStorage.setItem('regionId', regionId);
-		sessionStorage.removeItem('countryId');
-		// this.router.navigate(['/region-info', regionId])
-		this.router.navigate(['/kazakhstan', regionId])
-	}
-
-	redirectGuideItem(item) {
-		console.log(item);
-		let guideId = item.id;
-		sessionStorage.setItem('guideId', guideId);
-		this.router.navigate(['/guide-item'])
-	}
-
-	redirectToAuth() {
-		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
 	}
 
 	scrollToElement($element, sectionName) {
@@ -83,7 +63,7 @@ export class KazakhstanComponent implements OnInit {
 		})
 	}
 
-	getLeaderships(id) {
+	getLeadershipsByKaz(id) {
 		this.http.getLeadershipByCountryService(id).subscribe((data: any) => {
 			console.log(data)
 			if (data.length === 0) {
@@ -94,7 +74,7 @@ export class KazakhstanComponent implements OnInit {
 		})
 	}
 
-	getNews(id) {
+	getNewsByKaz(id) {
 		this.http.getNewsByCountryService(id).subscribe((data: any) => {
 			console.log(data);
 			if (data.length === 0) {
@@ -111,7 +91,7 @@ export class KazakhstanComponent implements OnInit {
 		})
 	}
 
-	getWinners(id) {
+	getWinnersByKaz(id) {
 		this.http.getWinnersByCountryService(id).subscribe((data: any) => {
 			console.log(data)
 			if (data.length === 0) {
@@ -122,5 +102,38 @@ export class KazakhstanComponent implements OnInit {
 		})
 	}
 
+
+	// Redirect Methods
+
+	redirect(item) {
+		console.log(item)
+		let regionId = item;
+		sessionStorage.setItem('regionId', regionId);
+		sessionStorage.removeItem('countryId');
+		this.router.navigate(['/kazakhstan', regionId])
+	}
+
+	redirectGuideItem(item) {
+		console.log(item);
+		let guideId = item.id;
+		sessionStorage.setItem('guideId', guideId);
+		this.router.navigate(['/guide-item'])
+	}
+
+	redirectToAuth() {
+		window.location.href = GlobalConfig.ADMIN_URL;
+	}
+
+	redirectToWinnersPage(item) {
+		let winnerId = item.id;
+		sessionStorage.setItem('winnerId', winnerId);
+		this.router.navigate(['/champ-page-info'])
+	}
+
+	redirectNewsPage(item) {
+		let newsId = item.id;
+		sessionStorage.setItem('newsId', newsId)
+		this.router.navigate(['/news-page'])
+	}
 
 }

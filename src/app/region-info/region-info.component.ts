@@ -138,21 +138,42 @@ export class RegionInfoComponent implements OnInit {
 
 
 	getNewsByCountry(countryId) {
-		this.http.getNewsByCountryService(countryId).subscribe(data => {
+		this.http.getNewsByCountryService(countryId).subscribe((data: any) => {
 			console.log(data)
+			if (data.length === 0) {
+				this.noNewsList = true;
+			} else {
+				this.newsList = data;
+				this.newsList.forEach(element => {
+					let time = Date.parse(element.published)
+					console.log(time)
+
+					let s = new Date(time).toLocaleDateString();
+					element.published = s;
+				});
+			}
 		})
 	}
 
 	getLeadershipByCountry(countryId) {
-		this.http.getLeadershipByCountryService(countryId).subscribe(data => {
-			console.log(data)
+		this.http.getLeadershipByCountryService(countryId).subscribe((data: any) => {
+			if (data.length === 0) {
+				this.noLeadershipList = true;
+			} else {
+				this.leadershipList = data;
+			}
 		})
 	}
 
 
 	getWinnersByCountry(countryId) {
-		this.http.getWinnersByCountryService(countryId).subscribe(data => {
-			console.log(data);
+		this.http.getWinnersByCountryService(countryId).subscribe((data: any) => {
+			console.log(data)
+			if (data.length === 0) {
+				this.noWinnersList = true;
+			} else {
+				this.winnersList = data;
+			}
 		})
 	}
 
@@ -170,8 +191,8 @@ export class RegionInfoComponent implements OnInit {
 
 	redirectGuideItem(item) {
 		console.log(item);
-		let guideId = item.id;
-		sessionStorage.setItem('guideId', guideId);
+		let leadershipId = item.id;
+		sessionStorage.setItem('leadershipId', leadershipId);
 		this.router.navigate(['/guide-item'])
 	}
 
