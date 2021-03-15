@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { HttpService } from '../service/http.service';
 
 @Component({
@@ -17,11 +18,68 @@ export class WorldMapComponent implements OnInit {
 	noNewsList: boolean;
 	noWinnersList: boolean;
 
-	constructor(private http: HttpService, private router: Router) { }
+	system: System = new System();
+	langs = Array<Lang>();
+
+	constructor(public router: Router, private http: HttpService, public translate: TranslateService) {
+		translate.setDefaultLang('ru');
+	}
 
 	ngOnInit(): void {
 		this.getCountryList();
 		this.getWorldFedElem();
+		this.getLangsList();
+	}
+
+	scrollToElement($element, sectionName) {
+		if (sectionName === 'about') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'guide') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'news') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'champs') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'partners') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+		else if (sectionName === 'contacts') {
+			$element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+		}
+	}
+
+	getLangsList() {
+		this.langs = Array<Lang>();
+		this.langs.push(new Lang(1, 'РУС', 'ru'));
+		this.langs.push(new Lang(2, 'ENG', 'en'));
+		this.langs.push(new Lang(2, 'ҚАЗ', 'kaz'));
+		this.system = new System();
+
+		// set lang to select option
+		this.setLangSelectOption();
+	}
+
+	setLangSelectOption() {
+		let lang = sessionStorage.getItem('lang');
+		if (lang) {
+			this.langs.forEach((element, index) => {
+				if (element.code === lang) {
+					this.system.lang = this.langs[index]
+					this.translate.use(element.code);
+				}
+			});
+		} else {
+			this.system.lang = this.langs[0];
+		}
+	}
+
+	selectLang(e): void {
+		this.translate.use(e.code);
+		sessionStorage.setItem('lang', e.code)
 	}
 
 	getWorldFedElem() {
@@ -109,4 +167,23 @@ export class WorldMapComponent implements OnInit {
 		this.router.navigate(['/champ-page-info'])
 	}
 
+}
+
+
+
+
+export class System {
+	lang: Lang;
+}
+
+export class Lang {
+	constructor(id: number, name: string, code: string) {
+		this.id = id;
+		this.name = name;
+		this.code = code;
+	}
+
+	id: number;
+	name: string;
+	code: string;
 }

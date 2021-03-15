@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from "../service/http.service";
 import { GlobalConfig } from "../../global";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-main',
@@ -15,7 +16,9 @@ export class MainComponent implements OnInit {
 	system: System = new System();
 	langs = Array<Lang>();
 
-	constructor(public router: Router, private http: HttpService) { }
+	constructor(public router: Router, private http: HttpService, public translate: TranslateService) {
+		translate.setDefaultLang('en');
+	}
 
 	ngOnInit(): void {
 		this.getCountryList();
@@ -26,7 +29,7 @@ export class MainComponent implements OnInit {
 		this.langs = Array<Lang>();
 		// this.colours.push(new Colour(-1, 'Выберите язык', 'select'));
 		this.langs.push(new Lang(1, 'РУС', 'ru'));
-		this.langs.push(new Lang(2, 'ENG', 'eng'));
+		this.langs.push(new Lang(2, 'ENG', 'en'));
 		this.langs.push(new Lang(2, 'ҚАЗ', 'kaz'));
 
 		this.system = new System();
@@ -34,12 +37,12 @@ export class MainComponent implements OnInit {
 
 		let systemLang = this.system.lang.code;
 		sessionStorage.setItem('lang', systemLang)
+		this.translate.use(systemLang);
 	}
 
-	selectLang(event) {
-		console.log(event);
-		let systemLang = event.code;
-		sessionStorage.setItem('lang', systemLang)
+	selectLang(e): void {
+		this.translate.use(e.code);
+		sessionStorage.setItem('lang', e.code)
 	}
 
 	getCountryList() {
