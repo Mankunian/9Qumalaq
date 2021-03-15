@@ -1,0 +1,35 @@
+{
+	"main": {
+		"footer_mail": "9qq.org",
+		"footer_text": "2021 9qq.org Барлық құқықтар сақталған",
+		"navbar_login": "КІРУ",
+		"map_button": "Өту"
+	},
+	"kazakhstan": {
+		"nav_about_us": "Біз туралы",
+		"nav_leaderships": "Көшбасшылық",
+		"nav_news": "Жаңалықтар",
+		"nav_winners": "Жулдегерлер",
+		"nav_partners": "Серіктестер",
+		"nav_contacts": "Байланыс"
+	},
+	"map": {
+		"kz-orda": "Қызылорда обл",
+		"uko": "ОҚО",
+		"zhambyl": "Жамбыл обл",
+		"ala": "Алматы обл",
+		"vko": "ШҚО",
+		"sko": "СҚО",
+		"pavlo": "Павлодар обл",
+		"aqmola": "Ақмола обл",
+		"kst": "Қостанай обл",
+		"krg": "Қарағанды обл",
+		"atyrau": "Атырау обл",
+		"mangystau": "Маңғыстау обл",
+		"zko": "БҚО",
+		"aqtobe": "Ақтобе обл"
+	},
+	"world-map": {
+		"map-title": "Әлемнің 30 еліндегі филиалдары"
+	}
+}

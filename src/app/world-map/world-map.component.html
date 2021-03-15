@@ -13,32 +13,30 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav me-auto mb-2 mb-md-0">
 				<li class="nav-item">
-					<!-- <a class="nav-link active" aria-current="page" href="#">О нас</a> -->
-					<a class="nav-link active" href="#about-us">О нас</a>
+					<a translate class="nav-link" (click)="scrollToElement(about, 'about')">kazakhstan.nav_about_us</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">Руководство</a>
+					<a translate class="nav-link" (click)="scrollToElement(guide, 'guide')">kazakhstan.nav_leaderships</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Новости</a>
+					<a translate class="nav-link" (click)="scrollToElement(news, 'news')">kazakhstan.nav_news</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Чемпионы и призеры</a>
+					<a translate class="nav-link" (click)="scrollToElement(champs, 'champs')">kazakhstan.nav_winners</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Наши партнеры</a>
+					<a translate class="nav-link" (click)="scrollToElement(partners, 'partners')">kazakhstan.nav_partners</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Контакты</a>
+					<a translate class="nav-link" (click)="scrollToElement(contacts, 'contacts')">kazakhstan.nav_contacts</a>
 				</li>
 
 			</ul>
 			<form class="d-flex">
 				<div class="form-group" style="margin: 0.5rem;">
-					<select class="form-control select" id="exampleFormControlSelect1">
-						<option>РУС</option>
-						<option>ҚАЗ</option>
-						<option>ENG</option>
+					<select class="select form-control" (ngModelChange)="selectLang($event)" [(ngModel)]="system.lang"
+						[ngModelOptions]="{standalone: true}">
+						<option *ngFor="let x of langs" [ngValue]="x">{{x.name}}</option>
 					</select>
 				</div>
 				<span class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> ВХОД</span>
@@ -916,7 +914,7 @@
 					<div class="country-list">
 						<div class="row" style="padding: 10px;">
 							<div class="col-sm-3">
-								<h2>ФИЛИАЛЫ в 30 странах мира</h2>
+								<h2 translate>world-map.map-title</h2>
 							</div>
 							<div class="col-sm-9">
 								<div class="row">
@@ -939,7 +937,7 @@
 </main>
 
 <!-- About-us -->
-<section>
+<section #about>
 	<div class="about-us">
 		<div class="container">
 			<div class="row">
@@ -976,14 +974,14 @@
 		<div class="container">
 			<div class="row mt-3">
 				<div class="col-sm-4">
-					<span class="title">Руководство</span>
+					<span translate class="title">kazakhstan.nav_leaderships</span>
 				</div>
 				<div class="col">
 					<div class="line"></div>
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-sm-6" *ngFor="let item of leadershipList">
+				<div class="col-sm-6 mb-3" *ngFor="let item of leadershipList">
 					<div class="box1" (click)="redirectLeadershipItem(item)">
 						<div class="row">
 							<div class="col-sm-12">
@@ -1011,12 +1009,12 @@
 </section>
 
 <!-- News -->
-<section id="news" [ngClass]="{paddingHas: newsList, paddingNo: noNewsList}">
+<section #news id="news" [ngClass]="{paddingHas: newsList, paddingNo: noNewsList}">
 	<div class="news-content" *ngIf="newsList">
 		<div class="container">
 			<div class="row mt-3">
-				<div class="col-sm-3">
-					<span class="title">Новости</span>
+				<div class="col-sm-4">
+					<span translate class="title">kazakhstan.nav_news</span>
 				</div>
 				<div class="col">
 					<div class="line"></div>
@@ -1059,12 +1057,12 @@
 </section>
 
 <!-- Winners -->
-<section id="champions" [ngClass]="{paddingHas: winnerList, paddingNo: noWinnersList}">
+<section #champs id="champions" [ngClass]="{paddingHas: winnerList, paddingNo: noWinnersList}">
 	<div class="champions-content" *ngIf="winnerList">
 		<div class="container">
 			<div class="row mt-3">
 				<div class="col-sm-6">
-					<span class="title">Чемпионы и призеры</span>
+					<span translate class="title">kazakhstan.nav_winners</span>
 				</div>
 				<div class="col">
 					<div class="line"></div>
@@ -1089,13 +1087,13 @@
 </section>
 
 <!-- Partners -->
-<section id="partners" style="padding: 60px 0;">
+<section #partners id="partners" style="padding: 60px 0;">
 	<div class="partners-content">
 		<div class="container-fluid">
 			<div class="row mt-3">
 				<div class="col-sm-12">
 					<div class="partners-title">
-						<span>Наши партнеры</span>
+						<span translate>kazakhstan.nav_partners</span>
 					</div>
 				</div>
 			</div>
@@ -1142,12 +1140,12 @@
 </section>
 
 <!-- Contacts -->
-<section id="contacts" style="padding: 30px 0;">
+<section #contacts id="contacts" style="padding: 30px 0;">
 	<div class="contacts-content">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3">
-					<span class="title">Контакты</span>
+					<span translate class="title">kazakhstan.nav_contacts</span>
 				</div>
 				<div class="col">
 					<div class="line"></div>

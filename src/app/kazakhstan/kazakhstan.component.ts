@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
 import { SharedService } from '../service/shared.service';
 import { GlobalConfig } from "../../global";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-kazakhstan',
@@ -18,13 +19,47 @@ export class KazakhstanComponent implements OnInit {
 	noLeaderships: boolean;
 	noWinners: boolean;
 	kazId: any;
+	system: System = new System();
+	langs = Array<Lang>();
 
-	constructor(public router: Router, private http: HttpService, private sharedService: SharedService) {
+	constructor(public router: Router, private http: HttpService, public translate: TranslateService) {
+		translate.setDefaultLang('ru');
 	}
 
 	ngOnInit(): void {
 		this.getCityList();
 		this.getKazFedElem();
+		this.getLangsList();
+	}
+
+	getLangsList() {
+		this.langs = Array<Lang>();
+		this.langs.push(new Lang(1, 'РУС', 'ru'));
+		this.langs.push(new Lang(2, 'ENG', 'en'));
+		this.langs.push(new Lang(2, 'ҚАЗ', 'kaz'));
+		this.system = new System();
+
+		// set lang to select option
+		this.setLangSelectOption();
+	}
+
+	setLangSelectOption() {
+		let lang = sessionStorage.getItem('lang');
+		if (lang) {
+			this.langs.forEach((element, index) => {
+				if (element.code === lang) {
+					this.system.lang = this.langs[index]
+					this.translate.use(element.code);
+				}
+			});
+		} else {
+			this.system.lang = this.langs[0];
+		}
+	}
+
+	selectLang(e): void {
+		this.translate.use(e.code);
+		sessionStorage.setItem('lang', e.code)
 	}
 
 	getKazFedElem() {
@@ -85,7 +120,6 @@ export class KazakhstanComponent implements OnInit {
 				this.newsList = data;
 				this.newsList.forEach(element => {
 					let time = Date.parse(element.published)
-					console.log(time)
 					let s = new Date(time).toLocaleDateString();
 					element.published = s;
 				});
@@ -143,5 +177,22 @@ export class KazakhstanComponent implements OnInit {
 		sessionStorage.setItem('countryId', countryId);
 		this.router.navigate(['/news-page'])
 	}
+}
 
+
+
+export class System {
+	lang: Lang;
+}
+
+export class Lang {
+	constructor(id: number, name: string, code: string) {
+		this.id = id;
+		this.name = name;
+		this.code = code;
+	}
+
+	id: number;
+	name: string;
+	code: string;
 }

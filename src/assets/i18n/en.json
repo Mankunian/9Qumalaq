@@ -1,0 +1,35 @@
+{
+	"main": {
+		"footer_mail": "9qq.org",
+		"footer_text": "2021 9qq.org All rights reserved.",
+		"navbar_login": "LOGIN",
+		"map_button": "Go"
+	},
+	"kazakhstan": {
+		"nav_about_us": "About-us",
+		"nav_leaderships": "Leaderships",
+		"nav_news": "News",
+		"nav_winners": "Winners",
+		"nav_partners": "Our Partners",
+		"nav_contacts": "Contacts"
+	},
+	"map": {
+		"kz-orda": "Kyzyl-orda region",
+		"uko": "SKR",
+		"zhambyl": "Zhambyl region",
+		"ala": "Almaty region",
+		"vko": "EKR",
+		"sko": "NKR",
+		"pavlo": "Pavlodar region",
+		"aqmola": "Aqmola region",
+		"kst": "Kostanay region",
+		"krg": "Karaganda region",
+		"atyrau": "Atyrau region",
+		"mangystau": "Mangystau region",
+		"zko": "WKR",
+		"aqtobe": "Aqtobe region"
+	},
+	"world-map": {
+		"map-title": "Branches in 30 countries of the world"
+	}
+}

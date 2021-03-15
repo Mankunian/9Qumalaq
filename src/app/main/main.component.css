@@ -6,7 +6,7 @@
 	color: #fff;
 	font-size: large;
 	font-family: 'Montserrat';
-	margin: 10px;
+	margin: 13px;
 }
 
 .main{
@@ -113,7 +113,7 @@
   /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) { 
 	.card img{
-		width: 80%;
+		width: 81%;
 		margin: 0 auto;
 	}
 }

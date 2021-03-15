@@ -8,7 +8,7 @@
 	color: #fff;
 	font-size: large;
 	font-family: 'Montserrat';
-	margin: 10px;
+	margin: 13px;
 }
 
 .lang{
@@ -176,7 +176,7 @@ path:hover, circle:hover {
 }
 
 .card-body{
-	min-height: 180px;
+	min-height: 120px;
 }
 
 .news-content span.title{
@@ -288,7 +288,7 @@ path:hover, circle:hover {
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 29px;
 	color: #033271;
 }

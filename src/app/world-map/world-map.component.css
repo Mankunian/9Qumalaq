@@ -233,7 +233,7 @@ path:hover, circle:hover {
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 24px;
 	text-transform: uppercase;
 	color: #033271;
@@ -243,7 +243,7 @@ path:hover, circle:hover {
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 24px;
 	/* identical to box height */
 	text-transform: capitalize;
@@ -306,7 +306,7 @@ path:hover, circle:hover {
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 29px;
 
 	color: #033271;

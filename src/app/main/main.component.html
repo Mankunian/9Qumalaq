@@ -8,19 +8,13 @@
 				</a>
 				<form class="d-flex">
 					<div class="form-group" style="margin: 0.5rem;">
-
-
-						<!-- <select [(ngModel)]="selectedLang" [ngModelOptions]="{standalone: true}" class="select form-control"
-							(ngModelChange)="selectLang($event)">
-							<option *ngFor="let oneOption of langs" [ngValue]="oneOption">{{oneOption.name}}</option>
-						</select> -->
 						<select class="select form-control" (ngModelChange)="selectLang($event)" [(ngModel)]="system.lang"
 							[ngModelOptions]="{standalone: true}">
 							<option *ngFor="let x of langs" [ngValue]="x">{{x.name}}</option>
 						</select>
 					</div>
-					<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
-						ВХОД</span>
+					<span translate (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+						main.navbar_login</span>
 				</form>
 			</div>
 		</nav>
@@ -31,13 +25,13 @@
 				<div class="col-sm-12 card">
 					<img src="../../assets/img/main/1.png" alt="">
 					<div class="card-img-overlay">
-						<button (click)="openKazMap()" type="button" class="btn btn-warning">Перейти</button>
+						<button translate (click)="openKazMap()" type="button" class="btn btn-warning">main.map_button</button>
 					</div>
 				</div>
 				<div class="col-sm-12 card">
 					<img src="../../assets/img/main/2.png" alt="">
 					<div class="card-img-overlay">
-						<button (click)="openWorldMap()" type="button" class="btn btn-warning">Перейти</button>
+						<button translate (click)="openWorldMap()" type="button" class="btn btn-warning">main.map_button</button>
 					</div>
 				</div>
 			</div>
@@ -47,7 +41,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-5 text-center">
-					<span> 2021 9qq.org All rights reserved.</span>
+					<span translate>main.footer_text</span>
 				</div>
 				<div class=" col-sm-4">
 					<div class="socials text-center">
@@ -58,7 +52,7 @@
 					</div>
 				</div>
 				<div class="col-sm-3 text-center">
-					<span>9qq.org</span>
+					<span translate>main.footer_mail</span>
 				</div>
 			</div>
 		</div>
