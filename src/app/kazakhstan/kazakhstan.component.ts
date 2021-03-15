@@ -17,6 +17,7 @@ export class KazakhstanComponent implements OnInit {
 	noNews: boolean;
 	noLeaderships: boolean;
 	noWinners: boolean;
+	kazId: any;
 
 	constructor(public router: Router, private http: HttpService, private sharedService: SharedService) {
 	}
@@ -30,6 +31,7 @@ export class KazakhstanComponent implements OnInit {
 		let kazFederation = JSON.parse(sessionStorage.getItem('kazFederation'))
 		if (kazFederation) {
 			let kazId = kazFederation.id;
+			this.kazId = kazId;
 			this.getLeadershipsByKaz(kazId);
 			this.getNewsByKaz(kazId);
 			this.getWinnersByKaz(kazId);
@@ -115,8 +117,10 @@ export class KazakhstanComponent implements OnInit {
 
 	redirectGuideItem(item) {
 		console.log(item);
-		let guideId = item.id;
-		sessionStorage.setItem('guideId', guideId);
+		let leadershipId = item.id;
+		let countryId = this.kazId;
+		sessionStorage.setItem('leadershipId', leadershipId);
+		sessionStorage.setItem('countryId', countryId);
 		this.router.navigate(['/guide-item'])
 	}
 
@@ -126,13 +130,17 @@ export class KazakhstanComponent implements OnInit {
 
 	redirectToWinnersPage(item) {
 		let winnerId = item.id;
+		let countryId = this.kazId;
 		sessionStorage.setItem('winnerId', winnerId);
+		sessionStorage.setItem('countryId', countryId);
 		this.router.navigate(['/champ-page-info'])
 	}
 
 	redirectNewsPage(item) {
 		let newsId = item.id;
-		sessionStorage.setItem('newsId', newsId)
+		let countryId = this.kazId;
+		sessionStorage.setItem('newsId', newsId);
+		sessionStorage.setItem('countryId', countryId);
 		this.router.navigate(['/news-page'])
 	}
 
