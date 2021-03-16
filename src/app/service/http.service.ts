@@ -75,7 +75,7 @@ export class HttpService {
 	}
 
 	getWinnerByIdCountryService(winnerId) {
-		return this.http.get(this.BASE_API_URL + '/country/winners/' + winnerId + '/')
+		return this.http.get(this.BASE_API_URL + '/country/winners/' + winnerId)
 	}
 
 
