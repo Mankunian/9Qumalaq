@@ -25,10 +25,14 @@ const routes: Routes = [
 	{ path: 'guide-page-info', component: GuidePageInfoComponent },
 	{ path: 'sign-in', component: SignInComponent },
 	{ path: 'news-page', component: NewsPageComponent },
-	{ path: 'kazakhstan/:id', component: RegionInfoComponent },
-	{ path: 'world/:id', component: RegionInfoComponent },
+	// RegionInfo
+	{ path: 'city/:id', component: RegionInfoComponent },
+	{ path: 'country/:id', component: RegionInfoComponent },
+
 	{ path: 'champ-page', component: ChampPageComponent },
-	{ path: 'champ-page-info', component: PageChampInfoComponent },
+	// Winners-page
+	{ path: 'country/winners/:winnerId', component: PageChampInfoComponent },
+	{ path: ':type/winners/:winnerId', component: PageChampInfoComponent },
 	{ path: '**', component: MainComponent },
 	{ path: '', component: MainComponent },
 ];

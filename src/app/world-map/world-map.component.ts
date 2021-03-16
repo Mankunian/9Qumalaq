@@ -86,6 +86,7 @@ export class WorldMapComponent implements OnInit {
 		let worldId = JSON.parse(sessionStorage.getItem('worldFederation'))
 		if (worldId) {
 			let countryId = worldId.id;
+			this.countryId = countryId;
 			this.getLeadershipListByWorld(countryId);
 			this.getNewsListByWorld(countryId);
 			this.getWinnersListByWorld(countryId);
@@ -148,11 +149,13 @@ export class WorldMapComponent implements OnInit {
 	}
 
 	redirectByClickMap(item) {
-		console.log(item)
-		let countryId = item.id;
-		sessionStorage.setItem('countryId', countryId);
-		sessionStorage.removeItem('regionId')
-		this.router.navigate(['/world', countryId])
+		let countryObj = {
+			type: 'country',
+			id: item.id
+		}
+		sessionStorage.removeItem('cityObj')
+		sessionStorage.setItem('countryObj', JSON.stringify(countryObj));
+		this.router.navigate(['/country', countryObj.id])
 	}
 
 	redirectNewsPage(item) {
@@ -162,9 +165,12 @@ export class WorldMapComponent implements OnInit {
 	}
 
 	redirectToWinnersPage(item) {
+
 		let winnerId = item.id;
 		sessionStorage.setItem('winnerId', winnerId);
-		this.router.navigate(['/champ-page-info'])
+		sessionStorage.removeItem('cityObj');
+		sessionStorage.setItem('countryObj', JSON.stringify({ type: 'country', id: this.countryId }));
+		this.router.navigate(['/country/winners', winnerId]);
 	}
 
 }

@@ -16,13 +16,12 @@ export class PageChampInfoComponent implements OnInit {
 
 	ngOnInit(): void {
 		let winnerId = sessionStorage.getItem('winnerId');
-		let countryId = sessionStorage.getItem('countryId');
-		let regionId = sessionStorage.getItem('regionId');
-
-		if (countryId) {
+		if (sessionStorage.cityObj) {
+			// let regionId = JSON.parse(sessionStorage.cityObj.id);
+			this.getWinnerItemByRegion(winnerId)
+		} else {
+			// let countryId = JSON.parse(sessionStorage.countryObj.id);
 			this.getWinnerItemByCountry(winnerId);
-		} else if (regionId) {
-			this.getWinnerItemByRegion(winnerId);
 		}
 	}
 
