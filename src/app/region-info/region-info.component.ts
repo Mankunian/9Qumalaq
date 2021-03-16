@@ -26,7 +26,6 @@ export class RegionInfoComponent implements OnInit {
 	constructor(
 		config: NgbCarouselConfig,
 		private router: Router,
-		private sharedService: SharedService,
 		private http: HttpService) {
 		config.interval = 5000;
 		config.keyboard = true;
@@ -34,14 +33,18 @@ export class RegionInfoComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.getRegionIdMap()
-		this.getCountryIdMap();
+		if (sessionStorage.cityObj) {
+			this.getRegionIdMap();
+		} else if (sessionStorage.countryObj) {
+			this.getCountryIdMap();
+		}
 	}
 
 
 	// Метод получения id региона если есть в sessionStorage
 	getRegionIdMap() {
-		let regionId = sessionStorage.getItem('regionId');
+		let cityObj = JSON.parse(sessionStorage.cityObj);
+		let regionId = cityObj.id;
 		if (regionId) {
 			this.getNewsByCity(regionId);
 			this.getLeadershipsByCity(regionId);
@@ -52,7 +55,8 @@ export class RegionInfoComponent implements OnInit {
 
 	// Метод получения id страны если есть в sessionStorage
 	getCountryIdMap() {
-		let countryId = sessionStorage.getItem('countryId');
+		let countryObj = JSON.parse(sessionStorage.countryObj);
+		let countryId = countryObj.id;
 		if (countryId) {
 			this.getNewsByCountry(countryId);
 			this.getLeadershipByCountry(countryId);
@@ -186,7 +190,13 @@ export class RegionInfoComponent implements OnInit {
 	redirectToWinnersPage(item) {
 		let winnerId = item.id;
 		sessionStorage.setItem('winnerId', winnerId);
-		this.router.navigate(['/champ-page-info'])
+		if (sessionStorage.cityObj) {
+			let cityObj = JSON.parse(sessionStorage.cityObj);
+			this.router.navigate(['/' + cityObj.type + '/winners' + '/' + winnerId])
+		} else {
+			let countryObj = JSON.parse(sessionStorage.countryObj);
+			this.router.navigate(['/' + countryObj.type + '/winners' + '/' + winnerId]);
+		}
 	}
 
 	redirectGuideItem(item) {

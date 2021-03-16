@@ -21,6 +21,7 @@ export class KazakhstanComponent implements OnInit {
 	kazId: any;
 	system: System = new System();
 	langs = Array<Lang>();
+	kazName: any;
 
 	constructor(public router: Router, private http: HttpService, public translate: TranslateService) {
 		translate.setDefaultLang('ru');
@@ -66,7 +67,9 @@ export class KazakhstanComponent implements OnInit {
 		let kazFederation = JSON.parse(sessionStorage.getItem('kazFederation'))
 		if (kazFederation) {
 			let kazId = kazFederation.id;
+			let kazName = kazFederation.name;
 			this.kazId = kazId;
+			this.kazName = kazName;
 			this.getLeadershipsByKaz(kazId);
 			this.getNewsByKaz(kazId);
 			this.getWinnersByKaz(kazId);
@@ -142,11 +145,14 @@ export class KazakhstanComponent implements OnInit {
 	// Redirect Methods
 
 	redirect(item) {
-		console.log(item)
-		let regionId = item;
-		sessionStorage.setItem('regionId', regionId);
-		sessionStorage.removeItem('countryId');
-		this.router.navigate(['/kazakhstan', regionId])
+		let cityObj = {
+			type: 'city',
+			id: item
+		}
+		// sessionStorage.setItem('cityObj', cityObj);
+		sessionStorage.setItem('cityObj', JSON.stringify(cityObj));
+		sessionStorage.removeItem('countryObj');
+		this.router.navigate(['/city', cityObj.id])
 	}
 
 	redirectGuideItem(item) {
@@ -167,7 +173,8 @@ export class KazakhstanComponent implements OnInit {
 		let countryId = this.kazId;
 		sessionStorage.setItem('winnerId', winnerId);
 		sessionStorage.setItem('countryId', countryId);
-		this.router.navigate(['/champ-page-info'])
+		// this.router.navigate(['/champ-page-info'])
+		this.router.navigate(['/country/winners', winnerId])
 	}
 
 	redirectNewsPage(item) {
