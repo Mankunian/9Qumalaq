@@ -108,10 +108,15 @@
 						</div>
 					</section>
 				</div>
+
+				<div class="lds-ripple" *ngIf="!winnerElement">
+					<div></div>
+					<div></div>
+				</div>
 			</div>
-			<div class="row mt-3 mb-3">
+			<div class="row mt-3 mb-3" *ngIf="winnerElement">
 				<div class="col-sm-12">
-					<section class="dost" *ngIf="winnerElement">
+					<section class="dost">
 						<h2>Турнирные достижения</h2>
 						<span *ngFor="let item of description">
 							{{item}} <br>
