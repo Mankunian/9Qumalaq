@@ -15,11 +15,9 @@ export class GuideItemComponent implements OnInit {
 
 	ngOnInit(): void {
 		let leadershipId = sessionStorage.getItem('leadershipId');
-		let countryId = sessionStorage.getItem('countryId');
-		let regionId = sessionStorage.getItem('regionId');
-		if (regionId) {
+		if (sessionStorage.cityObj) {
 			this.getLeadershipByCity(leadershipId)
-		} else if (countryId) {
+		} else if (sessionStorage.countryObj) {
 			this.getLeadershipByCountry(leadershipId)
 		}
 	}
@@ -29,19 +27,28 @@ export class GuideItemComponent implements OnInit {
 	}
 
 	getLeadershipByCity(id) {
-		this.http.getLeadershipByCityService(id).subscribe((data: any) => {
-			console.log(data);
-			this.leadershipItem = [];
-			this.leadershipItem.push(data)
-		})
+		let cityObj = JSON.parse(sessionStorage.cityObj);
+		let regionId = cityObj.id;
+		if (regionId) {
+			this.http.getLeadershipByCityService(id).subscribe((data: any) => {
+				console.log(data);
+				this.leadershipItem = [];
+				this.leadershipItem.push(data)
+			})
+		}
+
 	}
 
 	getLeadershipByCountry(id) {
-		this.http.getLeadershipByIdCountryService(id).subscribe((data: any) => {
-			console.log(data);
-			this.leadershipItem = [];
-			this.leadershipItem.push(data);
-		})
+		let countryObj = JSON.parse(sessionStorage.countryObj);
+		let countryId = countryObj.id;
+		if (countryId) {
+			this.http.getLeadershipByIdCountryService(id).subscribe((data: any) => {
+				console.log(data);
+				this.leadershipItem = [];
+				this.leadershipItem.push(data);
+			})
+		}
 	}
 
 	goSlideDown(item) {
