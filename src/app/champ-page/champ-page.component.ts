@@ -64,4 +64,8 @@ export class ChampPageComponent implements OnInit {
 		window.location.href = window.location.href = GlobalConfig.ADMIN_URL;
 	}
 
+	redirectToWinnersPage(item) {
+
+	}
+
 }

@@ -318,3 +318,17 @@ ngb-carousel .wrapper>img {
 .paddingNoPartners{
 	padding: 0;
 }
+
+
+@media (min-width: 425px) { 
+	.guide-title {
+    padding: 20px 0;
+		text-align: center;
+}
+ }
+
+@media (min-width: 768px) {  }
+
+@media (min-width: 992px) {  }
+
+@media (min-width: 1200px) {  }
