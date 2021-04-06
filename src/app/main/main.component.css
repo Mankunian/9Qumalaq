@@ -81,15 +81,22 @@
 }
 
 .kaz{
-	/* background: green; */
-	background: url('../../assets/img/main/4.png') no-repeat center top ;
+	background: url('../../assets/img/main/4.png') no-repeat center top;
+	-o-background-size: cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-khtml-background-size:cover;
 	background-size: cover;
 	height: 50%;
 }
 .world{
 	background: greenyellow;
-	background: url('../../assets/img/main/6.png') no-repeat center top ;
+	background: url('../../assets/img/main/6.png') no-repeat center top;
 	background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-khtml-background-size:cover;
 	height: 50%;
 }
 
