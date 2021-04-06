@@ -39,7 +39,8 @@
 						<option *ngFor="let x of langs" [ngValue]="x">{{x.name}}</option>
 					</select>
 				</div>
-				<span class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> ВХОД</span>
+				<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+					ВХОД</span>
 			</form>
 		</div>
 	</div>

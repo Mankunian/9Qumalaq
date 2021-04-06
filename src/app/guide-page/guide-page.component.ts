@@ -22,6 +22,6 @@ export class GuidePageComponent implements OnInit {
 	}
 
 	redirectToAuth() {
-		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+		window.location.href = "http://back.aqyl.host/api/admin/login/?next=/api/admin/"
 	}
 }

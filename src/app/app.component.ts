@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
 	selectLang(e) { }
 
 	scrollToElement($element, sectionName) { }
+
 }
 
 

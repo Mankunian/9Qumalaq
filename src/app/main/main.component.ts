@@ -46,12 +46,14 @@ export class MainComponent implements OnInit {
 	}
 
 	getCountryList() {
+		const kazakhstanId = 4;
+		const worldFederationId = 3;
 		this.http.getCountryListService().subscribe((data: any) => {
 			console.log(data)
 			data.forEach(element => {
-				if (element.id === 1) {
+				if (element.id === kazakhstanId) {
 					this.kazFed = element;
-				} else if (element.id === 2) {
+				} else if (element.id === worldFederationId) {
 					this.worldFed = element;
 				}
 			});

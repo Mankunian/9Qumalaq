@@ -173,6 +173,10 @@ export class WorldMapComponent implements OnInit {
 		this.router.navigate(['/country/winners', winnerId]);
 	}
 
+	redirectToAuth() {
+		window.location.href = "http://back.aqyl.host/api/admin/login/?next=/api/admin/"
+	}
+
 }
 
 

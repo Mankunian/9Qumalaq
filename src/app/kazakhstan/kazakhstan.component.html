@@ -347,10 +347,10 @@
 </section>
 
 <!-- Partners section -->
-<section #partners id="partners" style="padding: 60px 0;">
+<section #partners id="partners" [ngClass]="{paddingPartners: winnersList, paddingNoPartners: noWinners}">
 	<div class="partners-content">
 		<div class="container-fluid">
-			<div class="row mt-3">
+			<div class="row" [ngClass]="{'mt-3': winnersList, 'mt-0': noWinners}">
 				<div class="col-sm-12">
 					<div class="partners-title">
 						<span translate>kazakhstan.nav_partners</span>

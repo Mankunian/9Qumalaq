@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GlobalConfig } from 'src/global';
 
 @Component({
 	selector: 'app-champ-page',
@@ -22,7 +23,7 @@ export class ChampPageComponent implements OnInit {
 	}
 
 	redirectToAuth() {
-		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+		window.location.href = window.location.href = GlobalConfig.ADMIN_URL;
 	}
 
 }
