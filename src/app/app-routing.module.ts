@@ -13,6 +13,7 @@ import { GuidePageInfoComponent } from './guide-page-info/guide-page-info.compon
 import { ChampPageComponent } from './champ-page/champ-page.component';
 import { PageChampInfoComponent } from './page-champ-info/page-champ-info.component';
 import { GuideItemComponent } from './guide-item/guide-item.component';
+import { NewsListOnlyComponent } from './news-list-only/news-list-only.component';
 // import { PartnersPageComponent } from './partners-page/partners-page.component';
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
 	{ path: 'guide-page-info', component: GuidePageInfoComponent },
 	{ path: 'sign-in', component: SignInComponent },
 	{ path: 'news-page', component: NewsPageComponent },
+	{ path: ':type/:id/news', component: NewsListOnlyComponent },
 	// RegionInfo
 	{ path: 'city/:id', component: RegionInfoComponent },
 	{ path: 'country/:id', component: RegionInfoComponent },

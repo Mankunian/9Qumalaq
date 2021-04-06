@@ -18,7 +18,7 @@
 					<a class="nav-link" routerLink="/guide-page">Руководство</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/news-page">Новости</a>
+					<a class="nav-link" (click)="redirectNewsList()">Новости</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" routerLink="/champ-page">Чемпионы и призеры</a>
@@ -189,10 +189,10 @@
 </section>
 
 <!-- Partners section -->
-<section id="partners">
+<section id="partners" [ngClass]="{paddingPartners: winnersList, paddingNoPartners: noWinnersList}">
 	<div class="partners-content">
 		<div class="container-fluid">
-			<div class="row mt-3">
+			<div class="row" [ngClass]="{'mt-3': winnersList, 'mt-0': noWinnersList}">
 				<div class="col-sm-12">
 					<div class="partners-title">
 						<span>Наши партнеры</span>

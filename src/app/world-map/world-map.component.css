@@ -359,3 +359,11 @@ path:hover, circle:hover {
 .select option{
 	background: rgba(0, 109, 255, 0.65);
 }
+
+.paddingPartners{
+	padding: 60px 0;
+}
+
+.paddingNoPartners{
+	padding: 0;
+}

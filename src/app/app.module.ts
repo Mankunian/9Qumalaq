@@ -25,6 +25,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NewsListOnlyComponent } from './news-list-only/news-list-only.component';
 
 @NgModule({
 	declarations: [
@@ -41,6 +42,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 		ChampPageComponent,
 		PageChampInfoComponent,
 		GuideItemComponent,
+		NewsListOnlyComponent,
 	],
 	imports: [
 		BrowserModule,

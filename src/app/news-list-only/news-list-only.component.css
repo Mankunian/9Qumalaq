@@ -1,5 +1,5 @@
 main .container{
-	padding-top: 21px;
+	/* padding-top: 21px; */
 }
 
 .navbar, .flex-grow-0{
@@ -103,6 +103,9 @@ main .container{
 /* Footer */
 
 .footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
 	color: #fff;
 }
@@ -133,4 +136,8 @@ main .container{
 .guide-title{
 	padding: 20px 0;
 	text-align: left;
+}
+
+.no-results-found-block{
+	
 }

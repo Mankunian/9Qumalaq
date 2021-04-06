@@ -206,4 +206,18 @@ export class RegionInfoComponent implements OnInit {
 		this.router.navigate(['/guide-item'])
 	}
 
+	redirectNewsList() {
+		if (sessionStorage.cityObj) {
+			let city = JSON.parse(sessionStorage.cityObj);
+			let type = city.type;
+			let id = city.id;
+			this.router.navigate(['/' + type + '/' + id + '/' + 'news'])
+		} else if (sessionStorage.countryObj) {
+			let country = JSON.parse(sessionStorage.countryObj);
+			let type = country.type;
+			let id = country.id;
+		}
+
+	}
+
 }

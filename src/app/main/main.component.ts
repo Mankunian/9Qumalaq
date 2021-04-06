@@ -63,14 +63,16 @@ export class MainComponent implements OnInit {
 	openKazMap() {
 		this.router.navigate(['/kazakhstan'])
 		if (this.kazFed) {
-			sessionStorage.setItem('kazFederation', JSON.stringify(this.kazFed))
+			sessionStorage.setItem('kazFederation', JSON.stringify(this.kazFed));
+			sessionStorage.removeItem('worldFederation');
 		}
 	}
 
 	openWorldMap() {
 		this.router.navigate(['/world-map'])
 		if (this.worldFed) {
-			sessionStorage.setItem('worldFederation', JSON.stringify(this.worldFed))
+			sessionStorage.setItem('worldFederation', JSON.stringify(this.worldFed));
+			sessionStorage.removeItem('kazFederation');
 		}
 	}
 

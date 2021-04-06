@@ -309,3 +309,12 @@ ngb-carousel .wrapper>img {
 .footer span{
 	font-family: Montserrat;
 }
+
+
+.paddingPartners{
+	padding: 60px 0;
+}
+
+.paddingNoPartners{
+	padding: 0;
+}
