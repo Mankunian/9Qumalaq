@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { GlobalConfig } from 'src/global';
 import { HttpService } from '../service/http.service';
 import { SharedService } from '../service/shared.service';
 
@@ -22,6 +23,8 @@ export class RegionInfoComponent implements OnInit {
 	noWinnersList: boolean;
 	type: any;
 	locationId: any;
+	cityObj: any;
+	countryObj: any;
 
 	constructor(
 		config: NgbCarouselConfig,
@@ -44,10 +47,12 @@ export class RegionInfoComponent implements OnInit {
 	checkSessionStorage() {
 		if (sessionStorage.cityObj) {
 			let city = JSON.parse(sessionStorage.cityObj);
+			this.cityObj = city;
 			this.type = city.type;
 			this.locationId = city.id;
 		} else if (sessionStorage.countryObj) {
 			let country = JSON.parse(sessionStorage.countryObj);
+			this.countryObj = country;
 			this.type = country.type;
 			this.locationId = country.id;
 		}
@@ -72,11 +77,12 @@ export class RegionInfoComponent implements OnInit {
 	}
 
 	goSlideDown(item) {
-		if (item === 'partners') {
-			this.router.navigate(['/kazakhstan'], { fragment: 'partners' });
-		} else if (item === 'contacts') {
-			this.router.navigate(['/kazakhstan'], { fragment: 'contacts' });
+		if (this.cityObj) {
+			this.router.navigate(['/kazakhstan'], { fragment: item })
+		} else {
+			this.router.navigate(['/world-map'], { fragment: item })
 		}
+
 	}
 
 	// City API
@@ -212,6 +218,9 @@ export class RegionInfoComponent implements OnInit {
 		this.router.navigate(['/guide-item'])
 	}
 
+	redirectToAuth() {
+		window.location.href = GlobalConfig.ADMIN_URL;
+	}
 
 
 	// Redirect from navbar menu

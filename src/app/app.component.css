@@ -1,0 +1,9 @@
+.select{
+	background: transparent;
+	color: #fff;
+	border-radius: 0;
+}
+
+.select option{
+	background: rgba(0, 109, 255, 0.65);
+}

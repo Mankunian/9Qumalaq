@@ -11,6 +11,7 @@ import { HttpService } from '../service/http.service';
 export class ChampPageComponent implements OnInit {
 	noWinnersList: boolean;
 	winnersList: any;
+	type: any;
 
 	constructor(private router: Router, private http: HttpService) { }
 
@@ -22,10 +23,12 @@ export class ChampPageComponent implements OnInit {
 		if (sessionStorage.cityObj) {
 			let city = JSON.parse(sessionStorage.cityObj);
 			let locationId = city.id;
+			this.type = city.type;
 			this.getWinnersByCity(locationId)
 		} else if (sessionStorage.countryObj) {
 			let country = JSON.parse(sessionStorage.countryObj);
 			let locationId = country.id;
+			this.type = country.type;
 			this.getWinnersByCountry(locationId)
 		}
 	}
@@ -65,7 +68,10 @@ export class ChampPageComponent implements OnInit {
 	}
 
 	redirectToWinnersPage(item) {
-
+		let winnerId = item.id;
+		sessionStorage.setItem('winnerId', winnerId);
+		// this.router.navigate(['/champ-page-info'])
+		this.router.navigate([this.type + '/winners/', winnerId])
 	}
 
 }
