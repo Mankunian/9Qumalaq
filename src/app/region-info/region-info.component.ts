@@ -20,8 +20,8 @@ export class RegionInfoComponent implements OnInit {
 	noLeadershipList: boolean;
 	noNewsList: boolean;
 	noWinnersList: boolean;
-
-	// images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
+	type: any;
+	locationId: any;
 
 	constructor(
 		config: NgbCarouselConfig,
@@ -33,6 +33,7 @@ export class RegionInfoComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.checkSessionStorage();
 		if (sessionStorage.cityObj) {
 			this.getRegionIdMap();
 		} else if (sessionStorage.countryObj) {
@@ -40,29 +41,34 @@ export class RegionInfoComponent implements OnInit {
 		}
 	}
 
+	checkSessionStorage() {
+		if (sessionStorage.cityObj) {
+			let city = JSON.parse(sessionStorage.cityObj);
+			this.type = city.type;
+			this.locationId = city.id;
+		} else if (sessionStorage.countryObj) {
+			let country = JSON.parse(sessionStorage.countryObj);
+			this.type = country.type;
+			this.locationId = country.id;
+		}
+	}
 
 	// Метод получения id региона если есть в sessionStorage
 	getRegionIdMap() {
-		let cityObj = JSON.parse(sessionStorage.cityObj);
-		let regionId = cityObj.id;
-		if (regionId) {
-			this.getNewsByCity(regionId);
-			this.getLeadershipsByCity(regionId);
-			this.getWinnersByCity(regionId);
-			this.getCityList(regionId);
-		}
+		let regionId = this.locationId;
+		this.getNewsByCity(regionId);
+		this.getLeadershipsByCity(regionId);
+		this.getWinnersByCity(regionId);
+		this.getCityList(regionId);
 	}
 
 	// Метод получения id страны если есть в sessionStorage
 	getCountryIdMap() {
-		let countryObj = JSON.parse(sessionStorage.countryObj);
-		let countryId = countryObj.id;
-		if (countryId) {
-			this.getNewsByCountry(countryId);
-			this.getLeadershipByCountry(countryId);
-			this.getWinnersByCountry(countryId);
-			this.getCountryList(countryId)
-		}
+		let countryId = this.locationId;
+		this.getNewsByCountry(countryId);
+		this.getLeadershipByCountry(countryId);
+		this.getWinnersByCountry(countryId);
+		this.getCountryList(countryId)
 	}
 
 	goSlideDown(item) {
@@ -206,18 +212,17 @@ export class RegionInfoComponent implements OnInit {
 		this.router.navigate(['/guide-item'])
 	}
 
-	redirectNewsList() {
-		if (sessionStorage.cityObj) {
-			let city = JSON.parse(sessionStorage.cityObj);
-			let type = city.type;
-			let id = city.id;
-			this.router.navigate(['/' + type + '/' + id + '/' + 'news'])
-		} else if (sessionStorage.countryObj) {
-			let country = JSON.parse(sessionStorage.countryObj);
-			let type = country.type;
-			let id = country.id;
-		}
 
+
+	// Redirect from navbar menu
+
+
+	redirectNewsList() {
+		this.router.navigate(['/' + this.type + '/' + this.locationId + '/' + 'news'])
+	}
+
+	redirectWinnersList() {
+		this.router.navigate(['/' + this.type + '/' + this.locationId + '/' + 'winners'])
 	}
 
 }

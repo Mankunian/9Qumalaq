@@ -31,7 +31,7 @@ const routes: Routes = [
 	{ path: 'city/:id', component: RegionInfoComponent },
 	{ path: 'country/:id', component: RegionInfoComponent },
 
-	{ path: 'champ-page', component: ChampPageComponent },
+	{ path: ':type/:id/winners', component: ChampPageComponent },
 	// Winners-page
 	{ path: 'country/winners/:winnerId', component: PageChampInfoComponent },
 	{ path: ':type/winners/:winnerId', component: PageChampInfoComponent },

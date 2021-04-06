@@ -14,12 +14,10 @@ export class NewsListOnlyComponent implements OnInit {
 
 	ngOnInit(): void {
 		if (sessionStorage.cityObj) {
-			alert('cityObj')
 			let cityObj = JSON.parse(sessionStorage.cityObj)
 			let cityId = cityObj.id;
 			this.getNewsByCity(cityId)
 		} else {
-			alert('countryObj')
 			let countryObj = JSON.parse(sessionStorage.countryObj);
 			let countryId = countryObj.id;
 			this.getNewsByCountry(countryId);

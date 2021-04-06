@@ -18,12 +18,14 @@
 }
 
 
+
+
 /* Чемпионы и призеры */
 .champions-content span.title{
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 35px;
 	line-height: 49px;
 	text-transform: uppercase;
 	color: #033271;
@@ -72,6 +74,9 @@
 	color: #033271;
 }
 
+.card-body {
+	min-height: 180px;
+}
 
 .line{
 	width: 100%;
