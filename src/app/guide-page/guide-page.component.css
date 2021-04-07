@@ -1,5 +1,5 @@
 main .container{
-	padding-top: 21px;
+	/* padding-top: 21px; */
 }
 
 .navbar, .flex-grow-0{
@@ -107,6 +107,14 @@ main .container{
 	color: #fff;
 }
 
+.fixedBottom{
+	background: linear-gradient(360deg, rgba(27, 82, 156, 0.99) -21.25%, #033271 120%);
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
 .socials{
 	/* float: right; */
 }
@@ -134,3 +142,38 @@ main .container{
 	padding: 20px 0;
 	text-align: left;
 }
+
+.block{
+	display: block;
+}
+
+.none{
+	display: none;
+}
+
+
+/* Устройства с очень маленьким экраном (смартфоны, меньше 768px) */
+/* Стили CSS (по умолчанию) - для ширины viewport <768px */
+
+/* Устроства с маленьким экраном (планшеты, 768px и выше) */
+@media (min-width: 375px) {
+	/* Стили для устройств с шириной viewport, находящейся в диапазоне 768px - 991px */
+	.guide-title{
+		padding: 20px 0;
+		text-align: center;
+	}
+	}
+	
+	/* Устройства со средним экраном (ноутбуки и компьютеры, 992px и выше) */
+	@media (min-width: 992px) {
+		/* Стили для устройств с шириной viewport, находящейся в диапазоне 992px - 1199px */
+		.guide-title{
+			padding: 20px 0;
+			text-align: left;
+		}
+	}
+	
+	/* Устройства с большим экраном (компьютеры, 1200px и выше) */
+	@media (min-width: 1200px) {
+		/* Стили для устройств с шириной viewport >1200px */
+	}
