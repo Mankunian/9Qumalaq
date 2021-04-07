@@ -83,12 +83,12 @@ export class NewsPageComponent implements OnInit {
 
 	// Aside section
 	getAllnews() {
-		let regionId = sessionStorage.getItem('regionId');
-		let countryId = sessionStorage.getItem('countryId')
-		if (regionId) {
-			this.getNewsByRegion(regionId);
+		if (sessionStorage.cityObj) {
+			let city = JSON.parse(sessionStorage.cityObj)
+			this.getNewsByRegion(city.id);
 		} else {
-			this.getNewsByCountry(countryId);
+			let country = JSON.parse(sessionStorage.countryObj)
+			this.getNewsByCountry(country.id);
 		}
 	}
 
