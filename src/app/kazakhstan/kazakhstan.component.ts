@@ -156,12 +156,14 @@ export class KazakhstanComponent implements OnInit {
 	}
 
 	redirectGuideItem(item) {
-		console.log(item);
+		this.setSessionStorage();
+
 		let leadershipId = item.id;
 		let countryId = this.kazId;
 		sessionStorage.setItem('leadershipId', leadershipId);
 		sessionStorage.setItem('countryId', countryId);
 		this.router.navigate(['/guide-item'])
+
 	}
 
 	redirectToAuth() {
@@ -169,6 +171,7 @@ export class KazakhstanComponent implements OnInit {
 	}
 
 	redirectToWinnersPage(item) {
+		this.setSessionStorage();
 		let winnerId = item.id;
 		let countryId = this.kazId;
 		sessionStorage.setItem('winnerId', winnerId);
@@ -178,11 +181,21 @@ export class KazakhstanComponent implements OnInit {
 	}
 
 	redirectNewsPage(item) {
+		this.setSessionStorage();
 		let newsId = item.id;
 		let countryId = this.kazId;
 		sessionStorage.setItem('newsId', newsId);
 		sessionStorage.setItem('countryId', countryId);
 		this.router.navigate(['/news-page'])
+	}
+
+	setSessionStorage() {
+		let countryObj = {
+			type: 'country',
+			id: this.kazId
+		}
+		sessionStorage.setItem('countryObj', JSON.stringify(countryObj));
+		sessionStorage.removeItem('cityObj');
 	}
 }
 

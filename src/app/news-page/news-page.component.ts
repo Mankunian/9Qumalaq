@@ -33,23 +33,13 @@ export class NewsPageComponent implements OnInit {
 
 	scrollToElement() { }
 
-	// getNewsById(id) {
-	// 	this.http.getNewsByIdService(id).subscribe((data: any) => {
-	// 		console.log(typeof (data))
-	// 		this.newsElement = [];
-	// 		this.newsElement.push(data)
-	// 	})
-	// }
 
 	// Main section
 	getNewsItem() {
 		let newsId = sessionStorage.getItem('newsId');
-		let countryId = sessionStorage.getItem('countryId');
-		let regionId = sessionStorage.getItem('regionId');
-
-		if (countryId) {
+		if (sessionStorage.countryObj) {
 			this.getNewsItemByCountry(newsId);
-		} else if (regionId) {
+		} else if (sessionStorage.cityObj) {
 			this.getNewsItemByRegion(newsId);
 		}
 	}
