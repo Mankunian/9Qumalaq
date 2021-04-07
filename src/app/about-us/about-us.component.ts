@@ -8,10 +8,23 @@ import { GlobalConfig } from 'src/global';
 	styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
+	aboutUsByCity: boolean;
+	aboutUsByCountry: boolean;
 
 	constructor(private router: Router) { }
 
 	ngOnInit(): void {
+		this.checkSessionStorage();
+	}
+
+	checkSessionStorage() {
+		if (sessionStorage.cityObj) {
+			alert('city')
+			this.aboutUsByCity = true;
+		} else {
+			alert('country')
+			this.aboutUsByCountry = true;
+		}
 	}
 
 	goSlideDown(item) {
