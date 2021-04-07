@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GlobalConfig } from 'src/global';
+import { HttpService } from '../service/http.service';
 
 @Component({
 	selector: 'app-champ-page',
@@ -7,10 +9,50 @@ import { Router } from '@angular/router';
 	styleUrls: ['./champ-page.component.css']
 })
 export class ChampPageComponent implements OnInit {
+	noWinnersList: boolean;
+	winnersList: any;
+	type: any;
 
-	constructor(private router: Router) { }
+	constructor(private router: Router, private http: HttpService) { }
 
 	ngOnInit(): void {
+		this.checkSessionStorage();
+	}
+
+	checkSessionStorage() {
+		if (sessionStorage.cityObj) {
+			let city = JSON.parse(sessionStorage.cityObj);
+			let locationId = city.id;
+			this.type = city.type;
+			this.getWinnersByCity(locationId)
+		} else if (sessionStorage.countryObj) {
+			let country = JSON.parse(sessionStorage.countryObj);
+			let locationId = country.id;
+			this.type = country.type;
+			this.getWinnersByCountry(locationId)
+		}
+	}
+
+	getWinnersByCity(regionId) {
+		this.http.getWinnersService(regionId).subscribe((data: any) => {
+			console.log(data)
+			if (data.length === 0) {
+				this.noWinnersList = true;
+			} else {
+				this.winnersList = data;
+			}
+		})
+	}
+
+	getWinnersByCountry(countryId) {
+		this.http.getWinnersByCountryService(countryId).subscribe((data: any) => {
+			console.log(data)
+			if (data.length === 0) {
+				this.noWinnersList = true;
+			} else {
+				this.winnersList = data;
+			}
+		})
 	}
 
 	goSlideDown(item) {
@@ -22,7 +64,14 @@ export class ChampPageComponent implements OnInit {
 	}
 
 	redirectToAuth() {
-		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+		window.location.href = window.location.href = GlobalConfig.ADMIN_URL;
+	}
+
+	redirectToWinnersPage(item) {
+		let winnerId = item.id;
+		sessionStorage.setItem('winnerId', winnerId);
+		// this.router.navigate(['/champ-page-info'])
+		this.router.navigate([this.type + '/winners/', winnerId])
 	}
 
 }

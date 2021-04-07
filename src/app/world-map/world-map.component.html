@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-xl navbar-dark fixed-top bg-dark">
 	<div class="container">
 		<!-- <img src="../../assets/img/logo2.png" alt="" style="width: 60px;">
 		<img src="../../assets/img/logo1.png" alt="" style="width: 60px;"> -->
@@ -39,7 +39,8 @@
 						<option *ngFor="let x of langs" [ngValue]="x">{{x.name}}</option>
 					</select>
 				</div>
-				<span class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> ВХОД</span>
+				<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+					ВХОД</span>
 			</form>
 		</div>
 	</div>
@@ -910,15 +911,15 @@
 		</div>
 		<div class="container map_cont">
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-lg-12">
 					<div class="country-list">
 						<div class="row" style="padding: 10px;">
-							<div class="col-sm-3">
+							<div class="col-lg-3">
 								<h2 translate>world-map.map-title</h2>
 							</div>
-							<div class="col-sm-9">
+							<div class="col-lg-9">
 								<div class="row">
-									<div class="col-sm-4" *ngFor="let item of jsonCountry">
+									<div class="col-lg-4" *ngFor="let item of jsonCountry">
 										<!-- <ol class="list">
 											<li (click)="redirectByClickMap(item)" *ngFor="let item of jsonCountry">{{item.name}}</li>
 										</ol> -->
@@ -941,17 +942,17 @@
 	<div class="about-us">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-7">
+				<div class="col-lg-7">
 					<div class="about-box">
 						<div class="container">
 							<div class="row" style="padding: 15px;">
-								<div class="col-sm-3">
+								<div class="col-lg-3">
 									<img src="../../assets/img/world/about-logo.png" alt="">
 								</div>
 								<div class="col" style="padding: 15px;">
 									<span>Всемирная Федерация Тогызкумалак</span>
 								</div>
-								<div class="col-sm-12">
+								<div class="col-lg-12">
 									<span style="font-size: 12px;">То́гуз корго́ол (кирг. тогуз коргоол, дословный перевод — «девять
 										горошин»), тогы́з кумала́к (каз. тоғыз құмалақ) — киргизская и казахская народная логическая
 										настольная игра на доске, в которой 18 игровых и две накопительные лунки. Упрощённая версия этой
@@ -973,7 +974,7 @@
 	<div class="guide-content" *ngIf="leadershipList">
 		<div class="container">
 			<div class="row mt-3">
-				<div class="col-sm-4">
+				<div class="col-lg-4">
 					<span translate class="title">kazakhstan.nav_leaderships</span>
 				</div>
 				<div class="col">
@@ -981,19 +982,19 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-sm-6 mb-3" *ngFor="let item of leadershipList">
+				<div class="col-lg-6 mb-3" *ngFor="let item of leadershipList">
 					<div class="box1" (click)="redirectLeadershipItem(item)">
 						<div class="row">
-							<div class="col-sm-12">
+							<div class="col-lg-12">
 								<div class="info">
 									<div class="row">
-										<div class="col-sm-2">
+										<div class="col-lg-2">
 											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
 										</div>
-										<div class="col-sm-3 portrait">
+										<div class="col-lg-3 portrait">
 											<img style="width: 100%;" class="rounded-circle" src="{{item.image}}" alt="">
 										</div>
-										<div class="col-sm-7 guide-title">
+										<div class="col-lg-7 guide-title">
 											<span>{{item.name}}</span> <br>
 											<p>{{item.rank}}</p>
 										</div>
@@ -1013,7 +1014,7 @@
 	<div class="news-content" *ngIf="newsList">
 		<div class="container">
 			<div class="row mt-3">
-				<div class="col-sm-4">
+				<div class="col-lg-4">
 					<span translate class="title">kazakhstan.nav_news</span>
 				</div>
 				<div class="col">
@@ -1022,7 +1023,7 @@
 			</div>
 
 			<div class="row mt-4">
-				<div class="col-sm-3" *ngFor="let item of newsList">
+				<div class="col-lg-3" *ngFor="let item of newsList">
 					<div class="card mb-3" (click)="redirectNewsPage(item)">
 						<!-- <img src="../../assets/img/55.png" class="card-img-top" alt="..."> -->
 						<img src="{{item.image}}" class="card-img-top" alt="...">
@@ -1036,7 +1037,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-sm-12 text-center">
+				<div class="col-lg-12 text-center">
 					<nav aria-label="Page navigation example">
 						<ul class="pagination justify-content-center">
 							<li class="page-item disabled">
@@ -1061,7 +1062,7 @@
 	<div class="champions-content" *ngIf="winnerList">
 		<div class="container">
 			<div class="row mt-3">
-				<div class="col-sm-6">
+				<div class="col-lg-6">
 					<span translate class="title">kazakhstan.nav_winners</span>
 				</div>
 				<div class="col">
@@ -1070,7 +1071,7 @@
 			</div>
 
 			<div class="row mt-4">
-				<div class="col-sm-3" *ngFor="let item of winnerList">
+				<div class="col-lg-3" *ngFor="let item of winnerList">
 					<div class="card champs" (click)="redirectToWinnersPage(item)">
 						<!-- <img src="../../assets/img/kozha.png" class="card-img-top" alt="..."> -->
 						<img src="{{item.image}}" alt="">
@@ -1087,11 +1088,11 @@
 </section>
 
 <!-- Partners -->
-<section #partners id="partners" style="padding: 60px 0;">
+<section #partners id="partners" [ngClass]="{paddingPartners: winnerList, paddingNoPartners: noWinnersList}">
 	<div class="partners-content">
 		<div class="container-fluid">
-			<div class="row mt-3">
-				<div class="col-sm-12">
+			<div class="row" [ngClass]="{'mt-3': winnerList, 'mt-0': noWinnersList}">
+				<div class="col-lg-12">
 					<div class="partners-title">
 						<span translate>kazakhstan.nav_partners</span>
 					</div>
@@ -1102,7 +1103,7 @@
 	<div class="brand-list">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-xl-3 col-lg-6 col-md-6">
 					<div class="img-body">
 						<img src="../../assets/img/kazyna.png" alt="">
 					</div>
@@ -1110,7 +1111,7 @@
 						<span>Акционерное общество «Фонд национального благосостояния «Самрук-Қазына»</span>
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-xl-3 col-lg-6 col-md-6">
 					<div class="img-body">
 						<img src="../../assets/img/kazyna.png" alt="">
 					</div>
@@ -1118,7 +1119,7 @@
 						<span>Акционерное общество «Фонд национального благосостояния «Самрук-Қазына»</span>
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-xl-3 col-lg-6 col-md-6">
 					<div class="img-body">
 						<img src="../../assets/img/kazyna.png" alt="">
 					</div>
@@ -1126,7 +1127,7 @@
 						<span>Акционерное общество «Фонд национального благосостояния «Самрук-Қазына»</span>
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-xl-3 col-lg-6 col-md-6">
 					<div class="img-body">
 						<img src="../../assets/img/kazyna.png" alt="">
 					</div>
@@ -1144,7 +1145,7 @@
 	<div class="contacts-content">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-lg-3">
 					<span translate class="title">kazakhstan.nav_contacts</span>
 				</div>
 				<div class="col">
@@ -1153,7 +1154,7 @@
 			</div>
 			<br>
 			<div class="row mt-2">
-				<div class="col-sm-4 footer-info" id="contact2" style="padding: 30px;">
+				<div class="col-lg-4 footer-info" id="contact2" style="padding: 30px;">
 					<div class="phone-number">
 						<i style="font-size: large; color: #002960;" class="fa fa-phone" aria-hidden="true"></i>
 						<span> +7 707 123 0018</span>
@@ -1174,7 +1175,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-8">
+				<div class="col-lg-8">
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2502.1376270101537!2d71.4221972156435!3d51.16125207957965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424586d1ffa50447%3A0xf908789d23ae9fdb!2z0YPQuy4g0JDQt9C10YDQsdCw0LnQttCw0L3QsCDQnNCw0LzQsdC10YLQvtCy0LAgMTQsINCd0YPRgC3QodGD0LvRgtCw0L0gMDEwMDAw!5e0!3m2!1sru!2skz!4v1615806415309!5m2!1sru!2skz"
 						width="100%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -1188,10 +1189,10 @@
 <footer class="footer mt-auto py-3">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-5">
+			<div class="col-lg-5">
 				<span> 2021 9qq.org All rights reserved.</span>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-lg-4">
 				<div class="socials text-center">
 					<i class="fa fa-telegram" aria-hidden="true"></i>
 					<i class="fa fa-instagram" aria-hidden="true"></i>
@@ -1199,7 +1200,7 @@
 					<i class="fa fa-youtube-play" aria-hidden="true"></i>
 				</div>
 			</div>
-			<div class="col-sm-3 text-center">
+			<div class="col-lg-3 text-center">
 				<span>9qq.org </span>
 			</div>
 		</div>

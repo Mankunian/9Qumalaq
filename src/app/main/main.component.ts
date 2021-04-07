@@ -15,6 +15,8 @@ export class MainComponent implements OnInit {
 
 	system: System = new System();
 	langs = Array<Lang>();
+	kazakhstanId: any;
+	worldFederationId: any;
 
 	constructor(public router: Router, private http: HttpService, public translate: TranslateService) {
 		translate.setDefaultLang('en');
@@ -46,12 +48,14 @@ export class MainComponent implements OnInit {
 	}
 
 	getCountryList() {
+		this.kazakhstanId = 4;
+		this.worldFederationId = 3;
 		this.http.getCountryListService().subscribe((data: any) => {
 			console.log(data)
 			data.forEach(element => {
-				if (element.id === 1) {
+				if (element.id === this.kazakhstanId) {
 					this.kazFed = element;
-				} else if (element.id === 2) {
+				} else if (element.id === this.worldFederationId) {
 					this.worldFed = element;
 				}
 			});
@@ -61,14 +65,22 @@ export class MainComponent implements OnInit {
 	openKazMap() {
 		this.router.navigate(['/kazakhstan'])
 		if (this.kazFed) {
-			sessionStorage.setItem('kazFederation', JSON.stringify(this.kazFed))
+			let countryObj = {
+				type: 'country',
+				id: this.kazakhstanId
+			}
+			sessionStorage.setItem('countryObj', JSON.stringify(countryObj));
+			sessionStorage.setItem('kazFederation', JSON.stringify(this.kazFed));
+			sessionStorage.removeItem('worldFederation');
 		}
 	}
 
 	openWorldMap() {
 		this.router.navigate(['/world-map'])
 		if (this.worldFed) {
-			sessionStorage.setItem('worldFederation', JSON.stringify(this.worldFed))
+
+			sessionStorage.setItem('worldFederation', JSON.stringify(this.worldFed));
+			sessionStorage.removeItem('kazFederation');
 		}
 	}
 

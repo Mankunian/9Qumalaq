@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GlobalConfig } from 'src/global';
 
 @Component({
 	selector: 'app-about-us',
@@ -7,10 +8,23 @@ import { Router } from '@angular/router';
 	styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
+	aboutUsByCity: boolean;
+	aboutUsByCountry: boolean;
 
 	constructor(private router: Router) { }
 
 	ngOnInit(): void {
+		this.checkSessionStorage();
+	}
+
+	checkSessionStorage() {
+		if (sessionStorage.cityObj) {
+			alert('city')
+			this.aboutUsByCity = true;
+		} else {
+			alert('country')
+			this.aboutUsByCountry = true;
+		}
 	}
 
 	goSlideDown(item) {
@@ -22,7 +36,7 @@ export class AboutUsComponent implements OnInit {
 	}
 
 	redirectToAuth() {
-		window.location.href = "http://78.40.108.85/api/admin/login/?next=/api/admin/"
+		window.location.href = GlobalConfig.ADMIN_URL;
 	}
 
 }

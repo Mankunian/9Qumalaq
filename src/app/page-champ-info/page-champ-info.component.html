@@ -20,12 +20,12 @@
 							<a class="nav-link" routerLink="/about-us">О нас</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" routerLink="/guide-page">Руководство</a>
+							<a class="nav-link " routerLink="/guide-page">Руководство</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" routerLink="/news-page">Новости</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item active">
 							<a class="nav-link " href="#">Чемпионы и призеры</a>
 						</li>
 						<li class="nav-item">
@@ -56,47 +56,47 @@
 	<main class="flex-shrink-0">
 		<div class="container">
 			<div class="row mt-3">
-				<div class="col-sm-12">
+				<div class="col-lg-12">
 					<!-- Champions section -->
 					<section class="champs-content" id="champs">
 						<div class="card mb-3" *ngFor="let item of winnerElement">
 							<div class=" row g-0">
-								<div class="col-sm-3">
+								<div class="col-lg-3">
 									<!-- <img src="../../assets/img/32.png" alt="info"> -->
 									<img src="{{item.image}}" alt="info" style="width: 100%;">
 								</div>
-								<div class="col-sm-9">
+								<div class="col-lg-9">
 									<div class="card-body">
-										<div class="col-sm-12">
+										<div class="col-lg-12">
 											<h5 class="card-title">{{item.name}}</h5>
 										</div>
-										<div class="col-sm-12">
+										<div class="col-lg-12">
 											<div class="row">
-												<div class="col-sm-6">
+												<div class="col-lg-6">
 													<span class="first">{{item.degree}}</span>
 												</div>
-												<div class="col-sm-6">
+												<div class="col-lg-6">
 													<span class="first">{{item.rank}}</span>
 												</div>
 											</div>
 											<br>
 											<div class="row">
-												<div class="col-sm-6">
+												<div class="col-lg-6">
 													<span class="sec">Дата рождения</span> <br>
 													<span class="rt">{{item.bitrhday}}</span>
 												</div>
-												<div class="col-sm-6">
+												<div class="col-lg-6">
 													<span class="sec">Звание</span> <br>
 													<span class="rt">{{item.rank}}</span>
 												</div>
 											</div>
 											<br>
 											<div class="row">
-												<div class="col-sm-6">
+												<div class="col-lg-6">
 													<span class="sec">Место проживания</span> <br>
 													<span class="rt">{{item.address}}</span>
 												</div>
-												<div class="col-sm-6">
+												<div class="col-lg-6">
 													<span class="sec">Дата присвоения звания</span> <br>
 													<span class="rt">{{item.assigned_degree}}</span>
 												</div>
@@ -115,7 +115,7 @@
 				</div>
 			</div>
 			<div class="row mt-3 mb-3" *ngIf="winnerElement">
-				<div class="col-sm-12">
+				<div class="col-lg-12">
 					<section class="dost">
 						<h2>Турнирные достижения</h2>
 						<span *ngFor="let item of description">
@@ -130,10 +130,10 @@
 	<footer class="footer mt-auto py-3">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-5 text-center">
+				<div class="col-lg-5 text-center">
 					<span> 2021 9qq.org All rights reserved.</span>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-lg-4">
 					<div class="socials text-center">
 						<i class="fa fa-telegram" aria-hidden="true"></i>
 						<i class="fa fa-instagram" aria-hidden="true"></i>
@@ -141,7 +141,7 @@
 						<i class="fa fa-youtube-play" aria-hidden="true"></i>
 					</div>
 				</div>
-				<div class="col-sm-3 text-center">
+				<div class="col-lg-3 text-center">
 					<span>9qq.org</span>
 				</div>
 			</div>

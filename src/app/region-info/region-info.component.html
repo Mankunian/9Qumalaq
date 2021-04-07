@@ -1,5 +1,5 @@
 <!-- Navbar section -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-xl navbar-dark fixed-top bg-dark">
 	<div class="container">
 		<a class="navbar-brand" href="#">
 			<img src="../../assets/img/logo1.png" alt="" width="50">
@@ -18,10 +18,10 @@
 					<a class="nav-link" routerLink="/guide-page">Руководство</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/news-page">Новости</a>
+					<a class="nav-link" (click)="redirectNewsList()">Новости</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/champ-page">Чемпионы и призеры</a>
+					<a class="nav-link" (click)="redirectWinnersList()">Чемпионы и призеры</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" (click)="goSlideDown('partners')">Наши партнеры</a>
@@ -39,7 +39,7 @@
 						<option>ENG</option>
 					</select>
 				</div>
-				<span routerLink="/sign-in" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> ВХОД</span>
+				<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> ВХОД</span>
 			</form>
 		</div>
 	</div>
@@ -71,7 +71,7 @@
 	<div class="guide-content" *ngIf="leadershipList">
 		<div class="container">
 			<div class="row mt-3">
-				<div class="col-sm-4">
+				<div class="col-lg-4">
 					<span class="title">Руководство</span>
 				</div>
 				<div class="col">
@@ -79,16 +79,16 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-sm-6" *ngFor="let item of leadershipList">
+				<div class="col-lg-6 col-md-6" *ngFor="let item of leadershipList">
 					<div class="box1" (click)="redirectGuideItem(item)">
-						<div class="row">
-							<div class="col-sm-12">
+						<div class="row mb-4">
+							<div class="col-lg-12">
 								<div class="info">
 									<div class="row">
-										<div class="col-sm-2">
+										<div class="col-lg-2">
 											<img src="../../assets/img/3.png" alt="" style="margin: 20px 0;">
 										</div>
-										<div class="col-sm-3 portrait">
+										<div class="col-lg-3 portrait">
 											<!-- <img src="../../assets/img/44.png" alt=""> -->
 											<img class="rounded-circle" src="{{item.image}}" alt="">
 											<!-- <img class="rounded-circle" alt="100x100" src="../../assets/img/3335.jpeg" data-holder-rendered="true"> -->
@@ -96,7 +96,7 @@
 											<!-- <img class="rounded-circle" alt="100x100"
 												src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" data-holder-rendered="true"> -->
 										</div>
-										<div class="col-sm-7 guide-title">
+										<div class="col-lg-7 guide-title">
 											<span>{{item.name}}</span> <br>
 											<p>{{item.rank}}</p>
 										</div>
@@ -116,7 +116,7 @@
 	<div *ngIf="newsList" class="news-content">
 		<div class="container">
 			<div class="row mt-3">
-				<div class="col-sm-3">
+				<div class="col-lg-3">
 					<span class="title">Новости</span>
 				</div>
 				<div class="col">
@@ -125,7 +125,7 @@
 			</div>
 
 			<div class="row mt-4">
-				<div class="col-sm-3" *ngFor="let item of newsList">
+				<div class="col-lg-3" *ngFor="let item of newsList">
 					<div class="card mb-3" (click)="redirectNewsPage(item)">
 						<!-- <img src="../../assets/img/55.png" class="card-img-top" alt="..."> -->
 						<img src="{{item.image}}" class="card-img-top" alt="...">
@@ -138,7 +138,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12 text-center">
+				<div class="col-lg-12 text-center">
 					<nav aria-label="Page navigation example">
 						<ul class="pagination justify-content-center">
 							<li class="page-item disabled">
@@ -163,7 +163,7 @@
 	<div *ngIf="winnersList" class="champions-content">
 		<div class="container">
 			<div class="row mt-3">
-				<div class="col-sm-6">
+				<div class="col-lg-6">
 					<span class="title">Чемпионы и призеры</span>
 				</div>
 				<div class="col">
@@ -172,7 +172,7 @@
 			</div>
 
 			<div class="row mt-4">
-				<div class="col-sm-3" *ngFor="let item of winnersList">
+				<div class="col-lg-6 col-xl-3 col-md-6" *ngFor="let item of winnersList">
 					<div class="card champs" (click)="redirectToWinnersPage(item)">
 						<!-- <img src="../../assets/img/kozha.png" class="card-img-top" alt="..."> -->
 						<img src="{{item.image}}" alt="">
@@ -189,11 +189,11 @@
 </section>
 
 <!-- Partners section -->
-<section id="partners">
+<section id="partners" [ngClass]="{paddingPartners: winnersList, paddingNoPartners: noWinnersList}">
 	<div class="partners-content">
 		<div class="container-fluid">
-			<div class="row mt-3">
-				<div class="col-sm-12">
+			<div class="row" [ngClass]="{'mt-3': winnersList, 'mt-0': noWinnersList}">
+				<div class="col-lg-12">
 					<div class="partners-title">
 						<span>Наши партнеры</span>
 					</div>
@@ -204,7 +204,7 @@
 	<div class="brand-list">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-xl-3 col-lg-6 col-md-6">
 					<div class="img-body">
 						<img src="../../assets/img/kazyna.png" alt="">
 					</div>
@@ -212,7 +212,7 @@
 						<span>Акционерное общество «Фонд национального благосостояния «Самрук-Қазына»</span>
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-xl-3 col-lg-6 col-md-6">
 					<div class="img-body">
 						<img src="../../assets/img/kazyna.png" alt="">
 					</div>
@@ -220,7 +220,7 @@
 						<span>Акционерное общество «Фонд национального благосостояния «Самрук-Қазына»</span>
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-xl-3 col-lg-6 col-md-6">
 					<div class="img-body">
 						<img src="../../assets/img/kazyna.png" alt="">
 					</div>
@@ -228,7 +228,7 @@
 						<span>Акционерное общество «Фонд национального благосостояния «Самрук-Қазына»</span>
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-xl-3 col-lg-6 col-md-6">
 					<div class="img-body">
 						<img src="../../assets/img/kazyna.png" alt="">
 					</div>
@@ -246,7 +246,7 @@
 	<div class="contacts-content">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-lg-3">
 					<span class="title">Контакты</span>
 				</div>
 				<div class="col">
@@ -255,7 +255,7 @@
 			</div>
 			<br>
 			<div class="row mt-2">
-				<div class="col-sm-4 footer-info" id="contact2" style="padding: 30px;">
+				<div class="col-lg-4 footer-info" id="contact2" style="padding: 30px;">
 					<div class="phone-number">
 						<i style="font-size: large;" class="fa fa-phone" aria-hidden="true"></i>
 						<span> +7 777 111 11 11</span>
@@ -275,7 +275,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-8">
+				<div class="col-lg-8">
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.2578298429908!2d71.41637861564197!3d51.12215207957365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424584215569da81%3A0xc13419a4f8439495!2z0JbQmiDQodCw0YDQvNCw0YIsINGD0LsuINCh0LDRg9GA0LDQvSAzLzEsINCd0YPRgC3QodGD0LvRgtCw0L0gMDIwMDAw!5e0!3m2!1sru!2skz!4v1615309419441!5m2!1sru!2skz"
 						width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>

@@ -142,7 +142,7 @@ export class WorldMapComponent implements OnInit {
 	// Redirect Methods
 
 	redirectLeadershipItem(item) {
-		console.log(item);
+		this.setSessionStorage();
 		let leadershipId = item.id;
 		sessionStorage.setItem('leadershipId', leadershipId);
 		this.router.navigate(['/guide-item'])
@@ -159,20 +159,32 @@ export class WorldMapComponent implements OnInit {
 	}
 
 	redirectNewsPage(item) {
+		this.setSessionStorage();
 		let newsId = item.id;
 		sessionStorage.setItem('newsId', newsId)
 		this.router.navigate(['/news-page'])
 	}
 
 	redirectToWinnersPage(item) {
-
+		this.setSessionStorage();
 		let winnerId = item.id;
 		sessionStorage.setItem('winnerId', winnerId);
-		sessionStorage.removeItem('cityObj');
-		sessionStorage.setItem('countryObj', JSON.stringify({ type: 'country', id: this.countryId }));
 		this.router.navigate(['/country/winners', winnerId]);
 	}
 
+	redirectToAuth() {
+		window.location.href = "http://back.aqyl.host/api/admin/login/?next=/api/admin/"
+	}
+
+
+	setSessionStorage() {
+		let countryObj = {
+			type: 'country',
+			id: this.countryId
+		}
+		sessionStorage.setItem('countryObj', JSON.stringify(countryObj));
+		sessionStorage.removeItem('cityObj');
+	}
 }
 
 

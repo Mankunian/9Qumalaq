@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { GlobalConfig } from 'src/global';
 import { HttpService } from '../service/http.service';
 import { SharedService } from '../service/shared.service';
 
@@ -20,8 +21,10 @@ export class RegionInfoComponent implements OnInit {
 	noLeadershipList: boolean;
 	noNewsList: boolean;
 	noWinnersList: boolean;
-
-	// images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
+	type: any;
+	locationId: any;
+	cityObj: any;
+	countryObj: any;
 
 	constructor(
 		config: NgbCarouselConfig,
@@ -33,6 +36,7 @@ export class RegionInfoComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.checkSessionStorage();
 		if (sessionStorage.cityObj) {
 			this.getRegionIdMap();
 		} else if (sessionStorage.countryObj) {
@@ -40,37 +44,45 @@ export class RegionInfoComponent implements OnInit {
 		}
 	}
 
+	checkSessionStorage() {
+		if (sessionStorage.cityObj) {
+			let city = JSON.parse(sessionStorage.cityObj);
+			this.cityObj = city;
+			this.type = city.type;
+			this.locationId = city.id;
+		} else if (sessionStorage.countryObj) {
+			let country = JSON.parse(sessionStorage.countryObj);
+			this.countryObj = country;
+			this.type = country.type;
+			this.locationId = country.id;
+		}
+	}
 
 	// Метод получения id региона если есть в sessionStorage
 	getRegionIdMap() {
-		let cityObj = JSON.parse(sessionStorage.cityObj);
-		let regionId = cityObj.id;
-		if (regionId) {
-			this.getNewsByCity(regionId);
-			this.getLeadershipsByCity(regionId);
-			this.getWinnersByCity(regionId);
-			this.getCityList(regionId);
-		}
+		let regionId = this.locationId;
+		this.getNewsByCity(regionId);
+		this.getLeadershipsByCity(regionId);
+		this.getWinnersByCity(regionId);
+		this.getCityList(regionId);
 	}
 
 	// Метод получения id страны если есть в sessionStorage
 	getCountryIdMap() {
-		let countryObj = JSON.parse(sessionStorage.countryObj);
-		let countryId = countryObj.id;
-		if (countryId) {
-			this.getNewsByCountry(countryId);
-			this.getLeadershipByCountry(countryId);
-			this.getWinnersByCountry(countryId);
-			this.getCountryList(countryId)
-		}
+		let countryId = this.locationId;
+		this.getNewsByCountry(countryId);
+		this.getLeadershipByCountry(countryId);
+		this.getWinnersByCountry(countryId);
+		this.getCountryList(countryId)
 	}
 
 	goSlideDown(item) {
-		if (item === 'partners') {
-			this.router.navigate(['/kazakhstan'], { fragment: 'partners' });
-		} else if (item === 'contacts') {
-			this.router.navigate(['/kazakhstan'], { fragment: 'contacts' });
+		if (this.cityObj) {
+			this.router.navigate(['/kazakhstan'], { fragment: item })
+		} else {
+			this.router.navigate(['/world-map'], { fragment: item })
 		}
+
 	}
 
 	// City API
@@ -204,6 +216,22 @@ export class RegionInfoComponent implements OnInit {
 		let leadershipId = item.id;
 		sessionStorage.setItem('leadershipId', leadershipId);
 		this.router.navigate(['/guide-item'])
+	}
+
+	redirectToAuth() {
+		window.location.href = GlobalConfig.ADMIN_URL;
+	}
+
+
+	// Redirect from navbar menu
+
+
+	redirectNewsList() {
+		this.router.navigate(['/' + this.type + '/' + this.locationId + '/' + 'news'])
+	}
+
+	redirectWinnersList() {
+		this.router.navigate(['/' + this.type + '/' + this.locationId + '/' + 'winners'])
 	}
 
 }

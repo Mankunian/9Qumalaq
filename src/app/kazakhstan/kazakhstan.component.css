@@ -401,3 +401,11 @@ path:hover, circle:hover {
 .paddingNo {
 	padding: 0;
 }
+
+.paddingPartners{
+	padding: 60px 0;
+}
+
+.paddingNoPartners{
+	padding: 0;
+}
