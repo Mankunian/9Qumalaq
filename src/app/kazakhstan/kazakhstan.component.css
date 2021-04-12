@@ -75,6 +75,7 @@ path:hover, circle:hover {
 }
 
 .map__wrapper {
+	text-align: center;
 	height: 600px;
 	padding: 15px;
 }
