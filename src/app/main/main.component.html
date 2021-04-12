@@ -23,7 +23,15 @@
 		<div id="fh-100">
 			<div id="container" class="container">
 				<div id="row" class="row">
-					<div class="col-12 kaz">
+					<div class="col-lg-12 kaz">
+						<img (click)="openKazMap()" width="100%" src="../../assets/img/main/4.png" alt="kaz">
+						<button translate (click)="openKazMap()" type="button" class="btn btn-warning">main.map_button</button>
+					</div>
+					<div class="col-lg-12 world">
+						<img (click)="openWorldMap()" width="100%" src="../../assets/img/main/6.png" alt="world">
+						<button translate (click)="openWorldMap()" type="button" class="btn btn-warning">main.map_button</button>
+					</div>
+					<!-- <div class="col-12 kaz">
 						<div class="card-img-overlay">
 							<button translate (click)="openKazMap()" type="button" class="btn btn-warning">main.map_button</button>
 						</div>
@@ -32,7 +40,7 @@
 						<div class="card-img-overlay">
 							<button translate (click)="openWorldMap()" type="button" class="btn btn-warning">main.map_button</button>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
