@@ -77,7 +77,8 @@ main .container{
 }
 
 #row{
-	height: inherit;
+	/* height: inherit; */
+	height: 690px;
 }
 
 .world{
