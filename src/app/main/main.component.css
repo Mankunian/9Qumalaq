@@ -77,9 +77,14 @@ main .container{
 }
 
 #row{
-	/* height: inherit; */
-	height: 690px;
+	height: inherit;
+	/* height: 690px; */
 }
+
+
+
+
+
 
 .world{
 	height: 50%;
@@ -247,7 +252,7 @@ main .container{
 }
 
 @media (min-width: 1200px) { 
-
+	
  }
 
 @media (min-width: 1400px) { 
@@ -256,3 +261,21 @@ main .container{
 @media (min-width: 2000px) { 
 	
  }
+
+ @media not all and (min-resolution:.001dpcm) { 
+	 #row{ 
+		 height: 690px;
+}}
+
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) {
+
+	#row{
+		/* height: inherit; */
+		height: 690px;
+	}
+}}
+
+_::-webkit-full-page-media, _:future, :root #row {
+	height: 690px;
+}
