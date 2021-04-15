@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 		// this.colours.push(new Colour(-1, 'Выберите язык', 'select'));
 		this.langs.push(new Lang(1, 'РУС', 'ru'));
 		this.langs.push(new Lang(2, 'ENG', 'en'));
-		this.langs.push(new Lang(2, 'ҚАЗ', 'kaz'));
+		this.langs.push(new Lang(2, 'ҚАЗ', 'kz'));
 
 		this.system = new System();
 		this.system.lang = this.langs[0];

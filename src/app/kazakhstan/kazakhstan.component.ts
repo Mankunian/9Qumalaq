@@ -37,7 +37,7 @@ export class KazakhstanComponent implements OnInit {
 		this.langs = Array<Lang>();
 		this.langs.push(new Lang(1, 'РУС', 'ru'));
 		this.langs.push(new Lang(2, 'ENG', 'en'));
-		this.langs.push(new Lang(2, 'ҚАЗ', 'kaz'));
+		this.langs.push(new Lang(2, 'ҚАЗ', 'kz'));
 		this.system = new System();
 
 		// set lang to select option
@@ -60,7 +60,9 @@ export class KazakhstanComponent implements OnInit {
 
 	selectLang(e): void {
 		this.translate.use(e.code);
-		sessionStorage.setItem('lang', e.code)
+		sessionStorage.setItem('lang', e.code);
+		this.getCityList();
+		this.getKazFedElem();
 	}
 
 	getKazFedElem() {
