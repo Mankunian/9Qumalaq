@@ -56,7 +56,7 @@ export class WorldMapComponent implements OnInit {
 		this.langs = Array<Lang>();
 		this.langs.push(new Lang(1, 'РУС', 'ru'));
 		this.langs.push(new Lang(2, 'ENG', 'en'));
-		this.langs.push(new Lang(2, 'ҚАЗ', 'kaz'));
+		this.langs.push(new Lang(2, 'ҚАЗ', 'kz'));
 		this.system = new System();
 
 		// set lang to select option

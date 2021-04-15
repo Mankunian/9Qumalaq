@@ -13,31 +13,38 @@ export class HttpService {
 
 	// City API
 	getCityListService() {
-		return this.http.get(this.BASE_API_URL + '/city/city/')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/city/city?lang=' + lang)
 	}
 
 	getNewsService(regionId) {
-		return this.http.get(this.BASE_API_URL + '/city/city/' + regionId + '/news')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/city/city/' + regionId + '/news?lang=' + lang)
 	}
 
 	getLeadershipsService(regionId) {
-		return this.http.get(this.BASE_API_URL + '/city/city/' + regionId + '/leaderships')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/city/city/' + regionId + '/leaderships?lang=' + lang)
 	}
 
 	getWinnersService(regionId) {
-		return this.http.get(this.BASE_API_URL + '/city/city/' + regionId + '/winners')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/city/city/' + regionId + '/winners?lang=' + lang)
 	}
 
 	getNewsByIdService(newsId) {
-		return this.http.get(this.BASE_API_URL + '/city/news/' + newsId + '/')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/city/news/' + newsId + '?lang=' + lang)
 	}
 
 	getWinnerByIdService(winnerId) {
-		return this.http.get(this.BASE_API_URL + '/city/winners/' + winnerId + '/')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/city/winners/' + winnerId + '?lang=' + lang)
 	}
 
 	getLeadershipByCityService(leadershipId) {
-		return this.http.get(this.BASE_API_URL + '/city/leadership/' + leadershipId + '/')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/city/leadership/' + leadershipId + '?lang=' + lang)
 	}
 
 
@@ -47,35 +54,42 @@ export class HttpService {
 
 	// Country API
 	getCountryListService() {
-		return this.http.get(this.BASE_API_URL + '/country/country/');
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/country/country?lang=' + lang);
 		// return this.http.get('assets/json/country.json');
 	}
 
 	getLeadershipByCountryService(countryId) {
-		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/leaderships')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/leaderships?lang=' + lang)
 	}
 
 	getNewsByCountryService(countryId) {
-		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/news')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/news?lang=' + lang)
 	}
 
 	getWinnersByCountryService(countryId) {
-		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/winners')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/country/country/' + countryId + '/winners?lang=' + lang)
 	}
 
 
 	// By Id (news, leaderships, winners)
 
 	getLeadershipByIdCountryService(leadershipId) {
-		return this.http.get(this.BASE_API_URL + '/country/leadership/' + leadershipId + '/')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/country/leadership/' + leadershipId + '?lang=' + lang)
 	}
 
 	getNewsByIdCountryService(newsId) {
-		return this.http.get(this.BASE_API_URL + '/country/news/' + newsId + '/')
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/country/news/' + newsId + '?lang=' + lang)
 	}
 
 	getWinnerByIdCountryService(winnerId) {
-		return this.http.get(this.BASE_API_URL + '/country/winners/' + winnerId)
+		let lang = sessionStorage.getItem('lang');
+		return this.http.get(this.BASE_API_URL + '/country/winners/' + winnerId + '?lang=' + lang)
 	}
 
 
