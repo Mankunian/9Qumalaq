@@ -78,7 +78,13 @@ export class RegionInfoComponent implements OnInit {
 
 	selectLang(e): void {
 		this.translate.use(e.code);
-		sessionStorage.setItem('lang', e.code)
+		sessionStorage.setItem('lang', e.code);
+		this.checkSessionStorage();
+		if (sessionStorage.cityObj) {
+			this.getRegionIdMap();
+		} else if (sessionStorage.countryObj) {
+			this.getCountryIdMap();
+		}
 	}
 
 	checkSessionStorage() {
