@@ -1,7 +1,7 @@
 <div class="d-flex flex-column h-100">
 	<header>
 		<!-- Fixed navbar -->
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<nav class="navbar navbar-expand-xl navbar-dark fixed-top bg-dark">
 			<div class="container">
 				<!-- <img src="../../assets/img/logo2.png" alt="" style="width: 60px;">
 				<img src="../../assets/img/logo1.png" alt="" style="width: 60px;"> -->
@@ -16,36 +16,36 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav me-auto mb-2 mb-md-0">
 						<li class="nav-item">
-							<!-- <a class="nav-link active" aria-current="page" href="#">О нас</a> -->
-							<a class="nav-link" routerLink="/about-us">О нас</a>
+							<a translate class="nav-link" id="about" aria-current="page"
+								routerLink="/about-us">kazakhstan.nav_about_us</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link " routerLink="/guide-page">Руководство</a>
+							<a translate class="nav-link" routerLink="/guide-page">kazakhstan.nav_leaderships</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" routerLink="/news-page">Новости</a>
-						</li>
-						<li class="nav-item active">
-							<a class="nav-link " href="#">Чемпионы и призеры</a>
+							<a translate class="nav-link" routerLink="/news-page">kazakhstan.nav_news</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Наши партнеры</a>
+							<a translate class="nav-link " href="/champ-page">kazakhstan.nav_winners</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Контакты</a>
+							<a translate class="nav-link" (click)="goSlideDown('partners')">kazakhstan.nav_partners</a>
+						</li>
+						<li class="nav-item">
+							<a translate class="nav-link" (click)="goSlideDown('contacts')">kazakhstan.nav_contacts</a>
 						</li>
 
 					</ul>
 					<form class="d-flex">
 						<div class="form-group" style="margin: 0.5rem;">
-							<select class="form-control select" id="exampleFormControlSelect1">
-								<option>РУС</option>
-								<option>ҚАЗ</option>
-								<option>ENG</option>
+							<select (ngModelChange)="selectLang($event)" [(ngModel)]="system.lang" class="form-control select"
+								[ngModelOptions]="{standalone: true}" id="exampleFormControlSelect1">
+								<option *ngFor="let x of langs" [ngValue]="x">{{x.name}}</option>
 							</select>
 						</div>
-						<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
-							ВХОД</span>
+						<span translate (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o"
+								aria-hidden="true"></i>
+							main.navbar_login</span>
 					</form>
 				</div>
 			</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
 import { GlobalConfig } from "../../global";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-news-page',
@@ -11,12 +12,47 @@ import { GlobalConfig } from "../../global";
 export class NewsPageComponent implements OnInit {
 	newsElement: any;
 	allNews: any;
+	system: System = new System();
+	langs = Array<Lang>();
 
-	constructor(private router: Router, private http: HttpService) { }
+	constructor(private router: Router, private http: HttpService, public translate: TranslateService) {
+		this.getLangsList();
+	}
 
 	ngOnInit(): void {
 		this.getNewsItem();
 		this.getAllnews();
+	}
+
+	getLangsList() {
+		this.langs = Array<Lang>();
+		this.langs.push(new Lang(1, 'РУС', 'ru'));
+		this.langs.push(new Lang(2, 'ENG', 'en'));
+		this.langs.push(new Lang(2, 'ҚАЗ', 'kz'));
+		this.system = new System();
+
+		// set lang to select option
+		this.setLangSelectOption();
+	}
+
+	setLangSelectOption() {
+		let lang = sessionStorage.getItem('lang');
+		if (lang) {
+			this.langs.forEach((element, index) => {
+				if (element.code === lang) {
+					this.system.lang = this.langs[index]
+					this.translate.use(element.code);
+				}
+			});
+		} else {
+			this.system.lang = this.langs[0];
+		}
+	}
+
+	selectLang(e): void {
+		this.translate.use(e.code);
+		sessionStorage.setItem('lang', e.code);
+		this.ngOnInit();
 	}
 
 	goSlideDown(item) {
@@ -119,7 +155,21 @@ export class NewsPageComponent implements OnInit {
 			});
 		})
 	}
+}
 
 
+export class System {
+	lang: Lang;
+}
 
+export class Lang {
+	constructor(id: number, name: string, code: string) {
+		this.id = id;
+		this.name = name;
+		this.code = code;
+	}
+
+	id: number;
+	name: string;
+	code: string;
 }
