@@ -31,5 +31,13 @@
 	},
 	"world-map": {
 		"map-title": "Branches in 30 countries of the world"
+	},
+	"guide-item": {
+		"bio": "Biography",
+		"dob": "Date of birth",
+		"place_of_residence": "Place of residence",
+		"rank": "Rank",
+		"dot": "Date of title",
+		"achievements": "Tournament achievements"
 	}
 }
