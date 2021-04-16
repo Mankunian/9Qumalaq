@@ -1,7 +1,5 @@
 <nav class="navbar navbar-expand-xl navbar-dark fixed-top bg-dark">
 	<div class="container">
-		<!-- <img src="../../assets/img/logo2.png" alt="" style="width: 60px;">
-		<img src="../../assets/img/logo1.png" alt="" style="width: 60px;"> -->
 		<a class="navbar-brand" href="#">
 			<img src="../../assets/img/logo1.png" alt="" width="50">
 			<img src="../../assets/img/logo2.png" alt="" width="50">
@@ -39,8 +37,8 @@
 						<option *ngFor="let x of langs" [ngValue]="x">{{x.name}}</option>
 					</select>
 				</div>
-				<span (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
-					ВХОД</span>
+				<span translate (click)="redirectToAuth()" class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+					main.navbar_login</span>
 			</form>
 		</div>
 	</div>

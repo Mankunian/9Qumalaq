@@ -35,11 +35,24 @@ export class MainComponent implements OnInit {
 		this.langs.push(new Lang(2, 'ҚАЗ', 'kz'));
 
 		this.system = new System();
-		this.system.lang = this.langs[0];
+		this.setLangSelectOption();
+	}
 
-		let systemLang = this.system.lang.code;
-		sessionStorage.setItem('lang', systemLang)
-		this.translate.use(systemLang);
+	setLangSelectOption() {
+		let lang = sessionStorage.getItem('lang');
+		if (lang) {
+			this.langs.forEach((element, index) => {
+				if (element.code === lang) {
+					this.system.lang = this.langs[index]
+					this.translate.use(element.code);
+				}
+			});
+		} else {
+			this.system.lang = this.langs[0];
+			let systemLang = this.system.lang.code;
+			sessionStorage.setItem('lang', systemLang)
+			this.translate.use(systemLang);
+		}
 	}
 
 	selectLang(e): void {
