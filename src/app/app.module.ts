@@ -18,7 +18,6 @@ import { ChampPageComponent } from './champ-page/champ-page.component';
 import { PageChampInfoComponent } from './page-champ-info/page-champ-info.component';
 import { GuideItemComponent } from './guide-item/guide-item.component';
 import { HttpService } from './service/http.service';
-// import { PartnersPageComponent } from './partners-page/partners-page.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
