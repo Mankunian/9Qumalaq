@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
 	langs = Array<Lang>();
 	kazakhstanId: any;
 	worldFederationId: any;
+	imgLang: string;
 
 	constructor(public router: Router, private http: HttpService, public translate: TranslateService) {
 		translate.setDefaultLang('en');
@@ -45,11 +46,13 @@ export class MainComponent implements OnInit {
 				if (element.code === lang) {
 					this.system.lang = this.langs[index]
 					this.translate.use(element.code);
+					this.imgLang = element.code;
 				}
 			});
 		} else {
 			this.system.lang = this.langs[0];
 			let systemLang = this.system.lang.code;
+			this.imgLang = systemLang
 			sessionStorage.setItem('lang', systemLang)
 			this.translate.use(systemLang);
 		}
@@ -57,6 +60,7 @@ export class MainComponent implements OnInit {
 
 	selectLang(e): void {
 		this.translate.use(e.code);
+		this.imgLang = e.code;
 		sessionStorage.setItem('lang', e.code)
 	}
 
