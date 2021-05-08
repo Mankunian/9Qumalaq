@@ -20,6 +20,7 @@ export class WorldMapComponent implements OnInit {
 
 	system: System = new System();
 	langs = Array<Lang>();
+	imgLang: string;
 
 	constructor(public router: Router, private http: HttpService, public translate: TranslateService) {
 		translate.setDefaultLang('ru');
@@ -70,16 +71,22 @@ export class WorldMapComponent implements OnInit {
 				if (element.code === lang) {
 					this.system.lang = this.langs[index]
 					this.translate.use(element.code);
+					this.imgLang = element.code;
 				}
 			});
 		} else {
 			this.system.lang = this.langs[0];
+			let systemLang = this.system.lang.code;
+			this.imgLang = systemLang
+			sessionStorage.setItem('lang', systemLang)
+			this.translate.use(systemLang);
 		}
 	}
 
 	selectLang(e): void {
 		this.translate.use(e.code);
-		sessionStorage.setItem('lang', e.code)
+		sessionStorage.setItem('lang', e.code);
+		this.imgLang = e.code;
 	}
 
 	getWorldFedElem() {
