@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
-import { SharedService } from '../service/shared.service';
 import { GlobalConfig } from "../../global";
 import { TranslateService } from '@ngx-translate/core';
+import { SharedService } from '../service/shared.service';
 
 @Component({
 	selector: 'app-kazakhstan',
@@ -22,6 +22,7 @@ export class KazakhstanComponent implements OnInit {
 	system: System = new System();
 	langs = Array<Lang>();
 	kazName: any;
+	imgLang: string;
 
 	constructor(public router: Router, private http: HttpService, public translate: TranslateService) {
 		translate.setDefaultLang('ru');
@@ -51,16 +52,22 @@ export class KazakhstanComponent implements OnInit {
 				if (element.code === lang) {
 					this.system.lang = this.langs[index]
 					this.translate.use(element.code);
+					this.imgLang = element.code;
 				}
 			});
 		} else {
 			this.system.lang = this.langs[0];
+			let systemLang = this.system.lang.code;
+			this.imgLang = systemLang
+			sessionStorage.setItem('lang', systemLang)
+			this.translate.use(systemLang);
 		}
 	}
 
 	selectLang(e): void {
 		this.translate.use(e.code);
 		sessionStorage.setItem('lang', e.code);
+		this.imgLang = e.code;
 		this.getCityList();
 		this.getKazFedElem();
 	}
